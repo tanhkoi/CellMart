@@ -6,6 +6,7 @@ namespace project.Models
     {
         public int Id { get; set; }
         public int UserId { get; set; }
+        public User? User { get; set; }
         public DateTime OrderDate { get; set; }
         [Range(18, 2)]
         public decimal TotalAmount { get; set; }

@@ -13,20 +13,20 @@ namespace project.Controllers
             _logger = logger;
         }
 
-        public IActionResult Index()
+        public ActionResult Index()
         {
             return View();
         } 
 
-        public IActionResult Product()
+        public ActionResult Product()
         {
             return View();
         }
-		public IActionResult Checkout()
+		public ActionResult Checkout()
 		{
 			return View();
 		}
-		public IActionResult Store()
+		public ActionResult Store()
 		{
 			return View();
 		}

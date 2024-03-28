@@ -117,4 +117,4 @@ INSERT INTO Product (Name, Description, Price, ImageUrl, CategoryId, IsDeleted)
 VALUES (N'Samsung Galaxy S24 Ultra 12GB 256GB', N'Mở khoá giới hạn tiềm năng với AI - Hỗ trợ phiên dịch cuộc gọi, khoanh vùng tìm kiếm, Trợ lí Note và chình sửa anh
 Tuyệt tác thiết kế bền bỉ và hoàn hảo - Vỏ ngoài bằng titan mới cùng màu sắc lấy cảm hứng từ chất liệu đá tự nhiên
 Tích hợp S-Pen cực nhạy - Thoải mát viết, chạm thật chính xác trên màn hình cùng nhiều tính năng tiện ích
-Nắm trong tay trọn bộ chi tiết chân thực nhất - Camera 200MP hỗ trợ khả năng xử lý AI cải thiện độ nét và tông màu', 28690000.00, N'~\images\Samsung\Samsung Galaxy S24 Ultra 12GB 256GB.webp', 2, 0);
+Nắm trong tay trọn bộ chi tiết chân thực nhất - Camera 200MP hỗ trợ khả năng xử lý AI cải thiện độ nét và tông màu', 28690000.00, N'~\images\Samsung\Samsung Galaxy S24 Ultra 12GB 256GB.webp', 3, 0);

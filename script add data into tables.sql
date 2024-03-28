@@ -118,3 +118,55 @@ VALUES (N'Samsung Galaxy S24 Ultra 12GB 256GB', N'Mở khoá giới hạn tiềm
 Tuyệt tác thiết kế bền bỉ và hoàn hảo - Vỏ ngoài bằng titan mới cùng màu sắc lấy cảm hứng từ chất liệu đá tự nhiên
 Tích hợp S-Pen cực nhạy - Thoải mát viết, chạm thật chính xác trên màn hình cùng nhiều tính năng tiện ích
 Nắm trong tay trọn bộ chi tiết chân thực nhất - Camera 200MP hỗ trợ khả năng xử lý AI cải thiện độ nét và tông màu', 28690000.00, N'~\images\Samsung\Samsung Galaxy S24 Ultra 12GB 256GB.webp', 3, 0);
+INSERT INTO Product (Name, Description, Price, ImageUrl, CategoryId, IsDeleted)
+VALUES (N'Samsung Galaxy A55 5G 8GB 128GB', N'Chip Exynos 1480 4nm - Sử dụng mượt mà, linh hoạt với các tác vụ nặng nề mà không gặp trở ngại.
+Với camera góc rộng 12MP mang đến khả năng thu trọn mọi khung cảnh vào khung hình.
+Tần số quét 120Hz - Mỗi hành động trên màn hình đều trở nên mượt mà đáng kinh ngạc.
+Pin 5000 mAh kết hợp cùng sạc nhanh 25W - Sử dụng thoải mái trong mọi hoạt động hằng ngày.', 9690000.00, N'~\images\Samsung\Samsung Galaxy A55 5G 8GB 128GB.webp', 3, 0);
+INSERT INTO Product (Name, Description, Price, ImageUrl, CategoryId, IsDeleted)
+VALUES (N'Samsung Galaxy Z Flip5', N'Thần thái nổi bật, cân mọi phong cách- Lấy cảm hứng từ thiên nhiên với màu sắc thời thượng, xu hướng
+Thiết kế thu hút ánh nhìn - Gập không kẽ hỡ, dẫn đầu công nghệ bản lề Flex
+Tuyệt tác selfie thoả sức sáng tạo - Camera sau hỗ trợ AI xử lí cực sắc nét ngay cả trên màn hình ngoài
+Bền bỉ bất chấp mọi tình huống - Đạt chuẩn kháng bụi và nước IPX8 cùng chất liệu nhôm Armor Aluminum giúp hạn chế cong và xước', 19290000.00, N'~\images\Samsung\Samsung Galaxy Z Flip5.webp', 3, 0);
+INSERT INTO Product (Name, Description, Price, ImageUrl, CategoryId, IsDeleted)
+VALUES (N'Samsung Galaxy S23 Ultra', N'Thoả sức chụp ảnh, quay video chuyên nghiệp - Camera đến 200MP, chế độ chụp đêm cải tiến, bộ xử lí ảnh thông minh
+Chiến game bùng nổ - chip Snapdragon 8 Gen 2 8 nhân tăng tốc độ xử lí, màn hình 120Hz, pin 5.000mAh
+Nâng cao hiệu suất làm việc với Siêu bút S Pen tích hợp, dễ dàng đánh dấu sự kiện từ hình ảnh hoặc video
+Thiết kế bền bỉ, thân thiện - Màu sắc lấy cảm hứng từ thiên nhiên, chất liệu kính và lớp phim phủ PET tái chế', 24990000.00, N'~\images\Samsung\Samsung Galaxy S23 Ultra.webp', 3, 0);
+INSERT INTO Product (Name, Description, Price, ImageUrl, CategoryId, IsDeleted)
+VALUES (N'Samsung Galaxy Z Fold5 12GB 256GB', N'Thiết kế tinh tế với nếp gấp vô hình - Cải tiến nếp gấp thẩm mĩ hơn và gập không kẽ hở
+Bền bỉ bất chấp mọi tình huống - Đạt chuẩn kháng bụi và nước IPX8 cùng chất liệu nhôm Armor Aluminum giúp hạn chế cong và xước
+Mở ra không gian giải trí cực đại với màn hình trong 7.6"" cùng bản lề Flex dẫn đầu công nghệ
+Thoải mái sáng tạo mọi lúc - Bút Spen tiện dụng giúp bạn phác hoạ và ghi chép không cần đến sổ tay
+Hiệu năng cân mọi tác vụ - Snapdragon® 8 Gen 2 for Galaxy xử lí mượt mà, đa nhiệm mượt mà', 31390000.00, N'~\images\Samsung\Samsung Galaxy Z Fold5 12GB 256GB.webp', 3, 0);
+INSERT INTO Product (Name, Description, Price, ImageUrl, CategoryId, IsDeleted)
+VALUES (N'Samsung Galaxy A35 5G 8GB 128GB', N'Chip Exynos 1380 - Sử dụng mượt mà, linh hoạt với các tác vụ nặng nề mà không gặp trở ngại.
+Tần số quét 120Hz - Mỗi hành động trên màn hình đều trở nên mượt mà đáng kinh ngạc.
+Với camera góc rộng 8MP mang đến khả năng thu trọn mọi khung cảnh vào khung hình.
+Pin 5000 mAh kết hợp cùng sạc nhanh 25W - Sử dụng thoải mái trong mọi hoạt động hằng ngày.', 7990000.00, N'~\images\Samsung\Samsung Galaxy A35 5G 8GB 128GB.webp', 3, 0);
+INSERT INTO Product (Name, Description, Price, ImageUrl, CategoryId, IsDeleted)
+VALUES (N'Samsung Galaxy A15', N'Giải trí đa nội dung - Màn hình lớn 6.5inch với công nghệ Super AMOLED cho hình ảnh sắc nét
+Dễ dàng xử lí mọi tác vụ - Chip MediaTek Helio G99 cùng RAM 8GB cực chiến
+Thoải mái sử dụng cả ngày - Pin 5000mAh với công nghệ sạc nhanh 25W
+Quay chụp chuẩn điện ảnh - Cụm 3 camera sau lên đến 50MP cho hình ảnh chất lượng', 4790000.00, N'~\images\Samsung\Samsung Galaxy A15.webp', 3, 0);
+INSERT INTO Product (Name, Description, Price, ImageUrl, CategoryId, IsDeleted)
+VALUES (N'Samsung Galaxy A23 5G', N'Sở hữu sức mạnh mạnh mẽ, hiệu suất để làm việc nhiều hơn - Snapdragon 695 5G, RAM 4 GB
+Màn hình cuộn siêu mượt - Màn hình IPS LCD 6.6 inches, tần số quét 120Hz
+Cụm camera thông minh, chụp sắc nét hiệu quả - Camera chính góc rộng 50 MP, chống rung OIS
+Viên pin trâu và khả năng kết nối 5G nhanh đỉnh cao - Pin lớn 5000mAh, sạc nhanh 25W', 4400000.00, N'~\images\Samsung\Samsung Galaxy A23 5G.webp', 3, 0);
+INSERT INTO Product (Name, Description, Price, ImageUrl, CategoryId, IsDeleted)
+VALUES (N'Samsung Galaxy A25', N'Rực rỡ mọi góc nhìn - Màn hình Super AMOLED với tần số quét 120Hz cho hình ảnh vượt trội
+Trở thanh nhiếp ảnh gia chuyên nghiệp - Camera 50MP, chống rung IOS ổn định mọi địa hình
+Pin tràn đầy, sạc trong tích tắc - Pin lớn 5000mAh cùng sạc nhanh 25W
+Xử lí tác vụ nhanh và ổn định - Chip Exynos 1280 8 nhân cùng RAM 6GB', 6590000.00, N'~\images\Samsung\Samsung Galaxy A25.webp', 3, 0);
+INSERT INTO Product (Name, Description, Price, ImageUrl, CategoryId, IsDeleted)
+VALUES (N'Samsung Galaxy A05s', N'Hiển thị sống động từng thước phim - Màn hình lớn 6.7" IPS hiển thị sắc nét
+Vận hành tác vụ mượt mà như mong đợi - Xử lí tốt hơn với chip Snapdragon 680 và RAM 4GB
+Sử dụng thoải mái cả ngày dài - Pin lớn 5000mAh và hỗ trợ sạc nhanh 25W
+Ghi lại trọn vẹn mọi khoảnh khắc - Camera sau đến 50MP đi kèm nhiều chế độ chụp và tính năng cải tiến', 3690000.00, N'~\images\Samsung\Samsung Galaxy A05s.webp', 3, 0);
+INSERT INTO Product (Name, Description, Price, ImageUrl, CategoryId, IsDeleted)
+VALUES (N'Samsung Galaxy A54 5G', N'Nâng tầm trải nghiệm chiến game cùng màn hình có tần số quét lên đến 120Hz
+Chip Exynos 1380 độc quyền giúp xử lý tốt mọi tác vụ từ cơ bản đến nâng cao
+Quay video siêu chống rung và chụp đêm cực ấn tượng với bộ 3 camera 50MP
+Thiết kế đặc trưng với mặt kính sang trọng, hỗ trợ kháng nước, bụi chuẩn IP67', 28690000.00, N'~\images\Samsung\Samsung Galaxy A54 5G.webp', 3, 0);
+-- vivo

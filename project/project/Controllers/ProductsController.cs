@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using project.Data;
 using project.Models;
+using project.ViewModels;
 
 namespace project.Controllers
 {
@@ -20,10 +21,22 @@ namespace project.Controllers
         }
 
         // GET: Products
-        public async Task<IActionResult> Index()
+        public IActionResult Index(string? loai)
         {
-            var projectContext = _context.Product.Include(p => p.Category);
-            return View(await projectContext.ToListAsync());
+            var products = _context.Product.AsQueryable();
+            if (loai != null)
+            {
+                products = products.Where(p => p.Category.Name == loai);
+            }
+            var result = products.Select(p => new ProductVM
+            {
+                Name = p.Name,
+                Price = p.Price,
+                CategoryId = p.CategoryId,
+                imgUrl = p.ImageUrl
+            });
+
+            return View(result);
         }
 
         // GET: Products/Details/5

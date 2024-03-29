@@ -27,6 +27,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="Views\Home\" />
     <Folder Include="wwwroot\images\Apple\" />
     <Folder Include="wwwroot\images\Samsung\" />
     <Folder Include="wwwroot\images\OPPO\" />

@@ -35,6 +35,8 @@ namespace project.Controllers
                 CategoryId = p.CategoryId,
                 imgUrl = p.ImageUrl
             });
+            var categories = _context.Category.ToList();
+            ViewBag.Categories = categories;
 
             return View(result);
         }

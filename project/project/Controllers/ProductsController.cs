@@ -21,21 +21,19 @@ namespace project.Controllers
         }
 
         // GET: Products
-        public IActionResult Index(string? loai)
+        public IActionResult Index()
         {
             var products = _context.Product.AsQueryable();
-            if (loai != null)
-            {
-                products = products.Where(p => p.Category.Name == loai);
-            }
+            var categories = _context.Category.AsQueryable();
             var result = products.Select(p => new ProductVM
             {
                 Name = p.Name,
                 Price = p.Price,
                 CategoryId = p.CategoryId,
-                imgUrl = p.ImageUrl
+                imgUrl = p.ImageUrl,
+                CategoryName = categories.FirstOrDefault(c => c.Id == p.CategoryId).Name
             });
-            var categories = _context.Category.ToList();
+
             ViewBag.Categories = categories;
 
             return View(result);

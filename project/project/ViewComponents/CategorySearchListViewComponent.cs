@@ -4,11 +4,11 @@ using System.Linq;
 
 namespace project.ViewComponents
 {
-    public class CategoryListViewComponent : ViewComponent
+    public class CategorySearchListViewComponent : ViewComponent
     {
         private readonly projectContext _context;
 
-        public CategoryListViewComponent(projectContext context)
+        public CategorySearchListViewComponent(projectContext context)
         {
             _context = context;
         }

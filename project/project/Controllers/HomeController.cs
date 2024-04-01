@@ -16,20 +16,7 @@ namespace project.Controllers
         public ActionResult Index()
         {
             return View();
-        } 
-
-        public ActionResult Product()
-        {
-            return View();
         }
-		public ActionResult Checkout()
-		{
-			return View();
-		}
-		public ActionResult Store()
-		{
-			return View();
-		}
         public ActionResult Login()
         {
             return View();

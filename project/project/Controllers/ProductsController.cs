@@ -173,5 +173,19 @@ namespace project.Controllers
         {
             return _context.Product.Any(e => e.Id == id);
         }
+
+        public ActionResult Product()
+        {
+            return View();
+        }
+        public ActionResult Checkout()
+        {
+            return View();
+        }
+        public ActionResult Store()
+        {
+            return View();
+        }
+        
     }
 }

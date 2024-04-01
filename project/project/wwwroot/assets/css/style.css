@@ -2204,6 +2204,9 @@ textarea.input {
         margin-top: 10px;
     }
 }
+/*=========================================================
+	 login
+===========================================================*/
 .login-header::after {
     content: "";
     position: absolute;
@@ -2291,9 +2294,9 @@ textarea.input {
     text-align: center;
 }
 
-    .register # {
+/*.register # {
         font-weight: 500;
-    }
+    }*/
 
 @media only screen and (max-width: 564px) {
     .wrapper {
@@ -2305,7 +2308,7 @@ textarea.input {
     }
 }
 
-{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -2383,6 +2386,5 @@ a {
         height: 30px;
         border-top-right-radius: 50%;
         background: transparent;
-        box-shadow;
-        15px 0 0 0 var(--primary-color);
+        box-shadow: 15px 0 0 0 var(--primary-color);
     }

@@ -1,9 +1,11 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using Microsoft.AspNetCore.Identity;
+using System.ComponentModel.DataAnnotations;
 
 namespace project.Models
 {
-    public class User
+    public class User : IdentityUser
     {
+        [Required]
         public int Id { get; set; }
 
         [Required(ErrorMessage = "Username is required")]

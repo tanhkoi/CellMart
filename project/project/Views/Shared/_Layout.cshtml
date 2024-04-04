@@ -38,7 +38,11 @@
                 </ul>
                 <ul class="header-links pull-right">
                     <li><a href="#"><i class="fa fa-dollar"></i> USD</a></li>
-                    <li><a href="#"><i class="fa fa-user-o"></i> My Account</a></li>
+                    @* <li><a href="#"><i class="fa fa-user-o"></i> My Account</a></li> *@
+                    <li><partial name="_LoginPartial" /></li>
+                    @{
+                        <li><a href="#"><i class="fa fa-user-o"></i> Admin</a></li>
+                    }
                 </ul>
             </div>
         </div>
@@ -124,7 +128,7 @@
                                     </div>
                                     <div class="cart-btns">
                                         <a href="#">View Cart</a>
-                                        <a href="#">Checkout  <i class="fa fa-arrow-circle-right"></i></a>
+                                        <a asp-action="Checkout" asp-controller="Products">Checkout  <i class="fa fa-arrow-circle-right"></i></a>
                                     </div>
                                 </div>
                             </div>

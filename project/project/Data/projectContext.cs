@@ -1,9 +1,10 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore;
 using project.Models;
 
 namespace project.Data
 {
-    public class projectContext : DbContext
+    public class projectContext : IdentityDbContext
     {
         public projectContext() { }
         public projectContext(DbContextOptions<projectContext> options)

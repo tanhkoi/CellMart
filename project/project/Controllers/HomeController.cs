@@ -13,16 +13,27 @@ namespace project.Controllers
             _logger = logger;
         }
 
-        public IActionResult Index()
+        public ActionResult Index()
+        {
+            return View();
+        } 
+
+        public ActionResult Product()
         {
             return View();
         }
-
-        public IActionResult Privacy()
+		public ActionResult Checkout()
+		{
+			return View();
+		}
+		public ActionResult Store()
+		{
+			return View();
+		}
+        public ActionResult Login()
         {
             return View();
         }
-
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {

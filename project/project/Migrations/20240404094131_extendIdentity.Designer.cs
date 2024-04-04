@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using project.Data;
 
@@ -11,9 +12,11 @@ using project.Data;
 namespace project.Migrations
 {
     [DbContext(typeof(projectContext))]
-    partial class projectContextModelSnapshot : ModelSnapshot
+    [Migration("20240404094131_extendIdentity")]
+    partial class extendIdentity
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

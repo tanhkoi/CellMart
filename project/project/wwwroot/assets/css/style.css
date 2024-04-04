@@ -2189,203 +2189,131 @@ textarea.input {
   }
 }
 /* CSS cho form login */
-/* CSS cho wrapper */
-.form-wrapper {
-    height: 100vh;
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: #4070f4;
-    column-gap: 30px;
+/* Import Google font - Poppins */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap");
+
+/* Reset CSS */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
 }
 
-/* CSS cho form */
-.form {
-    max-width: 430px;
-    width: 100%;
-    padding: 30px;
-    border-radius: 6px;
-    background: #FFF;
-    position: absolute;
-}
-
-    /* CSS cho form signup */
-    .form.signup {
-        opacity: 0;
-        pointer-events: none;
-    }
-
-/* CSS cho hiển thị form signup */
-.forms.show-signup .form.signup {
-    opacity: 1;
-    pointer-events: auto;
-}
-
-/* CSS cho ẩn form login */
-.forms.show-signup .form.login {
-    opacity: 0;
-    pointer-events: none;
-}
-
-/* CSS cho header */
-.form-wrapper .form header {
-    font-size: 28px;
-    font-weight: 600;
-    color: #232836;
-    text-align: center;
-}
-
-/* CSS cho field */
-.form-wrapper .form .field {
-    position: relative;
-    height: 50px;
-    width: 100%;
-    margin-top: 20px;
-    border-radius: 6px;
-}
-
-    /* CSS cho input và button */
-    .form-wrapper .form .field input,
-    .form-wrapper .form .field button {
-        height: 100%;
-        width: 100%;
-        border: none;
-        font-size: 16px;
-        font-weight: 400;
-        border-radius: 6px;
-    }
-
-    .form-wrapper .form .field input {
-        outline: none;
-        padding: 0 15px;
-        border: 1px solid #CACACA;
-    }
-
-        .form-wrapper .form .field input:focus {
-            border-bottom-width: 2px;
-        }
-
-.form-wrapper .form .eye-icon {
-    position: absolute;
-    top: 50%;
-    right: 10px;
-    transform: translateY(-50%);
-    font-size: 18px;
-    color: #8b8b8b;
-    cursor: pointer;
-    padding: 5px;
-}
-
-.form-wrapper .form .field button {
-    color: #fff;
-    background-color: #0171d3;
-    transition: all 0.3s ease;
-    cursor: pointer;
-}
-
-    .form-wrapper .form .field button:hover {
-        background-color: #016dcb;
-    }
-
-/* CSS cho form-link */
-.form-wrapper .form .form-link {
-    text-align: center;
-    margin-top: 10px;
-}
-
-    .form-wrapper .form .form-link span,
-    .form-wrapper .form .form-link a {
-        font-size: 14px;
-        font-weight: 400;
-        color: #232836;
-    }
-
-/* CSS cho a trong form */
-.form-wrapper .form a {
-    color: #0171d3;
+a {
     text-decoration: none;
 }
 
-/* CSS cho form-content */
-.form-wrapper .form .form-content a:hover {
-    text-decoration: underline;
-}
-
-/* CSS cho line */
-.form-wrapper .form .line {
-    position: relative;
-    height: 1px;
+/* CSS cho wrapper */
+.wrapper {
+    height: 100vh;
     width: 100%;
-    margin: 36px 0;
-    background-color: #d4d4d4;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-    .form-wrapper .form .line::before {
-        content: 'Or';
+/* CSS cho home */
+.home {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    background-color: #f3f4f6; /* Thay màu nền cho phù hợp */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* CSS cho form container */
+.form_container {
+    position: relative;
+    max-width: 320px;
+    width: 100%;
+    background-color: #fff; /* Thay màu nền cho phù hợp */
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+.form_wrapper {
+    margin-bottom: 20px;
+}
+
+    .form_wrapper h2 {
+        font-size: 24px;
+        font-weight: 600;
+        color: #333; /* Thay màu chữ cho phù hợp */
+        margin-bottom: 20px;
+    }
+
+.input_box {
+    position: relative;
+    margin-bottom: 20px;
+}
+
+    .input_box input {
+        width: 100%;
+        height: 40px;
+        padding: 10px;
+        border: 1px solid #ccc; /* Thay màu viền input cho phù hợp */
+        border-radius: 5px;
+    }
+
+    .input_box i {
         position: absolute;
         top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        background-color: #FFF;
-        color: #8b8b8b;
-        padding: 0 15px;
+        right: 10px;
+        transform: translateY(-50%);
+        color: #888; /* Thay màu icon cho phù hợp */
     }
 
-/* CSS cho media-options */
-.form-wrapper .form .media-options a {
+.checkbox {
     display: flex;
     align-items: center;
-    justify-content: center;
 }
 
-.form-wrapper .form a.facebook {
+    .checkbox input {
+        margin-right: 10px;
+    }
+
+    .checkbox label {
+        font-size: 14px;
+        color: #555; /* Thay màu chữ cho phù hợp */
+    }
+
+.button {
+    width: 100%;
+    height: 40px;
+    background-color: #007bff; /* Thay màu nút cho phù hợp */
     color: #fff;
-    background-color: #4267b2;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
 }
 
-    .form-wrapper .form a.facebook .facebook-icon {
-        height: 28px;
-        width: 28px;
-        color: #0171d3;
-        font-size: 20px;
-        border-radius: 50%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        background-color: #fff;
+    .button:hover {
+        background-color: #0056b3; /* Thay màu hover cho phù hợp */
     }
 
-.form-wrapper .form .facebook-icon,
-.form-wrapper .form img.google-img {
-    position: absolute;
-    top: 50%;
-    left: 15px;
-    transform: translateY(-50%);
+.login_signup {
+    text-align: center;
+    margin-top: 10px;
+    color: #888; /* Thay màu chữ cho phù hợp */
 }
 
-.form-wrapper .form img.google-img {
-    height: 20px;
-    width: 20px;
-    object-fit: cover;
-}
-
-.form-wrapper .form a.google {
-    border: 1px solid #CACACA;
-}
-
-    .form-wrapper .form a.google span {
+    .login_signup a {
+        color: #007bff; /* Thay màu link cho phù hợp */
         font-weight: 500;
-        opacity: 0.6;
-        color: #232836;
+        transition: color 0.3s ease;
     }
 
-/* CSS responsive */
-@media screen and (max-width: 400px) {
-    .form-wrapper .form {
-        padding: 20px 10px;
-    }
-}
+        .login_signup a:hover {
+            color: #0056b3; /* Thay màu hover cho phù hợp */
+        }
+
+
+
 
 
 

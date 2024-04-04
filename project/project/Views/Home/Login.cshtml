@@ -3,83 +3,78 @@
     ViewData["Title"] = "Login";
 }
 
+ 
+<!-- Coding By CodingNepal - codingnepalweb.com -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Website with Login & Registration Form</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Unicons -->
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
+</head>
 <body>
-    <section class="container forms">
-        <div class="form-wrapper">
-            <div class="form login">
-                <header>Login</header>
-                <form action="#">
-                    <div class="field input-field">
-                        <input type="email" placeholder="Email" class="input">
-                    </div>
-                    <div class="field input-field">
-                        <input type="password" placeholder="Password" class="password">
-                        <i class='bx bx-hide eye-icon'></i>
-                    </div>
-                    <div class="form-link">
-                        <a href="#" class="forgot-pass">Forgot password?</a>
-                    </div>
-                    <div class="field button-field">
-                        <button>Login</button>
-                    </div>
-                </form>
-                <div class="form-link">
-                    <span>Don't have an account? <a href="#" class="link signup-link">Signup</a></span>
-                </div>
-            </div>
-            <div class="line"></div>
-            <div class="media-options">
-                <a href="#" class="field facebook">
-                    <i class='bx bxl-facebook facebook-icon'></i>
-                    <span>Login with Facebook</span>
-                </a>
-            </div>
-            <div class="media-options">
-                <a href="#" class="field google">
-                    <img src="#" alt="" class="google-img">
-                    <span>Login with Google</span>
-                </a>
-            </div>
-        </div>
-        <!-- Signup Form -->
-        <div class="form signup">
-            <div class="form-content">
-                <header>Signup</header>
-                <form action="#">
-                    <div class="field input-field">
-                        <input type="email" placeholder="Email" class="input">
-                    </div>
-                    <div class="field input-field">
-                        <input type="password" placeholder="Create password" class="password">
-                    </div>
-                    <div class="field input-field">
-                        <input type="password" placeholder="Confirm password" class="password">
-                        <i class='bx bx-hide eye-icon'></i>
-                    </div>
-                    <div class="field button-field">
-                        <button>Signup</button>
-                    </div>
-                </form>
-                <div class="form-link">
-                    <span>Already have an account? <a href="#" class="link login-link">Login</a></span>
-                </div>
-            </div>
-            <div class="line"></div>
-            <div class="media-options">
-                <a href="#" class="field facebook">
-                    <i class='bx bxl-facebook facebook-icon'></i>
-                    <span>Login with Facebook</span>
-                </a>
-            </div>
-            <div class="media-options">
-                <a href="#" class="field google">
-                    <img src="#" alt="" class="google-img">
-                    <span>Login with Google</span>
-                </a>
-            </div>
-        </div>
-    </section>
-    <!-- JavaScript -->
-    <script src="js/script.js"></script>
-</body>
 
+    <!-- Wrapper -->
+    <div class="wrapper">
+        <!-- Home -->
+        <section class="home">
+            <div class="form_container">
+                <i class="uil uil-times form_close"></i>
+                <!-- Login Form -->
+                <div class="form-wrapper active" id="login_form">
+                    <form action="#">
+                        <h2>Login</h2>
+                        <div class="input_box">
+                            <input type="email" placeholder="Enter your email" required>
+                            <i class="uil uil-envelope-alt email"></i>
+                        </div>
+                        <div class="input_box">
+                            <input type="password" placeholder="Enter your password" required>
+                            <i class="uil uil-lock password"></i>
+                            <i class="uil uil-eye-slash pw_hide"></i>
+                        </div>
+                        <div class="option_field">
+                            <span class="checkbox">
+                                <input type="checkbox" id="check">
+                                <label for="check">Remember me</label>
+                            </span>
+                            <a href="#" class="forgot_pw">Forgot password?</a>
+                        </div>
+                        <button class="button">Login Now</button>
+                        <div class="login_signup">Don't have an account? <a href="#" id="signup">Signup</a></div>
+                    </form>
+                </div>
+
+                <!-- Signup Form -->
+                    <div class="form-wrapper" id="signup_form">
+                    <form action="#">
+                        <h2>Signup</h2>
+                        <div class="input_box">
+                            <input type="email" placeholder="Enter your email" required>
+                            <i class="uil uil-envelope-alt email"></i>
+                        </div>
+                        <div class="input_box">
+                            <input type="password" placeholder="Create password" required>
+                            <i class="uil uil-lock password"></i>
+                            <i class="uil uil-eye-slash pw_hide"></i>
+                        </div>
+                        <div class="input_box">
+                            <input type="password" placeholder="Confirm password" required>
+                            <i class="uil uil-lock password"></i>
+                            <i class="uil uil-eye-slash pw_hide"></i>
+                        </div>
+                        <button class="button">Signup Now</button>
+                        <div class="login_signup">Already have an account? <a href="#" id="login">Login</a></div>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

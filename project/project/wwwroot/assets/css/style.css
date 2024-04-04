@@ -2204,187 +2204,133 @@ textarea.input {
         margin-top: 10px;
     }
 }
-/*=========================================================
-	 login
-===========================================================*/
-.login-header::after {
-    content: "";
-    position: absolute;
-    top: 0;
-    right: 30px;
-    width: 30px;
-    height: 30px;
-    border-top-left-radius: 50%;
-    background: transparent;
-    box-shadow: -15px 0 0 0 var(--primary-color);
-}
+/* CSS cho form login */
+/* Import Google font - Poppins */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap");
 
-.input_box {
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    margin: 20px 0;
-}
-
-.input-field {
-    width: 100%;
-    height: 50px;
-    font-size: 16px;
-    background: transparent;
-    color: var(--second-color);
-    padding-inline: 20px 50px;
-    border: 2px solid var(--primary-color);
-    border-radius: 30px;
-    outline: none;
-}
-
-#user {
-    margin-bottom: 10px;
-}
-
-.label {
-    position: absolute;
-    top: 15px;
-    left: 20px;
-    transition: 0.2s;
-}
-
-.input-field:focus ~ .label,
-.input-field:valid .label {
-    position: absolute;
-    top: -10px;
-    left: 20px;
-    font-size: 14px;
-    background-color: var(--primary-color);
-    border-radius: 30px;
-    color: var(--black-color);
-    padding: 0 10px;
-}
-
-.icon {
-    position: absolute;
-    top: 18px;
-    right: 25px;
-    font-size: 20px;
-}
-
-.remember-forgot {
-    display: flex;
-    justify-content: space-between;
-    font-size: 15px;
-}
-
-.input-submit {
-    width: 100%;
-    height: 50px;
-    font-size: 16px;
-    background: #ececec;
-    font-weight: 500;
-    border: none;
-    border-radius: 30px;
-    cursor: pointer;
-    transition: 0.3s;
-}
-
-    .input-submit:hover {
-        background: var(--second-color);
-    }
-
-.register {
-    text-align: center;
-}
-
-/*.register # {
-        font-weight: 500;
-    }*/
-
-@media only screen and (max-width: 564px) {
-    .wrapper {
-        padding: 20px;
-    }
-
-    .login-box {
-        padding: 7.5em 1.5em 4em 1.5em
-    }
-}
-
+/* Reset CSS */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: "Poppins",sans-serif;
-}
-
-:root {
-    --primary-color: #ff1f80;
-    --second-color: #ffffff;
-    --black-color: #000000;
-}
-
-body {
-    background-image: url("");
-    background-position: center;
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
+    font-family: "Poppins", sans-serif;
 }
 
 a {
     text-decoration: none;
-    color: var(--second-color);
 }
 
-    a:hover {
-        text-decoration: underline;
-    }
-
+/* CSS cho wrapper */
 .wrapper {
+    height: 100vh;
     width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: 100vh;
-    background-color: rgba(0, 0, 0, 0.2);
 }
 
-.login_box {
+/* CSS cho home */
+.home {
     position: relative;
-    width: 450px;
-    backdrop-filter: blur(25px);
-    border: 2px solid var(--primary-color);
-    border-radius: 15px;
-    padding: 7.5em 2.5em 4em 2.5em;
-    color: var(--second-color);
-    box-shadow: 0px 0px 10px 2px rgba(0, 0, 0, 0.2);
+    width: 100%;
+    height: 100vh;
+    background-color: #f3f4f6; /* Thay màu nền cho phù hợp */
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-.login-header {
-    position: absolute;
-    top: 0;
-    left: 50%;
-    transform: translateX(-50%);
+/* CSS cho form container */
+.form_container {
+    position: relative;
+    max-width: 320px;
+    width: 100%;
+    background-color: #fff; /* Thay màu nền cho phù hợp */
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+.form_wrapper {
+    margin-bottom: 20px;
+}
+
+    .form_wrapper h2 {
+        font-size: 24px;
+        font-weight: 600;
+        color: #333; /* Thay màu chữ cho phù hợp */
+        margin-bottom: 20px;
+    }
+
+.input_box {
+    position: relative;
+    margin-bottom: 20px;
+}
+
+    .input_box input {
+        width: 100%;
+        height: 40px;
+        padding: 10px;
+        border: 1px solid #ccc; /* Thay màu viền input cho phù hợp */
+        border-radius: 5px;
+    }
+
+    .input_box i {
+        position: absolute;
+        top: 50%;
+        right: 10px;
+        transform: translateY(-50%);
+        color: #888; /* Thay màu icon cho phù hợp */
+    }
+
+.checkbox {
     display: flex;
     align-items: center;
-    justify-content: center;
-    background-color: var(--primary-color);
-    width: 140px;
-    height: 70px;
-    border-radius: 0 0 20px 20px;
 }
 
-    .login-header span {
-        font-size: 30px;
-        color: var(--black-color);
+    .checkbox input {
+        margin-right: 10px;
     }
 
-    .login-header::before {
-        content: "";
-        position: absolute;
-        top: 0;
-        left: -30px;
-        width: 30px;
-        height: 30px;
-        border-top-right-radius: 50%;
-        background: transparent;
-        box-shadow: 15px 0 0 0 var(--primary-color);
+    .checkbox label {
+        font-size: 14px;
+        color: #555; /* Thay màu chữ cho phù hợp */
     }
+
+.button {
+    width: 100%;
+    height: 40px;
+    background-color: #007bff; /* Thay màu nút cho phù hợp */
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+    .button:hover {
+        background-color: #0056b3; /* Thay màu hover cho phù hợp */
+    }
+
+.login_signup {
+    text-align: center;
+    margin-top: 10px;
+    color: #888; /* Thay màu chữ cho phù hợp */
+}
+
+    .login_signup a {
+        color: #007bff; /* Thay màu link cho phù hợp */
+        font-weight: 500;
+        transition: color 0.3s ease;
+    }
+
+        .login_signup a:hover {
+            color: #0056b3; /* Thay màu hover cho phù hợp */
+        }
+
+
+
+
+
+
+

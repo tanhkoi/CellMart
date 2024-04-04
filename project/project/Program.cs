@@ -47,13 +47,16 @@ app.UseAuthorization();
 
 app.MapRazorPages();
 
+app.UseEndpoints(endpoints =>
+{
+    endpoints.MapControllerRoute(
+        name: "areas",
+        pattern: "{area:exists}/{controller=Admin}/{action=Index}/{id?}"
+        );
+});
+
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Products}/{action=Index}/{id?}");
-
-app.MapControllerRoute(
-    name: "admin",
-    pattern: "{area:exists}/{controller=Products}/{action=Index}/{id?}"
-    );
 
 app.Run();

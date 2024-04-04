@@ -27,6 +27,7 @@ namespace project.Controllers
             var categories = _context.Category.AsQueryable();
             var result = products.Select(p => new ProductVM
             {
+                Id = p.Id,
                 Name = p.Name,
                 Price = p.Price,
                 CategoryId = p.CategoryId,
@@ -39,24 +40,37 @@ namespace project.Controllers
             return View(result);
         }
 
-        // GET: Products/Details/5
-        public async Task<IActionResult> Details(int? id)
+        // GET: Products/Product/5
+        public IActionResult Product(int? id)
         {
             if (id == null)
             {
                 return NotFound();
             }
 
-            var product = await _context.Product
-                .Include(p => p.Category)
-                .FirstOrDefaultAsync(m => m.Id == id);
-            if (product == null)
+            var products = _context.Product.AsQueryable();
+            var categories = _context.Category.AsQueryable();
+
+            // Lọc các sản phẩm chỉ có id giống với id truyền vào
+            var result = products.Where(p => p.Id == id).Select(p => new ProductVM
+            {
+                Id = p.Id,
+                Description = p.Description,
+                Name = p.Name,
+                Price = p.Price,
+                CategoryId = p.CategoryId,
+                imgUrl = p.ImageUrl,
+                CategoryName = categories.FirstOrDefault(c => c.Id == p.CategoryId).Name
+            }).SingleOrDefault(); // Sử dụng SingleOrDefault để chỉ trả về một sản phẩm, nếu có, hoặc null nếu không có sản phẩm nào
+
+            if (result == null)
             {
                 return NotFound();
             }
 
-            return View(product);
+            return View(result);
         }
+
 
         // GET: Products/Create
         public IActionResult Create()
@@ -173,11 +187,6 @@ namespace project.Controllers
         {
             return _context.Product.Any(e => e.Id == id);
         }
-
-        public ActionResult Product()
-        {
-            return View();
-        }
         public ActionResult Checkout()
         {
             return View();
@@ -186,6 +195,6 @@ namespace project.Controllers
         {
             return View();
         }
-        
+
     }
 }

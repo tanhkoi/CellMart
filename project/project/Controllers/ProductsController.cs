@@ -14,12 +14,10 @@ namespace project.Controllers
     public class ProductsController : Controller
     {
         private readonly projectContext _context;
-
         public ProductsController(projectContext context)
         {
             _context = context;
         }
-
         // GET: Products
         public IActionResult Index()
         {
@@ -34,12 +32,9 @@ namespace project.Controllers
                 imgUrl = p.ImageUrl,
                 CategoryName = categories.FirstOrDefault(c => c.Id == p.CategoryId).Name
             });
-
             ViewBag.Categories = categories;
-
             return View(result);
         }
-
         // GET: Products/Product/5
         public IActionResult Product(int? id)
         {
@@ -47,10 +42,8 @@ namespace project.Controllers
             {
                 return NotFound();
             }
-
             var products = _context.Product.AsQueryable();
             var categories = _context.Category.AsQueryable();
-
             // Lọc các sản phẩm chỉ có id giống với id truyền vào
             var result = products.Where(p => p.Id == id).Select(p => new ProductVM
             {
@@ -62,23 +55,18 @@ namespace project.Controllers
                 imgUrl = p.ImageUrl,
                 CategoryName = categories.FirstOrDefault(c => c.Id == p.CategoryId).Name
             }).SingleOrDefault(); // Sử dụng SingleOrDefault để chỉ trả về một sản phẩm, nếu có, hoặc null nếu không có sản phẩm nào
-
             if (result == null)
             {
                 return NotFound();
             }
-
             return View(result);
         }
-
-
         // GET: Products/Create
         public IActionResult Create()
         {
             ViewData["CategoryId"] = new SelectList(_context.Set<Category>(), "Id", "Name");
             return View();
         }
-
         // POST: Products/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
@@ -95,7 +83,6 @@ namespace project.Controllers
             ViewData["CategoryId"] = new SelectList(_context.Set<Category>(), "Id", "Name", product.CategoryId);
             return View(product);
         }
-
         // GET: Products/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
@@ -112,7 +99,6 @@ namespace project.Controllers
             ViewData["CategoryId"] = new SelectList(_context.Set<Category>(), "Id", "Name", product.CategoryId);
             return View(product);
         }
-
         // POST: Products/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
@@ -124,7 +110,6 @@ namespace project.Controllers
             {
                 return NotFound();
             }
-
             if (ModelState.IsValid)
             {
                 try
@@ -148,7 +133,6 @@ namespace project.Controllers
             ViewData["CategoryId"] = new SelectList(_context.Set<Category>(), "Id", "Name", product.CategoryId);
             return View(product);
         }
-
         // GET: Products/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
@@ -156,7 +140,6 @@ namespace project.Controllers
             {
                 return NotFound();
             }
-
             var product = await _context.Product
                 .Include(p => p.Category)
                 .FirstOrDefaultAsync(m => m.Id == id);
@@ -164,10 +147,8 @@ namespace project.Controllers
             {
                 return NotFound();
             }
-
             return View(product);
         }
-
         // POST: Products/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
@@ -178,23 +159,16 @@ namespace project.Controllers
             {
                 _context.Product.Remove(product);
             }
-
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
-
         private bool ProductExists(int id)
         {
             return _context.Product.Any(e => e.Id == id);
-        }
-        public ActionResult Checkout()
-        {
-            return View();
         }
         public ActionResult Store()
         {
             return View();
         }
-
     }
 }

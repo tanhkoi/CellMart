@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using project.Data;
 
@@ -11,9 +12,11 @@ using project.Data;
 namespace project.Migrations
 {
     [DbContext(typeof(projectContext))]
-    partial class projectContextModelSnapshot : ModelSnapshot
+    [Migration("20240405123313_AddModel")]
+    partial class AddModel
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -346,35 +349,6 @@ namespace project.Migrations
                     b.ToTable("Order");
                 });
 
-            modelBuilder.Entity("project.Models.OrderItem", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<int>("OrderId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("ProductId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("Quantity")
-                        .HasColumnType("int");
-
-                    b.Property<decimal>("Subtotal")
-                        .HasColumnType("decimal(18,2)");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("OrderId");
-
-                    b.HasIndex("ProductId");
-
-                    b.ToTable("OrderItem");
-                });
-
             modelBuilder.Entity("project.Models.Payment", b =>
                 {
                     b.Property<int>("Id")
@@ -571,25 +545,6 @@ namespace project.Migrations
                     b.Navigation("User");
                 });
 
-            modelBuilder.Entity("project.Models.OrderItem", b =>
-                {
-                    b.HasOne("project.Models.Order", "Order")
-                        .WithMany("orderItems")
-                        .HasForeignKey("OrderId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("project.Models.Product", "Product")
-                        .WithMany("orderItems")
-                        .HasForeignKey("ProductId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Order");
-
-                    b.Navigation("Product");
-                });
-
             modelBuilder.Entity("project.Models.Payment", b =>
                 {
                     b.HasOne("project.Models.MethodPayment", "MethodPayment")
@@ -634,18 +589,11 @@ namespace project.Migrations
                     b.Navigation("cartItems");
                 });
 
-            modelBuilder.Entity("project.Models.Order", b =>
-                {
-                    b.Navigation("orderItems");
-                });
-
             modelBuilder.Entity("project.Models.Product", b =>
                 {
                     b.Navigation("Images");
 
                     b.Navigation("cartItems");
-
-                    b.Navigation("orderItems");
                 });
 #pragma warning restore 612, 618
         }

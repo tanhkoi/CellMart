@@ -12,6 +12,7 @@ namespace project.Models
         public decimal TotalAmount { get; set; }
         [StringLength(50, ErrorMessage = "Status cannot exceed 50 characters")]
         public string? Status { get; set; }
+        public List<OrderItem>? orderItems { get; set; }
         public bool IsDeleted { get; set; }
     }
 }

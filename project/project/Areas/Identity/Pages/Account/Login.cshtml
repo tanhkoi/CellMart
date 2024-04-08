@@ -3,8 +3,23 @@
 
 @{
     ViewData["Title"] = "Log in";
+    Layout = null;
 }
 
+<link type="text/css" rel="stylesheet" href="~/assets/css/bootstrap.min.css" />
+
+<!-- Slick -->
+<link type="text/css" rel="stylesheet" href="~/assets/css/slick.css" />
+<link type="text/css" rel="stylesheet" href="~/assets/css/slick-theme.css" />
+
+<!-- nouislider -->
+<link type="text/css" rel="stylesheet" href="~/assets/css/nouislider.min.css" />
+
+<!-- Font Awesome Icon -->
+<link rel="stylesheet" href="~/assets/css/font-awesome.min.css">
+
+<!-- Custom stlylesheet -->
+<link type="text/css" rel="stylesheet" href="/assets/css/style.css" />
 <h2>@ViewData["Title"]</h2>
 <div id="container" class="container">
     <div class="form-container sign-in-container">
@@ -28,30 +43,6 @@
                 <button asp-page="./ExternalLogin" asp-route-returnUrl="@Model.ReturnUrl" method="post" type="submit" class="btn btn-default" name="provider" value="@provider.Name" title="Log in using your @provider.DisplayName account">@provider.DisplayName</button>
             }
         </form>
-        @{
-            if ((Model.ExternalLogins?.Count ?? 0) == 0)
-            {
-                <div>
-                    <p>
-                        There are no external authentication services configured. See <a href="https://go.microsoft.com/fwlink/?LinkID=532715">this article</a>
-                        for details on setting up this ASP.NET application to support logging in via external services.
-                    </p>
-                </div>
-            }
-            else
-            {
-                <form id="external-account" asp-page="./ExternalLogin" asp-route-returnUrl="@Model.ReturnUrl" method="post" class="">
-                    <div>
-                        <p>
-                            @foreach (var provider in Model.ExternalLogins)
-                            {
-                                <button asp-page="./ExternalLogin" asp-route-returnUrl="@Model.ReturnUrl" method="post" type="submit" class="btn btn-default" name="provider" value="@provider.Name" title="Log in using your @provider.DisplayName account">@provider.DisplayName</button>
-                            }
-                        </p>
-                    </div>
-                </form>
-            }
-        }
     </div>
     <div class="overlay-container">
         <div class="overlay">
@@ -63,10 +54,22 @@
             <div class="overlay-panel overlay-right">
                 <h1>Hello, Friend!</h1>
                 <p>Enter your personal details and start journey with us</p>
-                <button class="ghost" id="signUp">Sign Up</button>
+                <button id="signUp" class="ghost">Sign Up</button>
+                <script>
+                    document.getElementById('signUp').addEventListener('click', function () {
+                        window.location.href = '/Identity/Account/Register';
+                    });
+                </script>
             </div>
         </div>
     </div>
-
-
 </div>
+<script src="~/assets/js/jquery.min.js"></script>
+<script src="~/assets/js/bootstrap.min.js"></script>
+<script src="~/assets/js/slick.min.js"></script>
+<script src="~/assets/js/nouislider.min.js"></script>
+<script src="~/assets/js/jquery.zoom.min.js"></script>
+<script src="~/assets/js/main.js"></script>
+<script src="~/lib/jquery/dist/jquery.min.js"></script>
+<script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+<script src="~/js/site.js" asp-append-version="true"></script>

@@ -1,5 +1,5 @@
 ﻿-- dat lai cot id cua bang product ve 1
-DBCC CHECKIDENT (Product, RESEED, 0)
+DBCC CHECKIDENT (Product, RESEED, 38)
 
 use DBdoancoso -- thay ten database cua ban
 
@@ -175,7 +175,7 @@ VALUES
 (N'vivo V29E 8GB 256GB', N'Hiệu năng vượt trội với chip Snapdragon 695 - Giúp bạn xử lý các tác vụ mượt mà không cần phải lo lắng có bị giật, lag.
 Màn hình Sunlight AMOLED 120Hz - Cho hình ảnh sắc nét, màu sắc tươi sáng, trung thực.
 Pin khủng kèm sạc siêu siêu tốc 44W - Giúp bạn sử dụng thoải mái trong vòng hai ngày.
-Cụm camera được cải tiến giúp quay video và chụp ra bức ảnh rất tốt, hài hòa, sống động hơn.', 7990000.00, N'\images\Vivo\vivo V29E 8GB 256GB.png', 4, 0),
+Cụm camera được cải tiến giúp quay video và chụp ra bức ảnh rất tốt, hài hòa, sống động hơn.', 7990000.00, N'\images\Vivo\vivo V29E 8GB 256GB.webp', 4, 0),
 (N'Vivo Y36 8GB 128GB', N'Vẻ ngoài đơn giản tạo nên sức hút - Thiết kế nốt ruồi thời thượng so với màn hình giọt nước trước đó.
 Màn hình Full HD+ - Hình ảnh hiển thị sắc nét, giúp bạn chiêm ngưỡng những bộ phim, chơi game được tốt hơn.
 Snapdragon 680 cùng Raợng 5000 mAh cho phép ngưm 8GB - Đủ sức sử dụng các tác vụ như lướt web, xem phim hay chơi game cấu hình tầm trung.
@@ -206,57 +206,57 @@ VALUES
 (N'Redmi A2 2GB 32GB', N'Màu sắc trendy, tự tin chất riêng - Sở hữu màu sắc 3 màu sắc tinh tế và độc đáo phù hợp mọi phong cách thời trang
 Cấu hình ổn định, cân tác vụ chuẩn - Chip xử lí MediaTek Helio G36 8 nhân cùng RAM mở rộng +2GB
 Chụp ảnh và quay phim chưa bao giờ dễ đến thế - 2 Camera 8GB cùng hàng loạt chế độ chụp thông minh
-Pin lâu cho cả ngày dài năng động - Dung lượng pin lớn 5000mAh, sạc tối đa 10W', 1990000.00, N'\images\Xiaomi\Redmi A2 2GB 32GB.webp', 4, 0),
+Pin lâu cho cả ngày dài năng động - Dung lượng pin lớn 5000mAh, sạc tối đa 10W', 1990000.00, N'\images\Xiaomi\Redmi A2 2GB 32GB.webp', 5, 0),
 (N'Xiaomi Redmi Note 12 4GB 128GB', N'Trải nghiệm thị giác siêu đã với màn hình 6.67 inch cùng tấm nền AMOLED thời thượng
 Chiến game cực mượt với chip Snapdragon mạnh mẽ cùng màn hình tần số quét 120Hz
 Năng lượng cho cả ngày dài nhờ vào viên pin lên đến 5000mAh đi kèm sạc nhanh 33W
-Lưu giữ mọi khoảnh khắc với 3 camera sau 50 MP và tính năng làm đẹp AI thông minh', 3790000.00, N'\images\Xiaomi\Xiaomi Redmi Note 12 4GB 128GB.webp', 4, 0),
+Lưu giữ mọi khoảnh khắc với 3 camera sau 50 MP và tính năng làm đẹp AI thông minh', 3790000.00, N'\images\Xiaomi\Xiaomi Redmi Note 12 4GB 128GB.webp', 5, 0),
 (N'Xiaomi POCO X6 Pro 5G 8GB 256GB', N'Màn hình OLED sống động, tần số 120Hz - Đem đến chất lượng hình ảnh sắc nét, màu sắc sống động.
 Hiệu năng đỉnh cao với chip Dimensity 8300 Ultra - Chiến được hầu hết các tựa game mobile phổ biến.
 Bộ 3 camera chất lượng, quay chụp sắc nét - Đem đến cho bạn những bức hình chân dung chất lượng cao.
-Trang bị pin 5000mAh đi cùng sạc nhanh 67 W giúp bạn thoải mái sử dụng điện thoại suốt cả ngày dài.', 8390000.00, N'\images\Xiaomi\Xiaomi POCO X6 Pro 5G 8GB 256GB.webp', 4, 0),
+Trang bị pin 5000mAh đi cùng sạc nhanh 67 W giúp bạn thoải mái sử dụng điện thoại suốt cả ngày dài.', 8390000.00, N'\images\Xiaomi\Xiaomi POCO X6 Pro 5G 8GB 256GB.webp', 5, 0),
 (N'Xiaomi 12T Pro', N'Kiến tạo siêu khoảnh khắc - Hệ thống camera 200MP, chống rung quang học OIS và ống kính 8P
 Thiết kế siêu việt - Trọn vẻ đẹp sang trọng, đẳng cấp, vỏ nhám chống bám vân tay, khung kim loại cứng cáp, độc đáo
 Đạt đến sự ưu việt một cách dễ dàng - Chipset Snapdragon 8+ Gen 1 siêu mạnh mẽ cùng RAM 12GB cho đa nhiệm mượt mà
 Năng lượng bất tận, khám phá cả ngày - Dung lượng pin 5000mAh, sạc siêu nhanh HyperCharge 120W
-Trải nghiệm siêu chân thực - Màn hình lớn CrystalRes AMOLED cùng hệ thống âm thanh SOUND BY Harman Kardon   ', 14690000.00, N'\images\Xiaomi\Xiaomi 12T Pro.webp', 4, 0),
+Trải nghiệm siêu chân thực - Màn hình lớn CrystalRes AMOLED cùng hệ thống âm thanh SOUND BY Harman Kardon   ', 14690000.00, N'\images\Xiaomi\Xiaomi 12T Pro.webp', 5, 0),
 (N'Xiaomi 13 Lite', N'Hệ thống camera hàng đầu - Camera kép selfie cùng khung hình động đem lại những bức ảnh kiệt tác
 Thiết kế mỏng nhẹ, đem lại sự thoải mái trong cầm nắm
 Đắm chìm vào không gian giải trí sống động - AMOLED 120Hz giúp thao tác cuộn mượt mà
 Snapdragon 7 Gen 1 dẫn đầu - Siêu nhanh và tiết kiệm năng lượng, đa nhiệm mượt mà, chiến game cực đã
-Sạc nhanh 67W, sạc đầy 100% chỉ trong 40 phút', 8790000.00, N'\images\Xiaomi\Xiaomi 13 Lite.webp', 4, 0),
+Sạc nhanh 67W, sạc đầy 100% chỉ trong 40 phút', 8790000.00, N'\images\Xiaomi\Xiaomi 13 Lite.webp', 5, 0),
 (N'Xiaomi 13T Pro 5G (12GB - 512GB)', N'Nhiếp ảnh chuyên ngiệp, nắm giữ tuyệt tác trong tầm tay - Cụm camera đến, ống kính Leica với 2 phong cách ảnh
 Hiệu năng bất chấp mọi tác vụ - Bộ vi xử lý Dimensity 9200+ Ultra mạnh mẽ cùng RAM 12GB cho đa nhiệm mượt mà
 Năng lượng bất tận cả ngày - Pin 5000mAh cùng sạc nhanh 120W, sạc đầy chỉ trong 19 phút
-Màn hình sáng rực rỡ, cuộn lướt thật mượt mà - Màn hình 144hz cùng công nghệ AMOLED CrystalRes', 14690000.00, N'\images\Xiaomi\Xiaomi 13T Pro 5G (12GB - 512GB).webp', 4, 0),
+Màn hình sáng rực rỡ, cuộn lướt thật mượt mà - Màn hình 144hz cùng công nghệ AMOLED CrystalRes', 14690000.00, N'\images\Xiaomi\Xiaomi 13T Pro 5G (12GB - 512GB).webp', 5, 0),
 (N'Xiaomi 13T 12GB 256GB', N'Nhiếp ảnh chuyên nghiệp, nắm giữ tuyệt tác trong tầm tay - Cụm camera đến, ống kính Leica với 2 phong cách ảnh
 Hiệu năng bất chấp mọi tác vụ - Bộ vi xử lý Dimensity 8200 Ultra mạnh mẽ cùng RAM 12GB cho đa nhiệm mượt mà
 Năng lượng bất tận cả ngày - Pin 5000mAh cùng sạc nhanh 67W, sạc đầy chỉ trong 42 phút
-Màn hình sáng rực rỡ, cuộn lướt thật mượt mà - Màn hình 144hz cùng công nghệ AMOLED CrystalRes', 10290000.00, N'\images\Xiaomi\Xiaomi 13T 12GB 256GB.webp', 4, 0),
+Màn hình sáng rực rỡ, cuộn lướt thật mượt mà - Màn hình 144hz cùng công nghệ AMOLED CrystalRes', 10290000.00, N'\images\Xiaomi\Xiaomi 13T 12GB 256GB.webp', 5, 0),
 (N'Xiaomi 14 (12GB 256GB)', N'Mạnh mẽ cân mọi tác vụ, đa nhiệm cực đỉnh - Chip Snapdragon 8 Gen 3 (4nm) mượt mà đi kèm RAM 12GB
 Trải nghiệm hình ảnh sống động - Màn hình 6.36” vừa vặn, công nghệ LTPO OLED, tần số quét 120Hz
 Tuyệt tác camera, chụp ảnh sắc nét - Bộ 3 camera 50MP ống kính Leica cùng chống rung OIS
-Năng lượng tràn đầy, thoả sức sức tạo - Dung lượng pin lớn 4610mAh, sạc nhanh 90W', 19990000.00, N'\images\Xiaomi\Xiaomi 14 (12GB 256GB).webp', 4, 0),
+Năng lượng tràn đầy, thoả sức sức tạo - Dung lượng pin lớn 4610mAh, sạc nhanh 90W', 19990000.00, N'\images\Xiaomi\Xiaomi 14 (12GB 256GB).webp', 5, 0),
 (N'Xiaomi Redmi 13C 6GB 128GB', N'Chipset Helio G85 cho hiệu năng ổn định - Hoạt động mượt mà cho các tác vụ cơ bản hàng ngày.
 Hệ thống camera kép mạnh mẽ - Cải thiện độ chi tiết và độ sắc nét cho từng bức ảnh.
 Dung lượng pin khổng lồ lên đến 5000 mAh - Giúp bạn thoải mái trải nghiệm nhiều giờ sử dụng liên tục.
-Màn hình lớn kích thước 6.74 inch - Mang lại trải nghiệm xem ấn tượng.', 3290000.00, N'\images\Xiaomi\Xiaomi Redmi 13C 6GB 128GB.webp', 4, 0),
+Màn hình lớn kích thước 6.74 inch - Mang lại trải nghiệm xem ấn tượng.', 3290000.00, N'\images\Xiaomi\Xiaomi Redmi 13C 6GB 128GB.webp', 5, 0),
 (N'Xiaomi 11T Pro', N'Thu hút mọi ánh nhìn với thiết kế đẹp mắt, mặt lưng và khung nhựa nhẹ được làm bóng.
 Công nghệ âm thanh Dolby Atmos - Trải nghiệm âm thanh sống động, chi tiết và mạnh mẽ.
 Màn hình lớn Full HD+ đi kèm tần số quét cao 120 Hz - Cho phép người dùng tận hưởng mọi chi tiết một cách rõ ràng.
-Hiệu năng mạnh mẽ, phù hợp với nhu cầu sử dụng đa nhiệm của người dùng hiện nay với chip MediaTek Helio G99-Ultra.', 11990000.00, N'\images\Xiaomi\Xiaomi 11T Pro.webp', 4, 0),
+Hiệu năng mạnh mẽ, phù hợp với nhu cầu sử dụng đa nhiệm của người dùng hiện nay với chip MediaTek Helio G99-Ultra.', 11990000.00, N'\images\Xiaomi\Xiaomi 11T Pro.webp', 5, 0),
 (N'Xiaomi Redmi Note 12 Pro 4G 8GB 256GB', N'Màn hình giải trí cực đỉnh - Màn hình AMOLED 6.67 inch Full HD+, 120Hz
 Cấu hình vượt trội, cân mọi tựa game - Chip Snapdragon 888 5G, GPU Adreno 660 mạnh mẽ
 Trải nghiệm điện ảnh đỉnh cao - Cụm camera sau lên đến 108 MP siêu nét, quay phim 8K
-Pin cực lớn, sạc cực nhanh - Viên pin lớn 5000 mAh, sạc nhanh 120W', 5890000.00, N'\images\Xiaomi\Xiaomi Redmi Note 12 Pro 4G 8GB 256GB.webp', 4, 0),
+Pin cực lớn, sạc cực nhanh - Viên pin lớn 5000 mAh, sạc nhanh 120W', 5890000.00, N'\images\Xiaomi\Xiaomi Redmi Note 12 Pro 4G 8GB 256GB.webp', 5, 0),
 (N'Xiaomi Redmi Note 13 Pro 4G', N'Màn hình 6.67 inch và tấm nền AMOLED mang đến không gian hiển thị hình ảnh đẹp mắt
 Vi xử lý  Snapdragon® 732G kết hợp chip đồ hoạ Adreno 618 giúp chiến game mượt mà
 Thoả niềm đam mê nhiếp ảnh cùng hệ thống 3 camera với ống kính chính lên đến 50 MP
-Viên pin dung lượng 5000 mAh cho khả năng hoạt động cả ngày dài ở các tác vụ cơ bản', 7390000.00, N'\images\Xiaomi\Xiaomi Redmi Note 13 Pro 4G.webp', 4, 0),
+Viên pin dung lượng 5000 mAh cho khả năng hoạt động cả ngày dài ở các tác vụ cơ bản', 7390000.00, N'\images\Xiaomi\Xiaomi Redmi Note 13 Pro 4G.webp', 5, 0),
 (N'Xiaomi Redmi Note 13 Pro Plus 4G', N'Thiết kế hiện đại, trẻ trung với mặt lưng kính thời thượng và khung viền kim loại vuông vức sang trọng
 Tấm nền AMOLED cho khả năng hiển thị rõ nét, tần số quét 120Hz giúp mọi thao tác trở nên mượt mà
 Chinh chiến mọi tựa game, tha hồ đa nhiệm với bộ vi xử lý Dimensity 1080 5G kết hợp với RAM 8 GB
-Bắt trọn mọi khoảnh khắc với cảm biến chính Sony IMX766 độ phân giải 50 MP hỗ trợ chống rung OIS', 6790000.00, N'\images\Xiaomi\Xiaomi Redmi Note 13 Pro Plus 4G.webp', 4, 0);
+Bắt trọn mọi khoảnh khắc với cảm biến chính Sony IMX766 độ phân giải 50 MP hỗ trợ chống rung OIS', 6790000.00, N'\images\Xiaomi\Xiaomi Redmi Note 13 Pro Plus 4G.webp', 5, 0);
 -- phuong thuc thanh toan
 INSERT INTO MethodPayment (Id, Name)
 VALUES ('1', 'COD'),

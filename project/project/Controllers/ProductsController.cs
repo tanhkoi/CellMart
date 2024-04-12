@@ -158,6 +158,11 @@ namespace project.Controllers
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
+
+        //public async Task<IActionResult> Product()
+        //{
+        //    return View();
+        //}
         private bool ProductExists(int id)
         {
             return _context.Product.Any(e => e.Id == id);

@@ -1,0 +1,76 @@
+﻿
+@model project.ViewModels.ProductCateList
+
+
+@{
+	ViewData["Title"] = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+<a class="btn btn-primary" asp-action="Add">Tạo mới</a>
+
+<h1>Danh sách sản phẩm</h1>
+
+
+<form asp-action="Index" method="post">
+
+	@foreach(var cate in Model.Categories)
+	{
+		<div>
+			<input type="checkbox" name="selectedCategories" value="@cate.Id" />
+			<label asp-for="@cate.Name">@cate.Name</label>
+		</div>
+	}
+	<button type="submit">Loc</button>
+</form>
+
+
+<h2>Thong tin hien thi:</h2>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Products[0].Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Products[0].Description)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Products[0].Price)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Products[0].imgUrl)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Products[0].CategoryName)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Products)
+        {
+
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Description)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Price)
+                </td>
+                <td><img src="@(item.imgUrl)" loading="lazy" width="200" height="150" /></td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CategoryName)
+                </td>
+                <td>
+                    <a asp-action="Update" asp-route-id="@item.Id">Update</a>
+                    <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+

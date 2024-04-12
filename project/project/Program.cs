@@ -3,7 +3,8 @@ using Microsoft.EntityFrameworkCore;
 using project.Data;
 using project.Helpers;
 using project.Models;
-
+using project.Repo;
+using project.Repositories;
 var builder = WebApplication.CreateBuilder(args);
 var services = builder.Services;
 var configuration = builder.Configuration;
@@ -15,15 +16,16 @@ services.AddAuthentication().AddGoogle(googleOptions =>
 });
 // data access
 builder.Services.AddDbContext<projectContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
-
+builder.Services.AddScoped<IProductRepository, EFProductRepository>();
+builder.Services.AddScoped<ICategoryRepository, EFCategoryRepository>();
 // user identity
 builder.Services.AddIdentity<User, IdentityRole>()
     .AddDefaultTokenProviders()
     .AddDefaultUI()
     .AddEntityFrameworkStores<projectContext>();
 builder.Services.AddRazorPages();
-
-// session
+// Add services to the container.
+builder.Services.AddControllersWithViews();
 builder.Services.AddDistributedMemoryCache();
 builder.Services.AddSession(options =>
 {
@@ -31,9 +33,6 @@ builder.Services.AddSession(options =>
     options.Cookie.HttpOnly = true;
     options.Cookie.IsEssential = true;
 });
-
-builder.Services.AddControllersWithViews();
-
 var app = builder.Build();
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
@@ -58,8 +57,8 @@ app.MapRazorPages();
 app.UseEndpoints(endpoints =>
 {
     endpoints.MapControllerRoute(
-        name: "areas",
-        pattern: "{area:exists}/{controller=Admin}/{action=Index}/{id?}"
+        name: "Admin",
+        pattern: "{area:exists}/{controller=Home}/{action=Index}/{id?}"
         );
 });
 

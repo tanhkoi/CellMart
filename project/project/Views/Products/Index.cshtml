@@ -1,5 +1,6 @@
-﻿@model IEnumerable<project.ViewModels.ProductVM>
-
+﻿@using Microsoft.EntityFrameworkCore;
+@using project.Data;
+@model IEnumerable<project.ViewModels.ProductVM>
 @{
     ViewData["Title"] = "Home Page";
 }
@@ -68,7 +69,7 @@
 
                     <div class="section-nav">
                         <ul class="section-tab-nav tab-nav">
-                            @foreach (var item in ViewBag.Categories)
+                            @foreach (var item in ViewBag.Category)
                             {
                                 <li class=""><a data-toggle="tab" href="#tab1">@item.Name</a></li>
                             }
@@ -198,7 +199,7 @@
                     <h3 class="title">Top selling</h3>
                     <div class="section-nav">
                         <ul class="section-tab-nav tab-nav">
-                            @foreach (var item in ViewBag.Categories)
+                            @foreach (var item in ViewBag.Category)
                             {
                                 <li class=""><a data-toggle="tab" href="#tab1">@item.Name</a></li>
                             }

@@ -86,7 +86,7 @@
                         <a class="review-link" href="#">10 Review(s) | Add your review</a>
                     </div>
                     <div>
-                        <h3 class="product-price">@Model.Price.ToString("N0") VND<del class="product-old-price">@($"{(Model.Price + (Model.Price * 30) / 100).ToString("N0")} VND")</del></h3>
+                        <h3 class="product-price">@Model.Price.ToString("#,##0") VND<del class="product-old-price">@($"{(Model.Price + (Model.Price * 30) / 100).ToString("#,##0")} VND")</del></h3>
                         <span class="product-available">In Stock</span>
                     </div>
                     <p>@Model.Description</p>

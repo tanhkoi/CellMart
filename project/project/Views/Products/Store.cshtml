@@ -87,7 +87,7 @@
                                 <div class="product-body">
                                     <p class="product-category">@item.CategoryName</p>
                                     <h3 class="product-name"><a href="#">@item.Name</a></h3>
-                                    <h4 class="product-price">@item.Price.ToString("N0") VND<del class="product-old-price">@($"{(item.Price + (item.Price * 30) / 100).ToString("N0")} VND")</del></h4>
+                                    <h4 class="product-price">@item.Price.ToString("#,##0") VND<del class="product-old-price">@($"{(item.Price + (item.Price * 30) / 100).ToString("#,##0")} VND")</del></h4>
                                     <div class="product-btns">
                                         <button class="quick-view"><i class="fa fa-eye"></i><span class="tooltipp">quick view</span></button>
                                     </div>

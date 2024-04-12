@@ -10,6 +10,5 @@ namespace project.Models
 
         public List<Product>? Products { get; set; }
         public bool IsDeleted { get; set; }
-        public ICollection<Product>? Products { get; set; }
     }
 }

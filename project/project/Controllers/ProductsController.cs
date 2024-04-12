@@ -164,7 +164,19 @@ namespace project.Controllers
         }
         public ActionResult Store()
         {
-            return View();
+            var products = _context.Product.AsQueryable();
+            var categories = _context.Category.AsQueryable();
+            var result = products.Select(p => new ProductVM
+            {
+                Id = p.Id,
+                Name = p.Name,
+                Price = p.Price,
+                CategoryId = p.CategoryId,
+                imgUrl = p.ImageUrl,
+                CategoryName = categories.FirstOrDefault(c => c.Id == p.CategoryId).Name
+            });
+            ViewBag.Categories = categories;
+            return View(result);
         }
     }
 }

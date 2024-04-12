@@ -12,8 +12,8 @@ using project.Data;
 namespace project.Migrations
 {
     [DbContext(typeof(projectContext))]
-    [Migration("20240405123631_UpdateModelOrderItem")]
-    partial class UpdateModelOrderItem
+    [Migration("20240412015731_InitialCreate")]
+    partial class InitialCreate
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

@@ -12,23 +12,28 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.Extensions.Logging;
 using project.Models;
+using Microsoft.DotNet.Scaffolding.Shared.Messaging;
+using Microsoft.JSInterop;
 
 namespace project.Areas.Identity.Pages.Account
 {
     [AllowAnonymous]
     public class LoginModel : PageModel
     {
+        
         private readonly UserManager<User> _userManager;
         private readonly SignInManager<User> _signInManager;
         private readonly ILogger<LoginModel> _logger;
-
+        
         public LoginModel(SignInManager<User> signInManager, 
             ILogger<LoginModel> logger,
-            UserManager<User> userManager)
+            UserManager<User> userManager
+            )
         {
             _userManager = userManager;
             _signInManager = signInManager;
             _logger = logger;
+            
         }
 
         [BindProperty]
@@ -40,6 +45,7 @@ namespace project.Areas.Identity.Pages.Account
 
         [TempData]
         public string ErrorMessage { get; set; }
+        
 
         public class InputModel
         {
@@ -54,6 +60,9 @@ namespace project.Areas.Identity.Pages.Account
             [Display(Name = "Remember me?")]
             public bool RememberMe { get; set; }
         }
+        
+
+        
 
         public async Task OnGetAsync(string returnUrl = null)
         {
@@ -74,6 +83,7 @@ namespace project.Areas.Identity.Pages.Account
 
         public async Task<IActionResult> OnPostAsync(string returnUrl = null)
         {
+            ErrorMessage = "";
             returnUrl ??= Url.Content("~/");
 
             ExternalLogins = (await _signInManager.GetExternalAuthenticationSchemesAsync()).ToList();
@@ -99,13 +109,16 @@ namespace project.Areas.Identity.Pages.Account
                 }
                 else
                 {
-                    ModelState.AddModelError(string.Empty, "Invalid login attempt.");
+                    ErrorMessage = "Mật khẩu hoặc mật khẩu không tồn tại";
+                    ModelState.AddModelError(string.Empty, ErrorMessage);
                     return Page();
+ 
                 }
             }
+                
 
-            // If we got this far, something failed, redisplay form
-            return Page();
+                // If we got this far, something failed, redisplay form
+          return Page();
         }
     }
 }

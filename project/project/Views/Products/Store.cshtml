@@ -1,5 +1,5 @@
-﻿@model IEnumerable<project.ViewModels.ProductVM>
-
+﻿@model X.PagedList.IPagedList<project.ViewModels.ProductVM>
+@using X.PagedList.Mvc.Core;
 @{
     ViewData["Title"] = "Store";
 }
@@ -44,24 +44,31 @@
                     <div class="store-sort">
                         <label>
                             Sort By:
-                            <select class="input-select">
-                                <option value="0">Popular</option>
-                                <option value="1">Position</option>
+                            <select class="input-select" onchange="location.href = this.value;">
+                                <!option value="@Url.Action("Store", new { sortOrder = ViewBag.NameSortParm, currentFilter = ViewBag.CurrentFilter })" @(ViewBag.CurrentSort == "name_desc" ? "selected" : "")>Name</!option>
+                                <!option value="@Url.Action("Store", new { sortOrder = ViewBag.PriceSortParm, currentFilter = ViewBag.CurrentFilter })" @(ViewBag.CurrentSort == "Price" ? "selected" : "")>Price</!option>
                             </select>
                         </label>
 
                         <label>
                             Show:
-                            <select class="input-select">
-                                <option value="0">20</option>
-                                <option value="1">50</option>
+                            <select id="pageSizeSelect" class="input-select">
+                                <!option value="6" @(ViewBag.PageSize == 6 ? "selected" : "")>6</!option>
+                                <!option value="9" @(ViewBag.PageSize == 9 ? "selected" : "")>9</!option>
+                                <!option value="12" @(ViewBag.PageSize == 12 ? "selected" : "")>12</!option>
                             </select>
                         </label>
+
+                        <label>
+                            @using (Html.BeginForm("Store", "Products", FormMethod.Get))
+                            {
+                                <p>
+                                    Find by name: @Html.TextBox("SearchString", ViewBag.CurrentFilter as string)
+                                    <input type="submit" value="Search" />
+                                </p>
+                            }
+                        </label>
                     </div>
-                    <ul class="store-grid">
-                        <li class="active"><i class="fa fa-th"></i></li>
-                        <li><a href="#"><i class="fa fa-th-list"></i></a></li>
-                    </ul>
                 </div>
                 <!-- /store top filter -->
                 <!-- store products -->
@@ -101,14 +108,9 @@
                 <!-- /store products -->
                 <!-- store bottom filter -->
                 <div class="store-filter clearfix">
-                    <span class="store-qty">Showing 20-100 products</span>
-                    <ul class="store-pagination">
-                        <li class="active">1</li>
-                        <li><a href="#">2</a></li>
-                        <li><a href="#">3</a></li>
-                        <li><a href="#">4</a></li>
-                        <li><a href="#"><i class="fa fa-angle-right"></i></a></li>
-                    </ul>
+                    <span class="store-qty">Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount</span>
+                    @Html.PagedListPager(Model, page => Url.Action("Store",
+                             new { page, sortOrder = ViewBag.CurrentSort, currentFilter = ViewBag.CurrentFilter }))
                 </div>
                 <!-- /store bottom filter -->
             </div>
@@ -119,3 +121,25 @@
     <!-- /container -->
 </div>
 <!-- /SECTION -->
+
+<script>
+    // JavaScript to handle changing page size
+    document.getElementById('pageSizeSelect').addEventListener('change', function () {
+        var selectedValue = this.value;
+        // Redirect to the same page with updated page size
+        var currentUrl = window.location.href;
+        var updatedUrl = updateQueryStringParameter(currentUrl, 'pageSize', selectedValue);
+        window.location.href = updatedUrl;
+    });
+
+    function updateQueryStringParameter(uri, key, value) {
+        var re = new RegExp("([?&])" + key + "=.*?(&|$)", "i");
+        var separator = uri.indexOf('?') !== -1 ? "&" : "?";
+        if (uri.match(re)) {
+            return uri.replace(re, '$1' + key + "=" + value + '$2');
+        }
+        else {
+            return uri + separator + key + "=" + value;
+        }
+    }
+</script>

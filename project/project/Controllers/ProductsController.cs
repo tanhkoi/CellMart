@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
+using X.PagedList;
 using project.Data;
 using project.Models;
 using project.ViewModels;
@@ -167,10 +168,17 @@ namespace project.Controllers
         {
             return _context.Product.Any(e => e.Id == id);
         }
-        public ActionResult Store()
+        public ActionResult Store(string sortOrder, string searchString, string currentFilter, int? page, int? pageSize)
         {
+            ViewBag.CurrentSort = sortOrder;
+            ViewBag.NameSortParm = String.IsNullOrEmpty(sortOrder) ? "name_desc" : "";
+            ViewBag.PriceSortParm = sortOrder == "Price" ? "price_desc" : "Price";
+            ViewBag.PageSize = pageSize;
+
             var products = _context.Product.AsQueryable();
             var categories = _context.Category.AsQueryable();
+            ViewBag.Categories = categories;
+
             var result = products.Select(p => new ProductVM
             {
                 Id = p.Id,
@@ -180,8 +188,43 @@ namespace project.Controllers
                 imgUrl = p.ImageUrl,
                 CategoryName = categories.FirstOrDefault(c => c.Id == p.CategoryId).Name
             });
-            ViewBag.Categories = categories;
-            return View(result);
+
+            if (!String.IsNullOrEmpty(searchString))
+            {
+                result = result.Where(s => s.Name.Contains(searchString) || s.CategoryName.Contains(searchString));
+            }
+
+            if (searchString != null)
+            {
+                page = 1;
+            }
+            else
+            {
+                searchString = currentFilter;
+            }
+
+            ViewBag.CurrentFilter = searchString;
+
+            switch (sortOrder)
+            {
+                case "name_desc":
+                    result = result.OrderByDescending(s => s.Name);
+                    break;
+                case "Price":
+                    result = result.OrderBy(s => s.Price);
+                    break;
+                case "price_desc":
+                    result = result.OrderByDescending(s => s.Price);
+                    break;
+                default:
+                    result = result.OrderBy(s => s.CategoryName);
+                    break;
+            }
+
+            int requestedPageSize = pageSize ?? 6;
+            int pageNumber = (page ?? 1);
+            return View(result.ToPagedList(pageNumber, requestedPageSize));
         }
+
     }
 }

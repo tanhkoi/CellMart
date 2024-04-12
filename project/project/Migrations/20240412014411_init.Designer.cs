@@ -12,8 +12,8 @@ using project.Data;
 namespace project.Migrations
 {
     [DbContext(typeof(projectContext))]
-    [Migration("20240405123631_UpdateModelOrderItem")]
-    partial class UpdateModelOrderItem
+    [Migration("20240412014411_init")]
+    partial class init
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -613,7 +613,7 @@ namespace project.Migrations
             modelBuilder.Entity("project.Models.Product", b =>
                 {
                     b.HasOne("project.Models.Category", "Category")
-                        .WithMany()
+                        .WithMany("Products")
                         .HasForeignKey("CategoryId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -635,6 +635,11 @@ namespace project.Migrations
             modelBuilder.Entity("project.Models.Cart", b =>
                 {
                     b.Navigation("cartItems");
+                });
+
+            modelBuilder.Entity("project.Models.Category", b =>
+                {
+                    b.Navigation("Products");
                 });
 
             modelBuilder.Entity("project.Models.Order", b =>

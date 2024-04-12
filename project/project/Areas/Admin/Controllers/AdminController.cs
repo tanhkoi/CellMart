@@ -1,6 +1,8 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using project.Data;
+using project.Repo;
+using project.Repositories;
 using project.ViewModels;
 
 namespace project.Areas.Admin.Controllers
@@ -8,18 +10,20 @@ namespace project.Areas.Admin.Controllers
     [Area("Admin")]
     public class AdminController : Controller
     {
-        private readonly projectContext _context;
-
-        public AdminController(projectContext context)
+        /*rivate readonly projectContext _context;*/
+        private readonly ICategoryRepository _categoryRepository;
+        private readonly IProductRepository _productRepository;
+        public AdminController(IProductRepository p,ICategoryRepository c)
         {
-            _context = context;
+            _categoryRepository = c;
+            _productRepository = p; 
         }
 
         // GET: Products
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
-            var products = _context.Product.AsQueryable();
-            var categories = _context.Category.AsQueryable();
+            var products =await _productRepository.GetAllAsync();
+            var categories =await _categoryRepository.GetAllAsync();
             var result = products.Select(p => new ProductVM
             {
                 Id = p.Id,

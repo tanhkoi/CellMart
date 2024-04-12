@@ -13,20 +13,17 @@ namespace project.Repositories
             _context = context;
         }
         public async Task AddAsync(Product product)
-        {   
-            var res=await _context.Category.FirstOrDefaultAsync(p=>p.Id==product.Id);
+        {
+            var res =await _context.Product.FirstOrDefaultAsync(p => p.Name==product.Name);
             if (res != null)
             {
-                var res1 = res.Products.FirstOrDefault(p=>p.Name==product.Name);
-                if (res1 != null) {
-                    res1.IsDeleted = true;
-                }
-                else
-                {   
-                    product.IsDeleted = false;
-                    await _context.SaveChangesAsync();
-                    _context.Product.Add(product);
-                }
+                res.IsDeleted = false;
+                _context.Product.Update(res);
+            }
+            else
+            {
+                _context.Product.Add(product);
+
             }
             await _context.SaveChangesAsync();
         }
@@ -38,6 +35,7 @@ namespace project.Repositories
             {
                 //_context.Product.Remove(product);
                 product.IsDeleted = true;
+                _context.Product.Update(product);
                 await _context.SaveChangesAsync();
             }
         }

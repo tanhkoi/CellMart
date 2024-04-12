@@ -562,7 +562,7 @@ namespace project.Migrations
             modelBuilder.Entity("project.Models.Product", b =>
                 {
                     b.HasOne("project.Models.Category", "Category")
-                        .WithMany()
+                        .WithMany("Products")
                         .HasForeignKey("CategoryId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -584,6 +584,11 @@ namespace project.Migrations
             modelBuilder.Entity("project.Models.Cart", b =>
                 {
                     b.Navigation("cartItems");
+                });
+
+            modelBuilder.Entity("project.Models.Category", b =>
+                {
+                    b.Navigation("Products");
                 });
 
             modelBuilder.Entity("project.Models.Product", b =>

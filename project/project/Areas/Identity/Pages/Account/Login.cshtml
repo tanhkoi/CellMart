@@ -7,22 +7,15 @@
 }
 
 <link type="text/css" rel="stylesheet" href="~/assets/css/bootstrap.min.css" />
-<!-- Slick -->
 <link type="text/css" rel="stylesheet" href="~/assets/css/slick.css" />
 <link type="text/css" rel="stylesheet" href="~/assets/css/slick-theme.css" />
-
-<!-- nouislider -->
 <link type="text/css" rel="stylesheet" href="~/assets/css/nouislider.min.css" />
-
-<!-- Font Awesome Icon -->
 <link rel="stylesheet" href="~/assets/css/font-awesome.min.css">
-
-<!-- Custom stlylesheet -->
 <link type="text/css" rel="stylesheet" href="/assets/css/style.css" />
-<h2>@ViewData["Title"]</h2>
-<div id="container" class="container">
-    <div class="form-container sign-in-container">
 
+<h2>@ViewData["Title"]</h2>
+<div id="container" class="container" style="margin: -100px 0 50px;!important">
+    <div class="form-container sign-in-container">
         <form asp-route-returnUrl="@Model.ReturnUrl" method="post" class="form">
             <h1>Sign in with</h1>
             @foreach (var provider in Model.ExternalLogins)
@@ -40,7 +33,6 @@
             </div>
             <a id="forgot-password" asp-page="./ForgotPassword" class="forgot-password">Forgot your password?</a>
             <button type="submit" class="btn">Sign In</button>
-            
         </form>
     </div>
     <div class="overlay-container">

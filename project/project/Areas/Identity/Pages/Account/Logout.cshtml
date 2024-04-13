@@ -2,6 +2,7 @@
 @model LogoutModel
 @{
     ViewData["Title"] = "Log out";
+
 }
 
 <header>
@@ -9,9 +10,10 @@
     @{
         if (User.Identity?.IsAuthenticated ?? false)
         {
-            <form class="form-inline" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Page("/", new { area = "" })" method="post">
+            <form id="logoutForm" class="form-inline" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Page("/", new { area = "" })" method="post">
                 <button type="submit" class="nav-link btn btn-link text-dark">Click here to Logout</button>
             </form>
+
         }
         else
         {
@@ -19,3 +21,13 @@
         }
     }
 </header>
+
+@section Scripts {
+    <script type="text/javascript">
+        document.addEventListener('DOMContentLoaded', (event) => {
+            var logoutForm = document.getElementById('logoutForm');
+            if (logoutForm) {
+                logoutForm.submit();
+            }
+        });</script>
+}

@@ -1,0 +1,83 @@
+﻿@model IEnumerable<project.Areas.Admin.Models.UserAdmin>
+
+@{
+    ViewData["Title"] = "Dashboard";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+
+<div class="container-fluid">
+    @if (TempData["SuccessMessage"] != null)
+    {
+        <div class="alert alert-info alert-dismissible fade show" role="alert">
+            @Html.Raw(TempData["SuccessMessage"].ToString())
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+    }
+
+    <!-- DataTales Example -->
+    <div class="card shadow mb-4">
+        <div class="card-header py-3 d-flex justify-content-center align-items-center">
+            <h6 class="m-0 font-weight-bold text-primary mr-auto">Danh sách người dùng</h6>
+        </div>
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-bordered" id="dataUserTable" width="100%" cellspacing="0">
+                    <thead>
+                        <tr>
+                            <th>Id</th>
+                            <th>Họ Tên</th>
+                            <th>Email</th>
+                            <th>Số điện thoại</th>
+                            <th>Địa chỉ</th>
+                            @if (ViewBag.IsAdmin)
+                            {
+                                <th>Roles</th>
+                            }
+                            <th></th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        @foreach (var user in Model)
+                        {
+                            <tr>
+                                <td>@user.Id</td>
+                                <td>@(user.FullName)</td>
+                                <td>@user.Email</td>
+                                <td>@user.PhoneNumber</td>
+                                <td>@user.Address</td>
+                                @if (ViewBag.IsAdmin)
+                                {
+                                    <td>
+                                        @{
+                                            var userRole = ViewBag.UserRoles[user.Id];
+                                        }
+                                        @string.Join(", ", userRole)
+                                    </td>
+                                }
+                                <td>
+                                    @if (ViewBag.IsAdmin)
+                                    {
+                                        <a asp-area="Admin" asp-controller="User" asp-action="Update" asp-route-id="@user.Id">Update</a>
+                                        <a asp-area="Admin" asp-controller="User" asp-action="Delete" asp-route-id="@user.Id" data-user-email="@user.Email">Delete</a>
+                                    }
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        $(document).ready(function () {
+            $("#dataUserTable").DataTable();
+        })
+    </script>
+}

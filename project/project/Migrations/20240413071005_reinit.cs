@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace project.Migrations
 {
     /// <inheritdoc />
-    public partial class ReformatModels : Migration
+    public partial class reinit : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -212,7 +212,8 @@ namespace project.Migrations
                 name: "Order",
                 columns: table => new
                 {
-                    Id = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
                     UserId = table.Column<string>(type: "nvarchar(450)", nullable: false),
                     OrderDate = table.Column<DateTime>(type: "datetime2", nullable: false),
                     TotalPrice = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
@@ -263,7 +264,8 @@ namespace project.Migrations
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    OrderId = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    OrderId = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    OrderId1 = table.Column<int>(type: "int", nullable: true),
                     DateOfPay = table.Column<DateTime>(type: "datetime2", nullable: false),
                     MethodPaymentId = table.Column<int>(type: "int", nullable: false)
                 },
@@ -277,11 +279,10 @@ namespace project.Migrations
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_Payment_Order_OrderId",
-                        column: x => x.OrderId,
+                        name: "FK_Payment_Order_OrderId1",
+                        column: x => x.OrderId1,
                         principalTable: "Order",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "Id");
                 });
 
             migrationBuilder.CreateTable(
@@ -319,7 +320,7 @@ namespace project.Migrations
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    OrderId = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    OrderId = table.Column<int>(type: "int", nullable: false),
                     ProductId = table.Column<int>(type: "int", nullable: false),
                     Quantity = table.Column<int>(type: "int", nullable: false),
                     Price = table.Column<decimal>(type: "decimal(18,2)", nullable: false)
@@ -436,9 +437,9 @@ namespace project.Migrations
                 column: "MethodPaymentId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Payment_OrderId",
+                name: "IX_Payment_OrderId1",
                 table: "Payment",
-                column: "OrderId");
+                column: "OrderId1");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Product_CategoryId",

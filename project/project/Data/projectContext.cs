@@ -20,6 +20,7 @@ namespace project.Data
         public virtual DbSet<CartItem> CartItem { get; set; }
         public virtual DbSet<MethodPayment> MethodPayment { get; set; }
         public virtual DbSet<Order> Order { get; set; }
+        public virtual DbSet<OrderItem> OrderItem { get; set; }
         public virtual DbSet<Payment> Payment { get; set; }
     }
 }

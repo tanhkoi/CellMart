@@ -19,7 +19,12 @@ namespace project.Repositories
                 await _context.Category.AddAsync(category);
 
             }
-            await _context.SaveChangesAsync();
+            else
+            {
+                f.IsDeleted = false;
+                _context.Category.Update(f);
+            }
+           await _context.SaveChangesAsync();
         }
         public async Task DeleteAsync(int id)
         {
@@ -32,7 +37,7 @@ namespace project.Repositories
         }
         public async Task<IEnumerable<Category>> GetAllAsync()
         {
-            return await _context.Category.ToListAsync();
+            return await _context.Category.Where(p=>p.IsDeleted==false).ToListAsync();
         }
         public async Task<Category> GetByIdAsync(int id)
         {

@@ -17,14 +17,19 @@ namespace project.Repositories
             var res = await _context.Product.FirstOrDefaultAsync(p => p.Name == product.Name);
             if (res != null)
             {
-                res.IsDeleted = false;
+                res.Price = product.Price;
+                res.CategoryId = product.CategoryId;
+                res.Description = product.Description;
+                res.IsDeleted = product.IsDeleted;
+                res.ImageUrl = product.ImageUrl;
                 _context.Product.Update(res);
+                await _context.SaveChangesAsync();
             }
             else
             {
                 _context.Product.Add(product);
+                await _context.SaveChangesAsync();
             }
-            await _context.SaveChangesAsync();
         }
 
         public async Task DeleteAsync(int id)
@@ -47,7 +52,7 @@ namespace project.Repositories
 
         public async Task<IEnumerable<Product>> GetAllAsync()
         {
-            return await _context.Product.Include(p => p.Category).ToListAsync();
+            return await _context.Product.Where(p=>p.IsDeleted==false&&p.Category.IsDeleted==false).ToListAsync();
         }
 
         public async Task<Product> GetByIdAsync(int id)

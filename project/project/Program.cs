@@ -1,10 +1,12 @@
 using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.UI.Services;
 using Microsoft.EntityFrameworkCore;
 using project.Data;
 using project.Helpers;
 using project.Models;
 using project.Repo;
 using project.Repositories;
+using project.Utilitys;
 var builder = WebApplication.CreateBuilder(args);
 var services = builder.Services;
 var configuration = builder.Configuration;
@@ -19,6 +21,8 @@ services.AddAuthentication().AddGoogle(googleOptions =>
 builder.Services.AddDbContext<projectContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 builder.Services.AddScoped<IProductRepository, EFProductRepository>();
 builder.Services.AddScoped<ICategoryRepository, EFCategoryRepository>();
+builder.Services.AddScoped<IPUserAdminRepository, EFUserAdminRepository>(); 
+builder.Services.AddScoped<IEmailSender, EmailSender>();
 
 // user identity
 builder.Services.AddIdentity<User, IdentityRole>()

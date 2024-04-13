@@ -398,3 +398,4 @@ FodyWeavers.xsd
 *.sln.iml
 *.sln
 /project/project/Migrations
+project/project/appsettings.json

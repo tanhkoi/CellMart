@@ -70,38 +70,38 @@ namespace project.Areas.Admin.Controllers
         [HttpGet]
         public async Task<IActionResult> Update(string id)
         {
-            
-                var user = await _userepo.GetByIdAsync(id);
-                if (user == null)
-                {
-                    return NotFound();
-                }
-                ViewBag.Roles = new SelectList(await _roleManager.Roles.ToListAsync(), "Name", "Name");
-                var currentUser = await _userManager.GetUserAsync(User);
-                var isAdmin = await _userManager.IsInRoleAsync(currentUser, SD.Role_Admin);
-                ViewBag.IsAdmin = isAdmin;
-                return View(user);
-            
+
+            var user = await _userepo.GetByIdAsync(id);
+            if (user == null)
+            {
+                return NotFound();
+            }
+            ViewBag.Roles = new SelectList(await _roleManager.Roles.ToListAsync(), "Name", "Name");
+            var currentUser = await _userManager.GetUserAsync(User);
+            var isAdmin = await _userManager.IsInRoleAsync(currentUser, SD.Role_Admin);
+            ViewBag.IsAdmin = isAdmin;
+            return View(user);
+
         }
 
         [HttpPost]
-        public async Task<IActionResult> Update( UserAdmin model, string SelectedRole)
+        public async Task<IActionResult> Update(UserAdmin model, string SelectedRole)
         {
-                
-                if (ModelState.IsValid)
-                {
-                    await _userepo.UpdateAsync(model.Id, model);
-                    var user = await _userManager.FindByEmailAsync(model.Email);
-                    var roles = await _userManager.GetRolesAsync(user);
-                
-                    await _userManager.RemoveFromRoleAsync(user, roles.First());
-                    await _userManager.AddToRoleAsync(user, SelectedRole);
-                     
-                    // Add TempData success message
-                    TempData["SuccessMessage"] = $"User '{model.Email}' updated successfully.";
-                    return RedirectToAction("Index");
-                 }
-                return View(model);
+
+            if (ModelState.IsValid)
+            {
+                await _userepo.UpdateAsync(model.Id, model);
+                var user = await _userManager.FindByEmailAsync(model.Email);
+                var roles = await _userManager.GetRolesAsync(user);
+
+                await _userManager.RemoveFromRoleAsync(user, roles.First());
+                await _userManager.AddToRoleAsync(user, SelectedRole);
+
+                // Add TempData success message
+                TempData["SuccessMessage"] = $"User '{model.Email}' updated successfully.";
+                return RedirectToAction("Index");
+            }
+            return View(model);
         }
         [HttpGet]
         public async Task<IActionResult> Delete(string id)
@@ -120,21 +120,21 @@ namespace project.Areas.Admin.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(string id)
         {
-          
-                var user = await _userepo.GetByIdAsync(id);
-                if (user == null)
-                {
-                    //_logger.LogWarning("Attempted to delete a user with ID {UserId} that does not exist.", id);
-                    return NotFound();
-                }
 
-                await _userepo.RemoveAsync(id); // Implement this method in your repository
-                //_logger.LogInformation("User with ID {UserId} was deleted successfully.", id);
+            var user = await _userepo.GetByIdAsync(id);
+            if (user == null)
+            {
+                //_logger.LogWarning("Attempted to delete a user with ID {UserId} that does not exist.", id);
+                return NotFound();
+            }
 
-                // Add a success message to TempData
-                TempData["SuccessMessage"] = $"User {user.FullName} was deleted successfully.";
+            await _userepo.RemoveAsync(id); // Implement this method in your repository
+                                            //_logger.LogInformation("User with ID {UserId} was deleted successfully.", id);
 
-                return RedirectToAction(nameof(Index));
+            // Add a success message to TempData
+            TempData["SuccessMessage"] = $"User {user.FullName} was deleted successfully.";
+
+            return RedirectToAction(nameof(Index));
         }
     }
 

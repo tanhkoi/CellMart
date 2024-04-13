@@ -8,13 +8,9 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Remove="Views\Home\assets\**" />
     <Compile Remove="wwwroot\images\NewFolder\**" />
-    <Content Remove="Views\Home\assets\**" />
     <Content Remove="wwwroot\images\NewFolder\**" />
-    <EmbeddedResource Remove="Views\Home\assets\**" />
     <EmbeddedResource Remove="wwwroot\images\NewFolder\**" />
-    <None Remove="Views\Home\assets\**" />
     <None Remove="wwwroot\images\NewFolder\**" />
   </ItemGroup>
 

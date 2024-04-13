@@ -11,11 +11,13 @@ namespace project.Repositories
     {
         private readonly UserManager<User> _userManager;
         private readonly projectContext _context;
+
         public EFUserAdminRepository(UserManager<User> users, projectContext c)
         {
             _userManager = users;
             _context = c;
         }
+
         public async Task AddSync(UserAdmin model)
         {
             var userEntity = new User(model);
@@ -32,6 +34,7 @@ namespace project.Repositories
             await _context.SaveChangesAsync();
 
         }
+
         public async Task<List<UserAdmin>> GetAllAsync()
         {
             var users = await _context.User.Where(user => user.IsDeleted == false).ToListAsync();
@@ -42,6 +45,7 @@ namespace project.Repositories
             }
             return kq;
         }
+
         public async Task<UserAdmin> GetByIdAsync(string id)
         {
             var userEntity = await _context.User.FindAsync(id);
@@ -54,6 +58,7 @@ namespace project.Repositories
             };
             return kq;
         }
+
         public async Task RemoveAsync(string id)
         {
             var user = await _context.User.FindAsync(id);
@@ -64,6 +69,7 @@ namespace project.Repositories
                await  _context.SaveChangesAsync();
             }
         }
+
         public async Task UpdateAsync(string id,UserAdmin model)
         {
             var userEntity = await _context.User.FindAsync(id);

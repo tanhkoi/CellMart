@@ -14,7 +14,7 @@ namespace project.Repositories
         }
         public async Task AddAsync(Product product)
         {
-            var res =await _context.Product.FirstOrDefaultAsync(p=>p.Name == product.Name);
+            var res = await _context.Product.FirstOrDefaultAsync(p => p.Name == product.Name);
             if (res != null)
             {
                 res.Price = product.Price;

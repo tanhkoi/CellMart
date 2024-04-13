@@ -69,7 +69,7 @@
 
                     <div class="section-nav">
                         <ul class="section-tab-nav tab-nav">
-                            @foreach (var item in ViewBag.Category)
+                            @foreach (var item in ViewBag.Categories)
                             {
                                 <li class=""><a data-toggle="tab" href="#tab1">@item.Name</a></li>
                             }
@@ -104,8 +104,8 @@
                                             </div>
                                             <div class="product-body">
                                                 <p class="product-category">@item.CategoryName</p>
-                                                <h3 class="product-name"><a href="#">@item.Name</a></h3>
-                                                <h4 class="product-price">@item.Price.ToString("N0") VND<del class="product-old-price">@($"{(item.Price + (item.Price * 30) / 100).ToString("N0")} VND")</del></h4>
+                                                <h3 class="product-name"><a asp-action="Product" asp-route-id="@item.Id">@item.Name</a></h3>
+                                                <h4 class="product-price">@item.Price.ToString("#,##0") VND<del class="product-old-price">@($"{(item.Price + (item.Price * 30) / 100).ToString("#,##0")} VND")</del></h4>
                                                 <div class="product-rating">
                                                     <i class="fa fa-star"></i>
                                                     <i class="fa fa-star"></i>
@@ -199,7 +199,7 @@
                     <h3 class="title">Top selling</h3>
                     <div class="section-nav">
                         <ul class="section-tab-nav tab-nav">
-                            @foreach (var item in ViewBag.Category)
+                            @foreach (var item in ViewBag.Categories)
                             {
                                 <li class=""><a data-toggle="tab" href="#tab1">@item.Name</a></li>
                             }
@@ -327,38 +327,3 @@
     <!-- /container -->
 </div>
 <!-- /SECTION -->
-<!-- NEWSLETTER -->
-<div id="newsletter" class="section">
-    <!-- container -->
-    <div class="container">
-        <!-- row -->
-        <div class="row">
-            <div class="col-md-12">
-                <div class="newsletter">
-                    <p>Sign Up for the <strong>NEWSLETTER</strong></p>
-                    <form>
-                        <input class="input" type="email" placeholder="Enter Your Email">
-                        <button class="newsletter-btn"><i class="fa fa-envelope"></i> Subscribe</button>
-                    </form>
-                    <ul class="newsletter-follow">
-                        <li>
-                            <a href="#"><i class="fa fa-facebook"></i></a>
-                        </li>
-                        <li>
-                            <a href="#"><i class="fa fa-twitter"></i></a>
-                        </li>
-                        <li>
-                            <a href="#"><i class="fa fa-instagram"></i></a>
-                        </li>
-                        <li>
-                            <a href="#"><i class="fa fa-pinterest"></i></a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-        <!-- /row -->
-    </div>
-    <!-- /container -->
-</div>
-<!-- /NEWSLETTER -->

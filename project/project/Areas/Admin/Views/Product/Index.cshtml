@@ -1,9 +1,8 @@
-﻿
-@model project.ViewModels.ProductCateList
+﻿@model project.ViewModels.ProductCateList
 
 
 @{
-	ViewData["Title"] = "Index";
+    ViewData["Title"] = "Index";
     Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
 }
 <a class="btn btn-primary" asp-action="Add">Tạo mới</a>
@@ -13,14 +12,14 @@
 
 <form asp-action="Index" method="post">
 
-	@foreach(var cate in Model.Categories)
-	{
-		<div>
-			<input type="checkbox" name="selectedCategories" value="@cate.Id" />
-			<label asp-for="@cate.Name">@cate.Name</label>
-		</div>
-	}
-	<button type="submit">Loc</button>
+    @foreach (var cate in Model.Categories)
+    {
+        <div>
+            <input type="checkbox" name="selectedCategories" value="@cate.Id" />
+            <label asp-for="@cate.Name">@cate.Name</label>
+        </div>
+    }
+    <button type="submit">Loc</button>
 </form>
 
 

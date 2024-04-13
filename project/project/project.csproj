@@ -33,13 +33,28 @@
     <PackageReference Include="System.Linq" Version="4.3.0" />
     <PackageReference Include="System.Threading.Tasks" Version="4.3.0" />
     <PackageReference Include="System.Threading.Tasks.Extensions" Version="4.5.4" />
+    <PackageReference Include="X.PagedList" Version="9.1.2" />
+    <PackageReference Include="X.PagedList.Mvc.Core" Version="9.1.2" />
+    <PackageReference Include="X.PagedList.Web.Common" Version="8.0.7" />
   </ItemGroup>
 
   <ItemGroup>
     <Folder Include="Areas\Admin\Data\" />
+    <Folder Include="Areas\Admin\Models\" />
+    <Folder Include="wwwroot\assets\client\" />
     <Folder Include="wwwroot\images\Apple\" />
     <Folder Include="wwwroot\images\Samsung\" />
     <Folder Include="wwwroot\images\OPPO\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="wwwroot\assets\admin\assets\demo\chart-area-demo.js" />
+    <None Include="wwwroot\assets\admin\assets\demo\chart-bar-demo.js" />
+    <None Include="wwwroot\assets\admin\assets\demo\chart-pie-demo.js" />
+    <None Include="wwwroot\assets\admin\assets\demo\datatables-demo.js" />
+    <None Include="wwwroot\assets\admin\assets\img\error-404-monochrome.svg" />
+    <None Include="wwwroot\assets\admin\js\datatables-simple-demo.js" />
+    <None Include="wwwroot\assets\admin\js\scripts.js" />
   </ItemGroup>
 
 </Project>

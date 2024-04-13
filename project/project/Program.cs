@@ -1,8 +1,8 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.UI.Services;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.DependencyInjection;
 using project.Data;
+using project.Helpers;
 using project.Models;
 using project.Repo;
 using project.Repositories;
@@ -16,11 +16,13 @@ services.AddAuthentication().AddGoogle(googleOptions =>
     googleOptions.ClientId = configuration["Authentication:Google:ClientId"];
     googleOptions.ClientSecret = configuration["Authentication:Google:ClientSecret"];
 });
+
 // data access
 builder.Services.AddDbContext<projectContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 builder.Services.AddScoped<IProductRepository, EFProductRepository>();
 builder.Services.AddScoped<ICategoryRepository, EFCategoryRepository>();
 builder.Services.AddScoped<IPUserAdminRepository, EFUserAdminRepository>(); 
+builder.Services.AddScoped<IEmailSender, EmailSender>();
 
 // user identity
 builder.Services.AddIdentity<User, IdentityRole>()
@@ -28,8 +30,8 @@ builder.Services.AddIdentity<User, IdentityRole>()
     .AddDefaultUI()
     .AddEntityFrameworkStores<projectContext>();
 builder.Services.AddRazorPages();
-// Add services to the container.
-builder.Services.AddControllersWithViews();
+
+// Đặt trước AddControllersWithViews();
 builder.Services.AddDistributedMemoryCache();
 builder.Services.AddSession(options =>
 {
@@ -37,7 +39,7 @@ builder.Services.AddSession(options =>
     options.Cookie.HttpOnly = true;
     options.Cookie.IsEssential = true;
 });
-builder.Services.AddScoped < IEmailSender, EmailSender>();
+builder.Services.AddControllersWithViews();
 
 var app = builder.Build();
 // Configure the HTTP request pipeline.

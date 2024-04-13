@@ -35,6 +35,7 @@ namespace project.Areas.Identity.Pages.Account
             IEmailSender emailSender,RoleManager<IdentityRole>role)
         {
             _userManager = userManager;
+            _userManager = userManager;
             _signInManager = signInManager;
             _logger = logger;
             _emailSender = emailSender;

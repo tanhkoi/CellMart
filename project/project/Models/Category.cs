@@ -7,9 +7,7 @@ namespace project.Models
         public int Id { get; set; }
         [Required, StringLength(50)]
         public string Name { get; set; }
-
         public List<Product>? Products { get; set; }
         public bool IsDeleted { get; set; }
-        //public bool IsSelected { get; set; }
     }
 }

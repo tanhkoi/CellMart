@@ -27,5 +27,9 @@ namespace project.Repositories
         {
             Items.Clear();
         }
+        public void SaveChange()
+        {
+
+        }
     }
 }

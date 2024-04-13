@@ -3,6 +3,7 @@
 @model IEnumerable<project.ViewModels.ProductVM>
 @{
     ViewData["Title"] = "Home Page";
+    int numOfQuantity = 1;
 }
 <!-- SECTION -->
 <div class="section">
@@ -120,7 +121,9 @@
                                                 </div>
                                             </div>
                                             <div class="add-to-cart">
-                                                <button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> add to cart</button>
+                                                <a asp-controller="ShoppingCart" asp-action="AddToCart" asp-route-productId="@item.Id" asp-route-quantity="numOfQuantity">
+                                                    <button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> add to cart</button>
+                                                </a>
                                             </div>
                                         </div>
                                         count1++;

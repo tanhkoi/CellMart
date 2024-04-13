@@ -1,7 +1,8 @@
 ﻿<h2>Your Cart</h2>
 <table>
     <tr>
-        <th>Product</th>
+        <th>Product Id</th>
+        <th>Product Name</th>
         <th>Quantity</th>
         <th>Price</th>
         <th>Total</th>
@@ -9,6 +10,7 @@
     @foreach (var item in Model.Items)
     {
         <tr>
+            <td>@item.ProductId</td>
             <td>@item.Name</td>
             <td>@item.Quantity</td>
             <td>@item.Price</td>
@@ -20,5 +22,4 @@
     }
     <a class="btn btn-primary" asp-action="Checkout" asp-controller="ShoppingCart">Checkout</a>
     <a class="btn btn-primary" asp-action="Index" asp-controller="Product">Back to List</a>
-
 </table>

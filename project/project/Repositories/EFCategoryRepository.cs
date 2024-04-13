@@ -19,7 +19,7 @@ namespace project.Repositories
                 await _context.Category.AddAsync(category);
 
             }
-           await _context.SaveChangesAsync();
+            await _context.SaveChangesAsync();
         }
         public async Task DeleteAsync(int id)
         {

@@ -11,7 +11,6 @@ namespace project.Data
             : base(options)
         {
         }
-
         public virtual DbSet<Product> Product { get; set; }
         public virtual DbSet<ProductImage> ProductImage { get; set; }
         public virtual DbSet<User> User { get; set; }

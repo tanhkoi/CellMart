@@ -10,7 +10,7 @@
             <li>
                 <a asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage">Hello @UserManager.GetUserName(User)!</a>
             </li>
-            @if (User.IsInRole("Admin")||User.IsInRole("Employee"))
+            @if (User.IsInRole("Admin") || User.IsInRole("Employee"))
             {
                 <li>
                     <a asp-area="Admin" asp-controller="Admin" asp-action="Index" title="Manage">Admin Dashboard</a>

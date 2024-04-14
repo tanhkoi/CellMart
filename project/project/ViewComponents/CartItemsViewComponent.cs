@@ -23,9 +23,16 @@ namespace project.ViewComponents
         {
             // Fetch the user's cart from the database 
             var user = await _userManager.GetUserAsync((System.Security.Claims.ClaimsPrincipal)User);
-            var cartDB = await _context.Cart.Include(c => c.cartItems).SingleOrDefaultAsync(c => c.UserId == user.Id);
-
-            return View(cartDB.cartItems);
+            if (user != null)
+            {
+                var cartDB = await _context.Cart.Include(c => c.cartItems).SingleOrDefaultAsync(c => c.UserId == user.Id);
+                return View(cartDB.cartItems);
+            }
+            else
+            {
+                Cart cartDB = new Cart();
+                return View(cartDB.cartItems);
+            }
         }
     }
 }

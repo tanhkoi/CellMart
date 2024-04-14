@@ -19,16 +19,13 @@ namespace project.Areas.Admin.Models
         [Display(Name = "Email")]
         public string Email { get; set; }
 
-
         [Required(ErrorMessage = "Phone Number is required.")]
         [RegularExpression("^[0-9]{10}$", ErrorMessage = "Phone Number must be exactly 10 digits.")]
         [Display(Name = "Phone Number")]
         public string PhoneNumber { get; set; }
 
-
         [Required(ErrorMessage = "Address is required.")]
         [Display(Name = "Address")]
         public string Address { get; set; }
-        
     }
 }

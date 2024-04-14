@@ -1,11 +1,5 @@
 ﻿@model IEnumerable<project.Areas.Admin.Models.UserAdmin>
 
-@{
-    ViewData["Title"] = "Dashboard";
-    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
-}
-
-
 <div class="container-fluid">
     @if (TempData["SuccessMessage"] != null)
     {
@@ -16,68 +10,68 @@
             </button>
         </div>
     }
-
-    <!-- DataTales Example -->
-    <div class="card shadow mb-4">
-        <div class="card-header py-3 d-flex justify-content-center align-items-center">
-            <h6 class="m-0 font-weight-bold text-primary mr-auto">Danh sách người dùng</h6>
+    <div class="card mb-4">
+        <div class="card-header">
+            <i class="fas fa-table me-1"></i>
+            Users Manager
         </div>
         <div class="card-body">
-            <div class="table-responsive">
-                <table class="table table-bordered" id="dataUserTable" width="100%" cellspacing="0">
-                    <thead>
-                        <tr>
-                            <th>Id</th>
-                            <th>Full Name</th>
-                            <th>Email</th>
-                            <th>Phone Number</th>
-                            <th>Address</th>
+            <table id="datatablesSimple">
+                <thead>
+                    <tr>
+                    <tr>
+                        <th>Id</th>
+                        <th>Họ Tên</th>
+                        <th>Email</th>
+                        <th>Số điện thoại</th>
+                        <th>Địa chỉ</th>
                             @if (ViewBag.IsAdmin)
                             {
-                                <th>Roles</th>
+                            <th>Roles</th>
                             }
-                            <th></th>
-                        </tr>
-                    </thead>
-
-                    <tbody>
-                        @foreach (var user in Model)
-                        {
-                            <tr>
-                                <td>@user.Id</td>
-                                <td>@(user.FullName)</td>
-                                <td>@user.Email</td>
-                                <td>@user.PhoneNumber</td>
-                                <td>@user.Address</td>
-                                @if (ViewBag.IsAdmin)
-                                {
-                                    <td>
-                                        @{
-                                            var userRole = ViewBag.UserRoles[user.Id];
-                                        }
-                                        @string.Join(", ", userRole)
-                                    </td>
-                                }
+                        <th class="no-sort"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var user in Model)
+                    {
+                        <tr>
+                            <td>@user.Id</td>
+                            <td>@(user.FullName)</td>
+                            <td>@user.Email</td>
+                            <td>@user.PhoneNumber</td>
+                            <td>@user.Address</td>
+                            @if (ViewBag.IsAdmin)
+                            {
                                 <td>
-                                    @if (ViewBag.IsAdmin)
-                                    {
-                                        <a asp-area="Admin" asp-controller="User" asp-action="Update" asp-route-id="@user.Id">Update</a>
-                                        <a asp-area="Admin" asp-controller="User" asp-action="Delete" asp-route-id="@user.Id" data-user-email="@user.Email">Delete</a>
+                                    @{
+                                        var userRole = ViewBag.UserRoles[user.Id];
                                     }
+                                    @string.Join(", ", userRole)
                                 </td>
-                            </tr>
-                        }
-                    </tbody>
-                </table>
-            </div>
+                            }
+                            <td>
+                                <a class="btn btn-primary" asp-area="Admin" asp-controller="User" asp-action="Update" asp-route-id="@user.Id">Update</a>
+                                <a class="btn btn-primary" asp-area="Admin" asp-controller="User" asp-action="Delete" asp-route-id="@user.Id" data-user-email="@user.Email">Delete</a>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
         </div>
     </div>
 </div>
 
-@section Scripts {
-    <script>
-        $(document).ready(function () {
-            $("#dataUserTable").DataTable();
-        })
-    </script>
+@functions {
+    public string TruncateString(string input, int maxLength)
+    {
+        if (input.Length <= maxLength)
+        {
+            return input;
+        }
+        else
+        {
+            return input.Substring(0, maxLength - 3) + "...";
+        }
+    }
 }

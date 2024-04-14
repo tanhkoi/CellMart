@@ -8,13 +8,9 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Remove="Views\Home\assets\**" />
     <Compile Remove="wwwroot\images\NewFolder\**" />
-    <Content Remove="Views\Home\assets\**" />
     <Content Remove="wwwroot\images\NewFolder\**" />
-    <EmbeddedResource Remove="Views\Home\assets\**" />
     <EmbeddedResource Remove="wwwroot\images\NewFolder\**" />
-    <None Remove="Views\Home\assets\**" />
     <None Remove="wwwroot\images\NewFolder\**" />
   </ItemGroup>
 
@@ -48,6 +44,13 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Include="wwwroot\admin\assets\demo\chart-area-demo.js" />
+    <None Include="wwwroot\admin\assets\demo\chart-bar-demo.js" />
+    <None Include="wwwroot\admin\assets\demo\chart-pie-demo.js" />
+    <None Include="wwwroot\admin\assets\demo\datatables-demo.js" />
+    <None Include="wwwroot\admin\assets\img\error-404-monochrome.svg" />
+    <None Include="wwwroot\admin\js\datatables-simple-demo.js" />
+    <None Include="wwwroot\admin\js\scripts.js" />
     <None Include="wwwroot\assets\admin\assets\demo\chart-area-demo.js" />
     <None Include="wwwroot\assets\admin\assets\demo\chart-bar-demo.js" />
     <None Include="wwwroot\assets\admin\assets\demo\chart-pie-demo.js" />

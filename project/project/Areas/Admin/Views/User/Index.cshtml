@@ -10,11 +10,11 @@
             </button>
         </div>
     }
-    <a class="btn btn-primary" asp-action="Add">Create new</a>
     <div class="card mb-4">
         <div class="card-header">
             <i class="fas fa-table me-1"></i>
             Users Manager
+            <a class="btn btn-primary" asp-action="Add">Create new</a>
         </div>
         <div class="card-body">
             <table id="datatablesSimple">
@@ -46,8 +46,8 @@
                                 @string.Join(", ", userRole)
                             </td>
                             <td>
-                                <a asp-area="Admin" asp-controller="User" asp-action="Update" asp-route-id="@user.Id">Update</a>
-                                <a asp-area="Admin" asp-controller="User" asp-action="Delete" asp-route-id="@user.Id" data-user-email="@user.Email">Delete</a>
+                                <a class="btn btn-primary" asp-area="Admin" asp-controller="User" asp-action="Update" asp-route-id="@user.Id">Update</a>
+                                <a class="btn btn-primary" asp-area="Admin" asp-controller="User" asp-action="Delete" asp-route-id="@user.Id" data-user-email="@user.Email">Delete</a>
                             </td>
                         </tr>
                     }

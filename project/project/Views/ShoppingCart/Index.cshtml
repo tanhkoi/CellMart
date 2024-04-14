@@ -21,7 +21,7 @@
                 <td>@item.Quantity</td>
                 <td>@item.Price</td>
                 <td>@(item.Price * item.Quantity)</td>
-                <td class="d-inline-block">
+                <td>
                     <a class="btn btn-primary" asp-action="RemoveFromCart" asp-route-productId="@item.ProductId" asp-route-userName="@User.Identity.Name">Remove</a>
                 </td>
             </tr>

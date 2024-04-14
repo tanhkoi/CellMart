@@ -1,0 +1,32 @@
+﻿@model IEnumerable<project.ViewModels.ProductVM>
+
+@for (int i = 0; i < 2; i++)
+{
+    <div>
+        @{
+            int count = 0;
+            var startIndex = i * 3;
+            var endIndex = (i + 1) * 3;
+            var products = Model.Skip(startIndex).Take(3);
+        }
+        <!-- product widget -->
+        @foreach (var item in products)
+        {
+            if (count < 3)
+            { 
+                <div class="product-widget">
+                    <div class="product-img">
+                        <img src="@item.imgUrl" alt="...">
+                    </div>
+                    <div class="product-body">
+                        <p class="product-category">@item.CategoryName</p>
+                        <h3 class="product-name"><a href="#">@item.Name</a></h3>
+                        <h4 class="product-price">@item.Price.ToString("#,##0") VND<del class="product-old-price">@($"{(item.Price + (item.Price * 30) / 100).ToString("#,##0")} VND")</del></h4>
+                    </div>
+                </div>
+                count++;
+            }
+        }
+        <!-- /product widget -->
+    </div>
+}

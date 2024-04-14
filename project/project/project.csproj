@@ -1,25 +1,63 @@
-<Project Sdk="Microsoft.NET.Sdk.Web">
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
     <TargetFramework>net8.0</TargetFramework>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
+    <UserSecretsId>ccb2dbd3-7ca7-490e-b19d-31ef576e7288</UserSecretsId>
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Remove="Views\Home\assets\**" />
-    <Content Remove="Views\Home\assets\**" />
-    <EmbeddedResource Remove="Views\Home\assets\**" />
-    <None Remove="Views\Home\assets\**" />
+    <Compile Remove="wwwroot\images\NewFolder\**" />
+    <Content Remove="wwwroot\images\NewFolder\**" />
+    <EmbeddedResource Remove="wwwroot\images\NewFolder\**" />
+    <None Remove="wwwroot\images\NewFolder\**" />
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.Google" Version="8.0.3" />
+    <PackageReference Include="Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore" Version="8.0.4" />
+    <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="8.0.3" />
+    <PackageReference Include="Microsoft.AspNetCore.Identity.UI" Version="8.0.3" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="8.0.3" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="8.0.3" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="8.0.3">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="8.0.2" />
+    <PackageReference Include="System.Linq" Version="4.3.0" />
+    <PackageReference Include="System.Threading.Tasks" Version="4.3.0" />
+    <PackageReference Include="System.Threading.Tasks.Extensions" Version="4.5.4" />
+    <PackageReference Include="X.PagedList" Version="9.1.2" />
+    <PackageReference Include="X.PagedList.Mvc.Core" Version="9.1.2" />
+    <PackageReference Include="X.PagedList.Web.Common" Version="8.0.7" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Areas\Admin\Data\" />
+    <Folder Include="Areas\Admin\Models\" />
+    <Folder Include="wwwroot\assets\client\" />
+    <Folder Include="wwwroot\images\Apple\" />
+    <Folder Include="wwwroot\images\Samsung\" />
+    <Folder Include="wwwroot\images\OPPO\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="wwwroot\admin\assets\demo\chart-area-demo.js" />
+    <None Include="wwwroot\admin\assets\demo\chart-bar-demo.js" />
+    <None Include="wwwroot\admin\assets\demo\chart-pie-demo.js" />
+    <None Include="wwwroot\admin\assets\demo\datatables-demo.js" />
+    <None Include="wwwroot\admin\assets\img\error-404-monochrome.svg" />
+    <None Include="wwwroot\admin\js\datatables-simple-demo.js" />
+    <None Include="wwwroot\admin\js\scripts.js" />
+    <None Include="wwwroot\assets\admin\assets\demo\chart-area-demo.js" />
+    <None Include="wwwroot\assets\admin\assets\demo\chart-bar-demo.js" />
+    <None Include="wwwroot\assets\admin\assets\demo\chart-pie-demo.js" />
+    <None Include="wwwroot\assets\admin\assets\demo\datatables-demo.js" />
+    <None Include="wwwroot\assets\admin\assets\img\error-404-monochrome.svg" />
+    <None Include="wwwroot\assets\admin\js\datatables-simple-demo.js" />
+    <None Include="wwwroot\assets\admin\js\scripts.js" />
   </ItemGroup>
 
 </Project>

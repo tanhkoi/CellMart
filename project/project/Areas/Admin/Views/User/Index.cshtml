@@ -1,0 +1,77 @@
+﻿@model IEnumerable<project.Areas.Admin.Models.UserAdmin>
+
+<div class="container-fluid">
+    @if (TempData["SuccessMessage"] != null)
+    {
+        <div class="alert alert-info alert-dismissible fade show" role="alert">
+            @Html.Raw(TempData["SuccessMessage"].ToString())
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+    }
+    <div class="card mb-4">
+        <div class="card-header">
+            <i class="fas fa-table me-1"></i>
+            Users Manager
+        </div>
+        <div class="card-body">
+            <table id="datatablesSimple">
+                <thead>
+                    <tr>
+                    <tr>
+                        <th>Id</th>
+                        <th>Họ Tên</th>
+                        <th>Email</th>
+                        <th>Số điện thoại</th>
+                        <th>Địa chỉ</th>
+                            @if (ViewBag.IsAdmin)
+                            {
+                            <th>Roles</th>
+                            }
+                        <th class="no-sort"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var user in Model)
+                    {
+                        <tr>
+                            <td>@user.Id</td>
+                            <td>@(user.FullName)</td>
+                            <td>@user.Email</td>
+                            <td>@user.PhoneNumber</td>
+                            <td>@user.Address</td>
+                            @if (ViewBag.IsAdmin)
+                            {
+                                <td>
+                                    @{
+                                        var userRole = ViewBag.UserRoles[user.Id];
+                                    }
+                                    @string.Join(", ", userRole)
+                                </td>
+                            }
+                            <td>
+                                <a class="btn btn-primary" asp-area="Admin" asp-controller="User" asp-action="Update" asp-route-id="@user.Id">Update</a>
+                                <a class="btn btn-primary" asp-area="Admin" asp-controller="User" asp-action="Delete" asp-route-id="@user.Id" data-user-email="@user.Email">Delete</a>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+@functions {
+    public string TruncateString(string input, int maxLength)
+    {
+        if (input.Length <= maxLength)
+        {
+            return input;
+        }
+        else
+        {
+            return input.Substring(0, maxLength - 3) + "...";
+        }
+    }
+}

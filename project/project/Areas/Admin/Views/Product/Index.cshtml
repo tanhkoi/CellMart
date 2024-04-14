@@ -1,0 +1,56 @@
+﻿@model project.ViewModels.ProductCateList
+
+<div class="card mb-4">
+    <div class="card-header">
+        <i class="fas fa-table me-1"></i>
+        Products Manager
+        <a class="btn btn-primary" asp-action="Add">Create new</a>
+    </div>
+    <div class="card-body">
+        <table id="datatablesSimple">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Description</th>
+                    <th>Price</th>
+                    <th>Picute</th>
+                    <th>CategoryName</th>
+                    <th class="no-sort"></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model.Products)
+                {
+                    <tr>
+                        <td>@item.Name</td>
+                        <td>@TruncateString(@item.Description, 50)</td>
+                        <td>@item.Price</td>
+                        <td><img src="@(item.imgUrl)" loading="lazy" width="150" height="150" /></td>
+                        <td>@item.CategoryName</td>
+                        <td>
+                            <a class="btn btn-primary" asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                            @if (ViewBag.IsAdmin)
+                    {
+                            <a class="btn btn-primary" asp-action="Update" asp-route-id="@item.Id">Update</a>
+                    }
+
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+@functions {
+    public string TruncateString(string input, int maxLength)
+    {
+        if (input.Length <= maxLength)
+        {
+            return input;
+        }
+        else
+        {
+            return input.Substring(0, maxLength - 3) + "...";
+        }
+    }
+}

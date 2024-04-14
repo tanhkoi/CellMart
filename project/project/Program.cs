@@ -4,6 +4,7 @@ using Microsoft.EntityFrameworkCore;
 using project.Data;
 using project.Helpers;
 using project.Models;
+using project.Models.Services;
 using project.Repo;
 using project.Repositories;
 using project.Utilitys;
@@ -17,13 +18,15 @@ services.AddAuthentication().AddGoogle(googleOptions =>
     googleOptions.ClientSecret = configuration["Authentication:Google:ClientSecret"];
 });
 
+
 // data access
 builder.Services.AddDbContext<projectContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 builder.Services.AddScoped<IProductRepository, EFProductRepository>();
 builder.Services.AddScoped<ICategoryRepository, EFCategoryRepository>();
 builder.Services.AddScoped<IPUserAdminRepository, EFUserAdminRepository>(); 
 builder.Services.AddScoped<IEmailSender, EmailSender>();
-
+//vnpay
+builder.Services.AddSingleton<IVnPayService, VnPayService>();
 // user identity
 builder.Services.AddIdentity<User, IdentityRole>()
     .AddDefaultTokenProviders()

@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using project.Data;
 using project.Models;
+using project.Repositories;
 
 namespace project.Controllers
 {
@@ -12,11 +13,13 @@ namespace project.Controllers
     {
         private readonly projectContext _context;
         private readonly UserManager<User> _userManager;
+        private readonly IVnPayService _vnPayService;
 
-        public ShoppingCartController(projectContext context, UserManager<User> userManager)
+        public ShoppingCartController(projectContext context, UserManager<User> userManager,IVnPayService vnPayService)
         {
             _context = context;
             _userManager = userManager;
+            _vnPayService = vnPayService;
         }
 
         public async Task<IActionResult> Index()
@@ -98,17 +101,10 @@ namespace project.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Checkout(Order order)
+        public async Task<IActionResult> Checkout(Order order,String payment= "Thanh Toán VNPay")
         {
-            // Fetch the user's cart from the database
             var user = await _userManager.GetUserAsync(User);
             var cart = await _context.Cart.Include(c => c.cartItems).SingleOrDefaultAsync(c => c.UserId == user.Id);
-
-            if (cart == null || !cart.cartItems.Any())
-            {
-                return RedirectToAction("Index");
-            }
-
             order.UserId = user.Id;
             order.OrderDate = DateTime.UtcNow;
             order.Status = "Pending";
@@ -122,6 +118,27 @@ namespace project.Controllers
 
             _context.Order.Add(order);
             await _context.SaveChangesAsync();
+            if (payment == "Thanh Toán VNPay")
+            {
+                var vnPayModel = new VnPayRequestModel
+                {
+                    Amount = (double)(order.TotalPrice = cart.cartItems.Sum(i => i.Price * i.Quantity)),
+                    CreatedDate = DateTime.Now,
+                    Description = "Thanh toan don hang",
+                    OrderId = order.Id
+                };
+                return Redirect(_vnPayService.CreatePaymentUrl(HttpContext, vnPayModel));
+            }
+            // Fetch the user's cart from the database
+
+
+
+            if (cart == null || !cart.cartItems.Any())
+            {
+                return RedirectToAction("Index");
+            }
+
+            
 
             foreach (var item in order.orderItems)
             {
@@ -129,6 +146,18 @@ namespace project.Controllers
             }
 
             return View("OrderCompleted", order.Id);
+        }
+
+        public IActionResult PaymentCallBack()
+        {
+            var response = _vnPayService.PaymentExcute(Request.Query);
+            if(response==null || response.VnPayResponseCode != "00")
+            {
+                TempData["Message"] = "Lỗi thanh toán Vnpay";
+                return RedirectToAction("Index");
+            }
+            TempData["Message"] = "Thanh toán Vnpay thành công";
+            return RedirectToAction("Index");
         }
     }
 }

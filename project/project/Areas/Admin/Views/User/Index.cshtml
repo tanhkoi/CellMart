@@ -26,9 +26,9 @@
                         <th>Email</th>
                         <th>Số điện thoại</th>
                         <th>Địa chỉ</th>
-                        @if (ViewBag.IsAdmin)
+                            @if (ViewBag.IsAdmin)
                             {
-                                <th>Roles</th>
+                            <th>Roles</th>
                             }
                         <th class="no-sort"></th>
                     </tr>
@@ -42,18 +42,15 @@
                             <td>@user.Email</td>
                             <td>@user.PhoneNumber</td>
                             <td>@user.Address</td>
-                            <td>
-                                @if (ViewBag.IsAdmin)
-                                {
-                                    <td>
-                                        @{
-                                            var userRole = ViewBag.UserRoles[user.Id];
-                                        }
-                                        @string.Join(", ", userRole)
-                                    </td>
-                                }
-                                @string.Join(", ", userRole)
-                            </td>
+                            @if (ViewBag.IsAdmin)
+                            {
+                                <td>
+                                    @{
+                                        var userRole = ViewBag.UserRoles[user.Id];
+                                    }
+                                    @string.Join(", ", userRole)
+                                </td>
+                            }
                             <td>
                                 <a class="btn btn-primary" asp-area="Admin" asp-controller="User" asp-action="Update" asp-route-id="@user.Id">Update</a>
                                 <a class="btn btn-primary" asp-area="Admin" asp-controller="User" asp-action="Delete" asp-route-id="@user.Id" data-user-email="@user.Email">Delete</a>

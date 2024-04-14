@@ -140,7 +140,7 @@ namespace project.Controllers
                     Description = "Thanh toan don hang",
                     OrderId = order.Id
                 };
-                return View("OrderCompleted", order.Id);
+                return Redirect(_vnPayService.CreatePaymentUrl(HttpContext, vnPayModel));
             }
 
             return View("OrderCompleted", order.Id);

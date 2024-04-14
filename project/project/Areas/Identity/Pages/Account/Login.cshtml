@@ -31,18 +31,19 @@
                 <input asp-for="Input.Password" type="password" placeholder="Password" class="form-control" />
                 <span asp-validation-for="Input.Password" class="text-danger"></span>
             </div>
-            <a id="forgot-password" asp-page="./ForgotPassword" class="forgot-password">Forgot your password?</a>
-            <button type="submit" class="btn">Sign In</button>
             @if (Model.ErrorMessage != null)
             {
                 @if (Model.ErrorMessage.Length > 0)
                 {
                     <div alss='alert alert-warning alert-dismissible fade show' role='alert'>
                         <strong>@Model.ErrorMessage</strong>
-                        <button aria-label='delete item' onClick="this.parentElement.style.display = 'none'" type='button'>X</button>
+                        <span aria-label='delete item' class='delete-button' onClick="this.parentElement.style.display = 'none'"></span>
+
                     </div>
                 }
             }
+            <a id="forgot-password" asp-page="./ForgotPassword" class="forgot-password">Forgot your password?</a>
+            <button type="submit" class="btn">Sign In</button>         
         </form>
     </div>
 

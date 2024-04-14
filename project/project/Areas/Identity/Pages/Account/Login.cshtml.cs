@@ -109,7 +109,7 @@ namespace project.Areas.Identity.Pages.Account
                 }
                 else
                 {
-                    ErrorMessage = "Mật khẩu hoặc mật khẩu không tồn tại";
+                    ErrorMessage = "Account or password isvalid";
                     ModelState.AddModelError(string.Empty, ErrorMessage);
                     return Page();
  

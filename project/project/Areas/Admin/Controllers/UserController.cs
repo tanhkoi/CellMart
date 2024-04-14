@@ -93,9 +93,11 @@ namespace project.Areas.Admin.Controllers
                 await _userepo.UpdateAsync(model.Id, model);
                 var user = await _userManager.FindByEmailAsync(model.Email);
                 var roles = await _userManager.GetRolesAsync(user);
-
-                await _userManager.RemoveFromRoleAsync(user, roles.First());
-                await _userManager.AddToRoleAsync(user, SelectedRole);
+                if (roles.Any())
+                {
+                    await _userManager.RemoveFromRoleAsync(user, roles.First());
+                }
+                await _userManager.AddToRoleAsync(user, SelectedRole); 
 
                 // Add TempData success message
                 TempData["SuccessMessage"] = $"User '{model.Email}' updated successfully.";

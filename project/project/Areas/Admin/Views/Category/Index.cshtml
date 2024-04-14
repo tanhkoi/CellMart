@@ -21,7 +21,12 @@
                     <tr>
                         <td>@item.Name</td>
                         <td>
-                            <a class="btn btn-primary" asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                            @if (ViewBag.IsAdmin)
+                    {
+                        <a class="btn btn-primary" asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+
+                    }
+                            
                         </td>
                     </tr>
                 }

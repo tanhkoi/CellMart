@@ -1,23 +1,29 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.IdentityModel.Tokens;
 using project.Models;
 using project.Repo;
 using project.Repositories;
+using project.Utilitys;
 using project.ViewModels;
 using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace project.Areas.Admin.Controllers
 {
+    [Authorize(Roles = SD.Role_Admin + "," + SD.Role_Employee)]
     [Area("Admin")]
     public class ProductController : Controller
     {
         private readonly ICategoryRepository _categoryRepository;
         private readonly IProductRepository _productRepository;
-        public ProductController(IProductRepository p, ICategoryRepository c)
+        private readonly UserManager<User> _userManager;
+        public ProductController(IProductRepository p, ICategoryRepository c, UserManager<User>u)
         {
             _categoryRepository = c;
             _productRepository = p;
+            _userManager = u;
         }
         public async Task<IActionResult> Index()
         {
@@ -44,6 +50,9 @@ namespace project.Areas.Admin.Controllers
                 }).ToList(),
                 Products = p.ToList()
             };
+            var currentUser = await _userManager.GetUserAsync(User);
+            var isAdmin = await _userManager.IsInRoleAsync(currentUser, SD.Role_Admin);
+            ViewBag.IsAdmin = isAdmin;
             return View(viewModel);
             //return View();
         }
@@ -84,6 +93,9 @@ namespace project.Areas.Admin.Controllers
                     if (c == a.CategoryId) res.Add(a);
                 }
             }
+            var currentUser = await _userManager.GetUserAsync(User);
+            var isAdmin = await _userManager.IsInRoleAsync(currentUser, SD.Role_Admin);
+            ViewBag.IsAdmin = isAdmin;
             viewModel.Products = res;
             viewModel.Categories = ca;
             return View(viewModel);
@@ -112,6 +124,7 @@ namespace project.Areas.Admin.Controllers
             return View(product);
             //return View();
         }
+        [Authorize(Roles = SD.Role_Admin)]
         public async Task<IActionResult> Delete(int id)
         {
             var product = await _productRepository.GetByIdAsync(id);
@@ -122,6 +135,8 @@ namespace project.Areas.Admin.Controllers
             return View(product);
         }
         [HttpPost, ActionName("Delete")]
+        [Authorize(Roles = SD.Role_Admin)]
+        [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
             await _productRepository.DeleteAsync(id);

@@ -26,7 +26,10 @@
                         <th>Email</th>
                         <th>Số điện thoại</th>
                         <th>Địa chỉ</th>
-                        <th>Roles</th>
+                        @if (ViewBag.IsAdmin)
+                            {
+                                <th>Roles</th>
+                            }
                         <th class="no-sort"></th>
                     </tr>
                 </thead>
@@ -40,8 +43,14 @@
                             <td>@user.PhoneNumber</td>
                             <td>@user.Address</td>
                             <td>
-                                @{
-                                    var userRole = ViewBag.UserRoles[user.Id];
+                                @if (ViewBag.IsAdmin)
+                                {
+                                    <td>
+                                        @{
+                                            var userRole = ViewBag.UserRoles[user.Id];
+                                        }
+                                        @string.Join(", ", userRole)
+                                    </td>
                                 }
                                 @string.Join(", ", userRole)
                             </td>

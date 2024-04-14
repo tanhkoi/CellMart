@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using project.Areas.Admin.Models;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.VisualStudio.Web.CodeGenerators.Mvc.Templates.BlazorIdentity.Pages.Manage;
 namespace project.Areas.Admin.Controllers
 {
     [Area("Admin")]
@@ -30,7 +31,6 @@ namespace project.Areas.Admin.Controllers
             ViewBag.IsAdmin = isAdmin;
 
             var userRoles = new Dictionary<string, List<string>>();
-
             foreach (var userModel in users)
             {
                 var user1 = await _userManager.FindByIdAsync(userModel.Id.ToString());
@@ -85,7 +85,7 @@ namespace project.Areas.Admin.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Update(UserAdmin model, string SelectedRole)
+        public async Task<IActionResult> Update( UserAdmin model, string SelectedRole,string PassWord=null)
         {
 
             if (ModelState.IsValid)
@@ -96,13 +96,19 @@ namespace project.Areas.Admin.Controllers
                 if (roles.Any())
                 {
                     await _userManager.RemoveFromRoleAsync(user, roles.First());
-                }
-                await _userManager.AddToRoleAsync(user, SelectedRole); 
-
-                // Add TempData success message
-                TempData["SuccessMessage"] = $"User '{model.Email}' updated successfully.";
-                return RedirectToAction("Index");
-            }
+                    await _userManager.AddToRoleAsync(user, SelectedRole);
+                    if (PassWord != null)
+                    {
+                        await _userManager.ChangePasswordAsync(user, model.Email, PassWord);
+                    }           
+                    // Add TempData success message
+                    TempData["SuccessMessage"] = $"User '{model.Email}' updated successfully.";
+                    return RedirectToAction("Index");
+                 }
+                ViewBag.Roles = new SelectList(await _roleManager.Roles.ToListAsync(), "Name", "Name");
+                var currentUser = await _userManager.GetUserAsync(User);
+                var isAdmin = await _userManager.IsInRoleAsync(currentUser, SD.Role_Admin);
+            ViewBag.IsAdmin = isAdmin;
             return View(model);
         }
         [HttpGet]

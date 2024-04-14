@@ -1,23 +1,33 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Mvc;
 using project.Models;
 using project.Repo;
 using project.Repositories;
+using project.Utilitys;
 
 namespace project.Areas.Admin.Controllers
 {
+    [Authorize(Roles = SD.Role_Admin + "," + SD.Role_Employee)]
     [Area("Admin")]
     public class CategoryController : Controller
     {
         private readonly IProductRepository _productRepository;
         private readonly ICategoryRepository _categoryRepository;
-        public CategoryController(IProductRepository productRepository, ICategoryRepository categoryRepository)
+        private readonly UserManager<User> _userManager;
+
+        public CategoryController(IProductRepository productRepository, ICategoryRepository categoryRepository, UserManager<User>u)
         {
             _productRepository = productRepository;
             _categoryRepository = categoryRepository;
+            _userManager = u;
         }
         public async Task<IActionResult> Index()
         {
             var category = await _categoryRepository.GetAllAsync();
+            var currentUser = await _userManager.GetUserAsync(User);
+            var isAdmin = await _userManager.IsInRoleAsync(currentUser, SD.Role_Admin);
+            ViewBag.IsAdmin = isAdmin;
             return View(category);
         }
         public IActionResult Add()
@@ -58,6 +68,7 @@ namespace project.Areas.Admin.Controllers
             }
             return View(category);
         }
+        [Authorize(Roles = SD.Role_Admin)]
         public async Task<IActionResult> Delete(int id)
         {
             var category = await _categoryRepository.GetByIdAsync(id);
@@ -68,6 +79,8 @@ namespace project.Areas.Admin.Controllers
             return View(category);
         }
         [HttpPost, ActionName("Delete")]
+        [Authorize(Roles = SD.Role_Admin)]
+        [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
             var category = await _categoryRepository.GetByIdAsync(id);

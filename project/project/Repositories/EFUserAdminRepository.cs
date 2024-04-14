@@ -69,6 +69,11 @@ namespace project.Repositories
             var userEntity = await _context.User.FindAsync(id);
             if(userEntity != null)
             {
+                userEntity.Email=model.Email;
+                userEntity.FullName = model.FullName;
+                userEntity.Address = model.Address;
+                userEntity.CreatedAt = DateTime.Now;
+                userEntity.UpdatedAt = DateTime.Now;
                 userEntity.NormalizedEmail = model.Email.ToUpper();
                 _context.Entry(userEntity).State = EntityState.Modified;
                 _context.User.Update(userEntity);

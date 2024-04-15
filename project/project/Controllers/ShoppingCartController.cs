@@ -123,14 +123,6 @@ namespace project.Controllers
                 Price = i.Price
             }).ToList();
 
-            _context.Order.Add(order);
-            await _context.SaveChangesAsync();
-
-            foreach (var item in order.orderItems)
-            {
-                await RemoveFromCart(item.ProductId);
-            }
-
             if (payment == "Thanh Toán VNPay")
             {
                 var vnPayModel = new VnPayRequestModel
@@ -141,6 +133,14 @@ namespace project.Controllers
                     OrderId = order.Id
                 };
                 return Redirect(_vnPayService.CreatePaymentUrl(HttpContext, vnPayModel));
+            }
+
+            _context.Order.Add(order);
+            await _context.SaveChangesAsync();
+
+            foreach (var item in order.orderItems)
+            {
+                await RemoveFromCart(item.ProductId);
             }
 
             return View("OrderCompleted", order.Id);

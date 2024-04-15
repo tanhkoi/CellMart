@@ -26,6 +26,14 @@ namespace project.ViewComponents
             if (user != null)
             {
                 var cartDB = await _context.Cart.Include(c => c.cartItems).SingleOrDefaultAsync(c => c.UserId == user.Id);
+                if (cartDB == null)
+                {
+                    cartDB = new Cart
+                    {
+                        UserId = user.Id,
+                        cartItems = new List<CartItem>()
+                    };
+                }
                 return View(cartDB.cartItems);
             }
             else

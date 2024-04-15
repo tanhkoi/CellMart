@@ -123,6 +123,11 @@ namespace project.Controllers
                 Price = i.Price
             }).ToList();
 
+            _context.Order.Add(order);
+            
+            await _context.SaveChangesAsync();
+            
+
             if (payment == "Thanh Toán VNPay")
             {
                 var vnPayModel = new VnPayRequestModel
@@ -132,30 +137,51 @@ namespace project.Controllers
                     Description = "Thanh toan don hang",
                     OrderId = order.Id
                 };
+                foreach (var item in order.orderItems)
+                {
+                    await RemoveFromCart(item.ProductId);
+                }
                 return Redirect(_vnPayService.CreatePaymentUrl(HttpContext, vnPayModel));
             }
-
-            _context.Order.Add(order);
-            await _context.SaveChangesAsync();
-
-            foreach (var item in order.orderItems)
+            // Fetch the user's cart from the database
+            if (cart == null || !cart.cartItems.Any())
             {
-                await RemoveFromCart(item.ProductId);
+                return RedirectToAction("Index");
             }
-
             return View("OrderCompleted", order.Id);
         }
-
+        public async Task<IActionResult> PaymentSuccessAsync()
+        {
+            var user = await _userManager.GetUserAsync(User);
+            foreach (var order in _context.Order)
+            {
+                if (order.UserId == user.Id)
+                {
+                    order.Status = "Ordered";
+                    _context.Order.Update(order);
+                    await _context.SaveChangesAsync();
+                }
+            }
+            
+            return View("Success");
+        }
+        public IActionResult PaymentFail()
+        {
+            return View();
+        }
         public IActionResult PaymentCallBack()
         {
             var response = _vnPayService.PaymentExcute(Request.Query);
             if (response == null || response.VnPayResponseCode != "00")
             {
-                TempData["Message"] = "Lỗi thanh toán Vnpay";
-                return RedirectToAction("Index");
+
+                TempData["Message"] = $"Lỗi thanh toán VN Pay: {response.VnPayResponseCode}";
+                return RedirectToAction("PaymentFail");
             }
+
+
             TempData["Message"] = "Thanh toán Vnpay thành công";
-            return RedirectToAction("Index");
+            return RedirectToAction("PaymentSuccess");
         }
     }
 }

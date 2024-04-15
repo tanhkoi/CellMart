@@ -102,7 +102,7 @@ namespace project.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Checkout(Order order, String payment = "Thanh Toán VNPay")
+        public async Task<IActionResult> Checkout(Order order, String payment )
         {
             // Fetch the user's cart from the database
             var user = await _userManager.GetUserAsync(User);

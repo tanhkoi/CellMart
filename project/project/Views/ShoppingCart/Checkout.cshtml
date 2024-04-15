@@ -1,6 +1,23 @@
 ﻿@model Order
 
-<@* h2>Checkout</h2>
+ 
+<div id="breadcrumb" class="section">
+	<!-- container -->
+	<div class="container">
+		<!-- row -->
+		<div class="row">
+			<div class="col-md-12">
+				<h3 class="breadcrumb-header">Checkout</h3>
+				<ul class="breadcrumb-tree">
+					<li><a href="#">Home</a></li>
+					<li class="active">Checkout</li>
+				</ul>
+			</div>
+		</div>
+		<!-- /row -->
+	</div>
+	<!-- /container -->
+</div>
 <form asp-action="Checkout" method="post">
     <div class="form-group">
         <label asp-for="ShippingAddress">Shipping Address</label>
@@ -10,17 +27,59 @@
         <label asp-for="Notes">Notes</label>
         <textarea asp-for="Notes" class="form-control"></textarea>
     </div>
-     
-	<input type="submit" class="btn btn-primary" value="Thanh Toán VNPay"></input>
-</form> *@
+	<div class="col-md-5 order-details">
+		<div class="section-title text-center">
+			<h3 class="title">Your Order</h3>
+		</div>
+		<div class="order-summary">
+			<div class="order-col">
+				<div><strong>PRODUCT</strong></div>
+				<div><strong>TOTAL</strong></div>
+			</div>
+			<div class="order-products">
+				<div class="order-col">
+						@*can sua*@
+					<div>1x Product Name Goes Here</div>
+					<div>$980.00</div>
+				</div>
+				<div class="order-col">
+					<div>2x Product Name Goes Here</div>
+					<div>$980.00</div>
+				</div>
+			</div>
+			<div class="order-col">
+				<div>Shiping</div>
+				<div><strong>FREE</strong></div>
+			</div>
+			<div class="order-col">
+				<div><strong>TOTAL</strong></div>
+				<div><strong class="order-total">2940.00VND</strong></div>
+			</div>
+		</div>
+		<div class="payment-method">
+
+			<input type="submit" class="btn btn-primary" name="payment" value="Thanh Toán VNPay"></input>
+			<input type="submit" class="btn btn-primary" name="payment" value="COD"</input>
+			<input type="submit" class="btn btn-primary" name="payment" value="Paypal"</input>
+				
+			</div>
+
+		</div>
 
 
- @{
+		<!-- /Order Details -->
+	</div>
+	
+</form>  
+
+
+ @* @{
 	ViewData["Title"] = "Checkout";
 
 }
 
 <!-- BREADCRUMB -->
+
 <div id="breadcrumb" class="section">
 	<!-- container -->
 	<div class="container">
@@ -40,6 +99,7 @@
 </div>
 <!-- /BREADCRUMB -->
 <!-- SECTION -->
+
 <div class="section">
 	<!-- container -->
 	<div class="container">
@@ -52,6 +112,7 @@
 					<div class="section-title">
 						<h3 class="title">Billing address</h3>
 					</div>
+
 					<div class="form-group">
 						<input class="input" type="text" name="first-name" placeholder="First Name">
 					</div>
@@ -81,7 +142,7 @@
 							<input type="checkbox" id="create-account">
 							<label for="create-account">
 								<span></span>
-								Create Account?
+								Create Account? 
 							</label>
 							<div class="caption">
 								<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt.</p>
@@ -90,6 +151,9 @@
 						</div>
 					</div>
 				</div>
+
+			
+		
 				<!-- /Billing Details -->
 				<!-- Shiping Details -->
 				<div class="shiping-details">
@@ -150,6 +214,7 @@
 					</div>
 					<div class="order-products">
 						<div class="order-col">
+							
 							<div>1x Product Name Goes Here</div>
 							<div>$980.00</div>
 						</div>
@@ -164,54 +229,32 @@
 					</div>
 					<div class="order-col">
 						<div><strong>TOTAL</strong></div>
-						<div><strong class="order-total">$2940.00</strong></div>
+						<div><strong class="order-total">2940.00VND</strong></div>
 					</div>
 				</div>
 				<div class="payment-method">
 					<div class="input-radio">
+				
 						<input type="radio" name="payment" id="payment-1">
 						<label for="payment-1">
 							<span></span>
-							Direct Bank Transfer
+							VnPay
 						</label>
 						<div class="caption">
 							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+							
 						</div>
 					</div>
-					<div class="input-radio">
-						<input type="radio" name="payment" id="payment-2">
-						<label for="payment-2">
-							<span></span>
-							Cheque Payment
-						</label>
-						<div class="caption">
-							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-						</div>
-					</div>
-					<div class="input-radio">
-						<input type="radio" name="payment" id="payment-3">
-						<label for="payment-3">
-							<span></span>
-							Paypal System
-						</label>
-						<div class="caption">
-							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-						</div>
-					</div>
+					
 				</div>
-				<div class="input-checkbox">
-					<input type="checkbox" id="terms">
-					<label for="terms">
-						<span></span>
-						I've read and accept the <a href="#">terms & conditions</a>
-					</label>
-				</div>
-				<a href="#" class="primary-btn order-submit">Place order</a>
-			</div>
-			<!-- /Order Details -->
-		</div>
+
+
+<!-- /Order Details -->
+	</div>
+
 		<!-- /row -->
 	</div>
 	<!-- /container -->
-</div>
-<!-- /SECTION --> 
+</div>*@
+
+<!-- /SECTION -->  

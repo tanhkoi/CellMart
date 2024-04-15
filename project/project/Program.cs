@@ -19,15 +19,13 @@ services.AddAuthentication().AddGoogle(googleOptions =>
     googleOptions.ClientSecret = configuration["Authentication:Google:ClientSecret"];
 });
 
-
 // data access
 builder.Services.AddDbContext<projectContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
 builder.Services.AddScoped<IProductRepository, EFProductRepository>();
 builder.Services.AddScoped<ICategoryRepository, EFCategoryRepository>();
-builder.Services.AddScoped<IPUserAdminRepository, EFUserAdminRepository>(); 
+builder.Services.AddScoped<IPUserAdminRepository, EFUserAdminRepository>();
 builder.Services.AddScoped<IEmailSender, EmailSender>();
-
 //vnpay
 builder.Services.AddSingleton<IVnPayService, VnPayService>();
 
@@ -47,6 +45,12 @@ builder.Services.AddSession(options =>
     options.Cookie.IsEssential = true;
 });
 builder.Services.AddControllersWithViews();
+
+// email config
+var emailConfig = builder.Configuration
+        .GetSection("EmailConfiguration")
+        .Get<EmailConfiguration>();
+builder.Services.AddSingleton(emailConfig);
 
 var app = builder.Build();
 

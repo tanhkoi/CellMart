@@ -1,32 +1,38 @@
 ﻿@model IEnumerable<project.Models.CartItem>
 
-<h2>My Cart</h2>
-<table id="table_id" class="display">
-    <thead>
-        <tr>
-            <th>Product Id</th>
-            <th>Product Name</th>
-            <th>Quantity</th>
-            <th>Price</th>
-            <th>Total</th>
-            <td class="no-sort"></td>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var item in Model)
-        {
-            <tr>
-                <td>@item.ProductId</td>
-                <td>@item.Name</td>
-                <td>@item.Quantity</td>
-                <td>@item.Price</td>
-                <td>@(item.Price * item.Quantity)</td>
-                <td>
-                    <a class="btn btn-primary" asp-action="RemoveFromCart" asp-route-productId="@item.ProductId" asp-route-userName="@User.Identity.Name">Remove</a>
-                </td>
-            </tr>
-        }
-    </tbody>
-</table>
+<div class="card mb-4" style="height: 450px;!important">
+    <div class="card-header">
+        <h2>My Cart</h2>
+    </div>
+    <div class="card-body">
+        <table id="datatablesSimple">
+            <thead>
+                <tr>
+                    <th>Product Id</th>
+                    <th>Product Name</th>
+                    <th>Quantity</th>
+                    <th>Price</th>
+                    <th>Total</th>
+                    <th class="no-sort"></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@item.ProductId</td>
+                        <td>@item.Name</td>
+                        <td>@item.Quantity</td>
+                        <td>@item.Price</td>
+                        <td>@(item.Price * item.Quantity)</td>
+                        <td>
+                            <button class=""><a asp-action="RemoveFromCart" asp-route-productId="@item.ProductId" asp-route-userName="@User.Identity.Name">Remove</a></button>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
 <a class="btn btn-primary" asp-action="Checkout" asp-controller="ShoppingCart">Checkout</a>
-<a class="btn btn-primary" asp-action="Index" asp-controller="Product">Back to List</a>
+<a class="btn btn-primary" asp-action="Index" asp-controller="Products">Back to List</a>

@@ -96,8 +96,15 @@ namespace project.Controllers
             return RedirectToAction("Index");
         }
 
-        public IActionResult Checkout()
+        public async Task<IActionResult> Checkout()
         {
+            // handle empty item in cart
+            var user = await _userManager.GetUserAsync(User);
+            var cart = await _context.Cart.Include(c => c.cartItems).SingleOrDefaultAsync(c => c.UserId == user.Id);
+            if (cart == null || !cart.cartItems.Any())
+            {
+                return RedirectToAction("Index");
+            }
             return View(new Order());
         }
 
@@ -112,6 +119,7 @@ namespace project.Controllers
                 return RedirectToAction("Index");
             }
 
+            // save order
             order.UserId = user.Id;
             order.OrderDate = DateTime.UtcNow;
             order.Status = "Pending";
@@ -124,9 +132,7 @@ namespace project.Controllers
             }).ToList();
 
             _context.Order.Add(order);
-            
             await _context.SaveChangesAsync();
-            
 
             if (payment == "Thanh Toán VNPay")
             {
@@ -137,19 +143,17 @@ namespace project.Controllers
                     Description = "Thanh toan don hang",
                     OrderId = order.Id
                 };
+                // remove items in cart
                 foreach (var item in order.orderItems)
                 {
                     await RemoveFromCart(item.ProductId);
                 }
                 return Redirect(_vnPayService.CreatePaymentUrl(HttpContext, vnPayModel));
             }
-            // Fetch the user's cart from the database
-            if (cart == null || !cart.cartItems.Any())
-            {
-                return RedirectToAction("Index");
-            }
+
             return View("OrderCompleted", order.Id);
         }
+
         public async Task<IActionResult> PaymentSuccessAsync()
         {
             var user = await _userManager.GetUserAsync(User);
@@ -162,13 +166,15 @@ namespace project.Controllers
                     await _context.SaveChangesAsync();
                 }
             }
-            
+
             return View("Success");
         }
+
         public IActionResult PaymentFail()
         {
             return View();
         }
+
         public IActionResult PaymentCallBack()
         {
             var response = _vnPayService.PaymentExcute(Request.Query);
@@ -178,7 +184,6 @@ namespace project.Controllers
                 TempData["Message"] = $"Lỗi thanh toán VN Pay: {response.VnPayResponseCode}";
                 return RedirectToAction("PaymentFail");
             }
-
 
             TempData["Message"] = "Thanh toán Vnpay thành công";
             return RedirectToAction("PaymentSuccess");

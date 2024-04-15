@@ -52,7 +52,7 @@ namespace project.Repositories
 
         public async Task<IEnumerable<Product>> GetAllAsync()
         {
-            return await _context.Product.Where(p=>p.IsDeleted==false&&p.Category.IsDeleted==false).ToListAsync();
+            return await _context.Product.Where(p => p.IsDeleted == false && p.Category.IsDeleted == false).ToListAsync();
         }
 
         public async Task<Product> GetByIdAsync(int id)

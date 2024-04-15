@@ -30,10 +30,9 @@
                         <td>
                             <a class="btn btn-primary" asp-action="Delete" asp-route-id="@item.Id">Delete</a>
                             @if (ViewBag.IsAdmin)
-                    {
-                            <a class="btn btn-primary" asp-action="Update" asp-route-id="@item.Id">Update</a>
-                    }
-
+                            {
+                                <a class="btn btn-primary" asp-action="Update" asp-route-id="@item.Id">Update</a>
+                            }
                         </td>
                     </tr>
                 }

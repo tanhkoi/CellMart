@@ -6,18 +6,18 @@
 @if (SignInManager.IsSignedIn(User))
 {
     <form asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Page("/Index", new { area = "" })" method="post" id="logoutForm" class="navbar-right">
-        <ul class="nav navbar-nav navbar-right">
+        <ul class="nav navbar-nav navbar-right" style="margin: -9px;!important">
             <li>
-                <a asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage">Hello @UserManager.GetUserName(User)!</a>
+                <a class="btn btn-link navbar-btn navbar-link" asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage">Hello @UserManager.GetUserName(User)!</a>
             </li>
             @if (User.IsInRole("Admin") || User.IsInRole("Employee"))
             {
                 <li>
-                    <a asp-area="Admin" asp-controller="Admin" asp-action="Index" title="Manage">Admin Dashboard</a>
+                    <a class="btn btn-link navbar-btn navbar-link" asp-area="Admin" asp-controller="Admin" asp-action="Index" title="Manage">Admin Dashboard</a>
                 </li>
             }
             <li>
-                <button type="submit" class="btn btn-link navbar-btn navbar-link">Logout</button>
+                <a type="submit" class="btn btn-link navbar-btn navbar-link">Logout</a>
             </li>
         </ul>
     </form>

@@ -1,0 +1,57 @@
+﻿@model List<project.Models.Order>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<div class="card mb-4">
+    <div class="card-header">
+        <i class="fas fa-table me-1"></i>
+        Orders Manager
+        <a class="btn btn-primary" asp-action="Export" asp-area="Admin" asp-controller="Oder">Export</a>
+    </div>
+    <div class="card-body">
+        <table id="datatablesSimple">
+            <thead>
+                <tr>
+                    <th>User id</th>
+                    <th>Order Date</th>
+                    <th>Status</th>
+                    <th>Notes</th>
+                    <th>Shipping Address</th>
+                    <th>Total Price</th>
+                    <th class="no-sort"></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@item.User.UserName</td>
+                        <td>@item.OrderDate</td>
+                        <td>@item.Status</td>
+                        <td>@TruncateString(@item.Notes, 50)</td>
+                        <td>@item.ShippingAddress</td>
+                        <td>@item.TotalPrice</td>
+                        <td>
+                            <a class="btn btn-primary" asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+@functions {
+    public string TruncateString(string input, int maxLength)
+    {
+        if (input.Length <= maxLength)
+        {
+            return input;
+        }
+        else
+        {
+            return input.Substring(0, maxLength - 3) + "...";
+        }
+    }
+}

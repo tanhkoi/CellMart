@@ -1,24 +1,32 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.IdentityModel.Tokens;
 using project.Models;
 using project.Repo;
 using project.Repositories;
+using project.Utilitys;
 using project.ViewModels;
 using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace project.Areas.Admin.Controllers
 {
     [Area("Admin")]
+    [Authorize(Roles = SD.Role_Admin + "," + SD.Role_Employee)]
     public class ProductController : Controller
     {
         private readonly ICategoryRepository _categoryRepository;
         private readonly IProductRepository _productRepository;
-        public ProductController(IProductRepository p, ICategoryRepository c)
+        private readonly UserManager<User> _userManager;
+
+        public ProductController(IProductRepository p, ICategoryRepository c, UserManager<User> u)
         {
             _categoryRepository = c;
             _productRepository = p;
+            _userManager = u;
         }
+
         public async Task<IActionResult> Index()
         {
             var cate = await _categoryRepository.GetAllAsync();
@@ -44,14 +52,19 @@ namespace project.Areas.Admin.Controllers
                 }).ToList(),
                 Products = p.ToList()
             };
+            var currentUser = await _userManager.GetUserAsync(User);
+            var isAdmin = await _userManager.IsInRoleAsync(currentUser, SD.Role_Admin);
+            ViewBag.IsAdmin = isAdmin;
             return View(viewModel);
             //return View();
         }
+
         [HttpPost]
         public async Task<IActionResult> Index(List<int> selectedCategories)
         {
             var productss = await _productRepository.GetAllAsync();
             var categoriess = await _categoryRepository.GetAllAsync();
+
             var ca = categoriess.Select(d => new CategoryVM
             {
                 Id = d.Id,
@@ -59,6 +72,7 @@ namespace project.Areas.Admin.Controllers
                 IsDeleted = d.IsDeleted,
                 IsSelected = false
             }).ToList();
+
             var p = productss.Select(d => new ProductVM
             {
                 Id = d.Id,
@@ -69,6 +83,7 @@ namespace project.Areas.Admin.Controllers
                 imgUrl = d.ImageUrl,
                 CategoryName = categoriess.FirstOrDefault(c => c.Id == d.CategoryId).Name
             });
+
             var viewModel = new ProductCateList();
             if (selectedCategories.IsNullOrEmpty())
             {
@@ -76,6 +91,7 @@ namespace project.Areas.Admin.Controllers
                 viewModel.Products = p.ToList();
                 return View(viewModel);
             }
+
             List<ProductVM> res = new List<ProductVM>();
             foreach (var c in selectedCategories)
             {
@@ -84,17 +100,23 @@ namespace project.Areas.Admin.Controllers
                     if (c == a.CategoryId) res.Add(a);
                 }
             }
+
+            var currentUser = await _userManager.GetUserAsync(User);
+            var isAdmin = await _userManager.IsInRoleAsync(currentUser, SD.Role_Admin);
+            ViewBag.IsAdmin = isAdmin;
             viewModel.Products = res;
             viewModel.Categories = ca;
-            return View(viewModel);
 
+            return View(viewModel);
         }
+
         public async Task<IActionResult> Add()
         {
             var cate = await _categoryRepository.GetAllAsync();
             ViewBag.Categories = new SelectList(cate, "Id", "Name");
             return View();
         }
+
         [HttpPost]
         public async Task<IActionResult> Add(Product product, IFormFile imageURL, List<ProductImage> imageURLs)
         {
@@ -110,8 +132,9 @@ namespace project.Areas.Admin.Controllers
             var categories = await _categoryRepository.GetAllAsync();
             ViewBag.Categories = new SelectList(categories, "Id", "Name");
             return View(product);
-            //return View();
         }
+
+        [Authorize(Roles = SD.Role_Admin)]
         public async Task<IActionResult> Delete(int id)
         {
             var product = await _productRepository.GetByIdAsync(id);
@@ -121,12 +144,16 @@ namespace project.Areas.Admin.Controllers
             }
             return View(product);
         }
+
         [HttpPost, ActionName("Delete")]
+        [Authorize(Roles = SD.Role_Admin)]
+        [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
             await _productRepository.DeleteAsync(id);
             return RedirectToAction(nameof(Index));
         }
+
         public async Task<IActionResult> Update(int id)
         {
             var product = await _productRepository.GetByIdAsync(id);
@@ -138,6 +165,7 @@ namespace project.Areas.Admin.Controllers
             ViewBag.Categories = new SelectList(categories, "Id", "Name", product.CategoryId);
             return View(product);
         }
+
         [HttpPost]
         public async Task<IActionResult> Update(Product product, IFormFile imageURL, List<ProductImage> imageURLs)
         {

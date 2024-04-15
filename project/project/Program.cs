@@ -8,6 +8,7 @@ using project.Models.Services;
 using project.Repo;
 using project.Repositories;
 using project.Utilitys;
+
 var builder = WebApplication.CreateBuilder(args);
 var services = builder.Services;
 var configuration = builder.Configuration;
@@ -21,12 +22,15 @@ services.AddAuthentication().AddGoogle(googleOptions =>
 
 // data access
 builder.Services.AddDbContext<projectContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+
 builder.Services.AddScoped<IProductRepository, EFProductRepository>();
 builder.Services.AddScoped<ICategoryRepository, EFCategoryRepository>();
 builder.Services.AddScoped<IPUserAdminRepository, EFUserAdminRepository>(); 
 builder.Services.AddScoped<IEmailSender, EmailSender>();
+
 //vnpay
 builder.Services.AddSingleton<IVnPayService, VnPayService>();
+
 // user identity
 builder.Services.AddIdentity<User, IdentityRole>()
     .AddDefaultTokenProviders()
@@ -45,6 +49,7 @@ builder.Services.AddSession(options =>
 builder.Services.AddControllersWithViews();
 
 var app = builder.Build();
+
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
 {

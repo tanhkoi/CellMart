@@ -3,7 +3,6 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using project.Data;
-using project.Helpers;
 using project.Models;
 using project.Models.Services;
 using project.Repositories;
@@ -17,7 +16,7 @@ namespace project.Controllers
         private readonly UserManager<User> _userManager;
         private readonly IVnPayService _vnPayService;
 
-        public ShoppingCartController(projectContext context, UserManager<User> userManager,IVnPayService vnPayService)
+        public ShoppingCartController(projectContext context, UserManager<User> userManager, IVnPayService vnPayService)
         {
             _context = context;
             _userManager = userManager;
@@ -64,7 +63,7 @@ namespace project.Controllers
 
             // Add the cart item to the cart
             CartItem existingItem = cartDB.cartItems.FirstOrDefault(i => i.ProductId == cartItem.ProductId);
-            
+
             if (existingItem != null)
                 existingItem.Quantity += cartItem.Quantity;
             else
@@ -103,10 +102,16 @@ namespace project.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Checkout(Order order,String payment= "Thanh Toán VNPay")
+        public async Task<IActionResult> Checkout(Order order, String payment = "Thanh Toán VNPay")
         {
+            // Fetch the user's cart from the database
             var user = await _userManager.GetUserAsync(User);
             var cart = await _context.Cart.Include(c => c.cartItems).SingleOrDefaultAsync(c => c.UserId == user.Id);
+            if (cart == null || !cart.cartItems.Any())
+            {
+                return RedirectToAction("Index");
+            }
+
             order.UserId = user.Id;
             order.OrderDate = DateTime.UtcNow;
             order.Status = "Pending";

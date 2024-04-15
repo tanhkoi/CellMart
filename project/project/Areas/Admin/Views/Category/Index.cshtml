@@ -1,10 +1,11 @@
 ﻿@model IEnumerable<project.Models.Category>
 
-<a class="btn btn-primary" asp-action="Add">Create new</a>
+
 <div class="card mb-4">
     <div class="card-header">
         <i class="fas fa-table me-1"></i>
         Categories Manager
+        <a class="btn btn-primary" asp-action="Add">Create new</a>
     </div>
     <div class="card-body">
         <table id="datatablesSimple">
@@ -20,7 +21,12 @@
                     <tr>
                         <td>@item.Name</td>
                         <td>
-                            <a class="btn btn-primary" asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                            @if (ViewBag.IsAdmin)
+                    {
+                        <a class="btn btn-primary" asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+
+                    }
+                            
                         </td>
                     </tr>
                 }

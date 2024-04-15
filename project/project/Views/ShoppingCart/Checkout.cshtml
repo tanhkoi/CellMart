@@ -1,6 +1,6 @@
 ﻿@model Order
 
-<h2>Checkout</h2>
+<@* h2>Checkout</h2>
 <form asp-action="Checkout" method="post">
     <div class="form-group">
         <label asp-for="ShippingAddress">Shipping Address</label>
@@ -12,10 +12,10 @@
     </div>
      
 	<input type="submit" class="btn btn-primary" value="Thanh Toán VNPay"></input>
-</form>
+</form> *@
 
-@*
-@{
+
+ @{
 	ViewData["Title"] = "Checkout";
 
 }
@@ -214,5 +214,4 @@
 	</div>
 	<!-- /container -->
 </div>
-<!-- /SECTION -->
- *@
+<!-- /SECTION --> 

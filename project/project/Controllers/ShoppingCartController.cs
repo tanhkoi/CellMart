@@ -95,8 +95,20 @@ namespace project.Controllers
 
             return RedirectToAction("Index");
         }
-
-        public async Task<IActionResult> Checkout()
+        public async Task<IActionResult> PaymentSuccessAsync()
+        {
+            var user = await _userManager.GetUserAsync(User);
+            foreach(var order in _context.Order)
+            {
+                if(order.UserId == user.Id)
+                {
+                    order.Status = "Ordered";
+                    _context.Order.Update(order);
+                }
+            }
+            return View();
+        }        
+        public IActionResult Checkout()
         {
             // handle empty item in cart
             var user = await _userManager.GetUserAsync(User);
@@ -133,6 +145,7 @@ namespace project.Controllers
             }).ToList();
 
             _context.Order.Add(order);
+
             await _context.SaveChangesAsync();
 
             if (payment == "Thanh Toán VNPay")
@@ -151,8 +164,16 @@ namespace project.Controllers
                 }
                 return Redirect(_vnPayService.CreatePaymentUrl(HttpContext, vnPayModel));
             }
+            // Fetch the user's cart from the database
 
+
+
+            if (cart == null || !cart.cartItems.Any())
+            {
+                return RedirectToAction("Index");
+            }
             return View("OrderCompleted", order.Id);
+
         }
 
         public async Task<IActionResult> PaymentSuccessAsync()

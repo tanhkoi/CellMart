@@ -1,15 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
 using System.Text;
 using System.Text.Encodings.Web;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.UI.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.WebUtilities;
+using project.Data;
 using project.Models;
 
 namespace project.Areas.Identity.Pages.Account
@@ -19,11 +17,12 @@ namespace project.Areas.Identity.Pages.Account
     {
         private readonly UserManager<User> _userManager;
         private readonly IEmailSender _emailSender;
-
-        public ForgotPasswordModel(UserManager<User> userManager, IEmailSender emailSender)
+        private readonly projectContext _context;
+        public ForgotPasswordModel(UserManager<User> userManager, IEmailSender emailSender, projectContext c)
         {
             _userManager = userManager;
             _emailSender = emailSender;
+            _context = c;
         }
 
         [BindProperty]
@@ -35,7 +34,7 @@ namespace project.Areas.Identity.Pages.Account
             [EmailAddress]
             public string Email { get; set; }
         }
-
+        [HttpPost]
         public async Task<IActionResult> OnPostAsync()
         {
             if (ModelState.IsValid)
@@ -67,5 +66,6 @@ namespace project.Areas.Identity.Pages.Account
 
             return Page();
         }
+ 
     }
 }

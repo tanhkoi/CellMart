@@ -5,15 +5,20 @@ using X.PagedList;
 using project.Data;
 using project.Models;
 using project.ViewModels;
+using Microsoft.IdentityModel.Tokens;
+using project.Repo;
+using project.Repositories;
 
 namespace project.Controllers
 {
     public class ProductsController : Controller
     {
         private readonly projectContext _context;
-        public ProductsController(projectContext context)
+        private readonly IProductRepository _productRepository;
+        public ProductsController(projectContext context, IProductRepository p)
         {
             _context = context;
+            _productRepository = p;
         }
         // GET: Products
         public IActionResult Index()
@@ -168,17 +173,28 @@ namespace project.Controllers
         {
             return _context.Product.Any(e => e.Id == id);
         }
-        public ActionResult Store(string sortOrder, string searchString, string currentFilter, int? page, int? pageSize)
+        public async Task<IActionResult> Store(string sortOrder, string? searchString,List<int>?searchcate, string? currentFilter, int? page, int? pageSize)
         {
+            var c = TempData["SearchCate"] as List<int>;
+            var d = TempData["SearchSString"] as string;
+            if (!c.IsNullOrEmpty()&& c.First() != -1)
+            {
+
+                searchcate = c;
+            }
+            if (!d.IsNullOrEmpty())
+            {
+                searchString = d;
+            }
             ViewBag.CurrentSort = sortOrder;
             ViewBag.NameSortParm = String.IsNullOrEmpty(sortOrder) ? "name_desc" : "";
             ViewBag.PriceSortParm = sortOrder == "Price" ? "price_desc" : "Price";
             ViewBag.PageSize = pageSize;
-
             var products = _context.Product.AsQueryable();
             var categories = _context.Category.AsQueryable();
-            ViewBag.Categories = categories;
-
+            var categoryList = new SelectList(categories, "Id", "Name");
+            ViewBag.CateSelect = searchcate;
+            ViewBag.CategoryList = categoryList;
             var result = products.Select(p => new ProductVM
             {
                 Id = p.Id,
@@ -188,21 +204,50 @@ namespace project.Controllers
                 imgUrl = p.ImageUrl,
                 CategoryName = categories.FirstOrDefault(c => c.Id == p.CategoryId).Name
             });
-
-            if (!String.IsNullOrEmpty(searchString))
+            var productss = await _productRepository.GetAllAsync();
+            var p = productss.Select(d => new ProductVM
             {
-                result = result.Where(s => s.Name.Contains(searchString) || s.CategoryName.Contains(searchString));
-            }
+                Id = d.Id,
+                Name = d.Name,
+                Price = d.Price,
+                Description = d.Description,
+                CategoryId = d.CategoryId,
+                imgUrl = d.ImageUrl,
+                CategoryName = categories.FirstOrDefault(c => c.Id == d.CategoryId).Name
+            });
+            ViewBag.Mess = d;
+            //if (searchcate.IsNullOrEmpty())
+            //{
+            //    ViewBag.Mess = "ko Co du lieu";
 
-            if (searchString != null)
+            //}
+            var res = new List<ProductVM>();
+            if (!searchcate.IsNullOrEmpty())
+            {
+                foreach(var id in searchcate)
+                {
+                    foreach(var a in p)
+                    {
+                        if (a.CategoryId == id)
+                        {
+                            if (searchString.IsNullOrEmpty()) res.Add(a);
+                            else if(a.Name.Contains(searchString)||a.CategoryName.Contains(searchString)) res.Add(a);
+                        }
+                    }
+                }
+                if(!res.IsNullOrEmpty())
+                    result = res.AsQueryable();  
+            }
+            if (searchcate.IsNullOrEmpty()&&!searchString.IsNullOrEmpty())
+            {
+                result= result.Where(s => (s.Name.Contains(searchString) || s.CategoryName.Contains(searchString)));
+            }
+            if (searchString != null&&!currentFilter.IsNullOrEmpty())
             {
                 page = 1;
             }
-            else
-            {
-                searchString = currentFilter;
-            }
 
+            ViewBag.CurrentCate = searchcate;
             ViewBag.CurrentFilter = searchString;
 
             switch (sortOrder)

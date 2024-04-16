@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using project.Areas.Admin.Models;
 using Microsoft.AspNetCore.Authorization;
+using project.Data;
 namespace project.Areas.Admin.Controllers
 {
     [Area("Admin")]
@@ -15,12 +16,14 @@ namespace project.Areas.Admin.Controllers
         private readonly RoleManager<IdentityRole> _roleManager;
         private readonly UserManager<User> _userManager;
         private readonly IPUserAdminRepository _userepo;
+        private readonly projectContext _context;
 
-        public UserController(IPUserAdminRepository repo, RoleManager<IdentityRole> role, UserManager<User> users)
+        public UserController(IPUserAdminRepository repo, RoleManager<IdentityRole> role, UserManager<User> users, projectContext c)
         {
             _roleManager = role;
             _userManager = users;
             _userepo = repo;
+            _context = c;
         }
 
         public async Task<IActionResult> Index()
@@ -147,6 +150,14 @@ namespace project.Areas.Admin.Controllers
             TempData["SuccessMessage"] = $"User {user.FullName} was deleted successfully.";
 
             return RedirectToAction(nameof(Index));
+        }
+        public IActionResult CheckEmail([FromBody] string email)
+        {
+           
+            var user = _context.User.FirstOrDefault(u => u.Email == email);
+
+            // Trả về kết quả dưới dạng JSON
+            return Json(new { exists = user != null });
         }
     }
 

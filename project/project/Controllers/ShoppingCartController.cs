@@ -105,8 +105,8 @@ namespace project.Controllers
             {
                 return RedirectToAction("Index");
             }
-            Order order = await _context.Order.SingleOrDefaultAsync(o => o.UserId == user.Id);
-            return View(order);
+            ViewBag.CartItems = cart.cartItems;
+            return View(new Order());
         }
 
         [HttpPost]
@@ -164,7 +164,7 @@ namespace project.Controllers
                 {
                     order.Status = "Ordered";
                     _context.Order.Update(order);
-                    await _context.SaveChangesAsync();
+                    _context.SaveChanges();
                 }
             }
 

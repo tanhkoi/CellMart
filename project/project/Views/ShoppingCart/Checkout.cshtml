@@ -1,23 +1,5 @@
 ﻿@model Order
 
- 
-<div id="breadcrumb" class="section">
-	<!-- container -->
-	<div class="container">
-		<!-- row -->
-		<div class="row">
-			<div class="col-md-12">
-				<h3 class="breadcrumb-header">Checkout</h3>
-				<ul class="breadcrumb-tree">
-					<li><a href="#">Home</a></li>
-					<li class="active">Checkout</li>
-				</ul>
-			</div>
-		</div>
-		<!-- /row -->
-	</div>
-	<!-- /container -->
-</div>
 <form asp-action="Checkout" method="post">
     <div class="form-group">
         <label asp-for="ShippingAddress">Shipping Address</label>
@@ -27,53 +9,50 @@
         <label asp-for="Notes">Notes</label>
         <textarea asp-for="Notes" class="form-control"></textarea>
     </div>
-	<div class="col-md-5 order-details">
-		<div class="section-title text-center">
-			<h3 class="title">Your Order</h3>
-		</div>
-		<div class="order-summary">
-			<div class="order-col">
-				<div><strong>PRODUCT</strong></div>
-				<div><strong>TOTAL</strong></div>
-			</div>
-			<div class="order-products">
-				<div class="order-col">
-						@*can sua*@
-					<div>1x Product Name Goes Here</div>
-					<div>$980.00</div>
-				</div>
-				<div class="order-col">
-					<div>2x Product Name Goes Here</div>
-					<div>$980.00</div>
-				</div>
-			</div>
-			<div class="order-col">
-				<div>Shiping</div>
-				<div><strong>FREE</strong></div>
-			</div>
-			<div class="order-col">
-				<div><strong>TOTAL</strong></div>
-				<div><strong class="order-total">2940.00VND</strong></div>
-			</div>
-		</div>
-		<div class="payment-method">
-
-			<input type="submit" class="btn btn-primary" name="payment" value="Thanh Toán VNPay"></input>
-			<input type="submit" class="btn btn-primary" name="payment" value="COD"</input>
-			<input type="submit" class="btn btn-primary" name="payment" value="Paypal"</input>
-				
-			</div>
-
-		</div>
-
-
-		<!-- /Order Details -->
-	</div>
-	
-</form>  
+    <div class="col-md-5 order-details">
+        <div class="section-title text-center">
+            <h3 class="title">Your Order</h3>
+        </div>
+        <div class="order-summary">
+            <div class="order-col">
+                <div><strong>PRODUCT</strong></div>
+                <div><strong>QUANTITY</strong></div>
+                <div><strong>TOTAL</strong></div>
+            </div>
+            @{
+                int total = 0;
+                <div class="order-products">
+                    @foreach (var item in ViewBag.CartItems)
+                    {
+                        <div class="order-col">
+                            <div>@item.Name</div>
+                            <div style="width: 471px;!important">@item.Quantity</div>
+                            <div>@item.Price</div>
+                        </div>
+                        total += @item.Price;
+                    }
+                </div>
+                <div class="order-col">
+                    <div>Shiping</div>
+                    <div><strong>FREE</strong></div>
+                </div>
+                <div class="order-col">
+                    <div><strong>TOTAL</strong></div>
+                    <div><strong class="order-total">@total.ToString("N0") VND</strong></div>
+                </div>
+            }
+        </div>
+        <div class="payment-method">
+            <input type="submit" class="btn btn-primary" name="payment" value="Thanh Toán VNPay"></input>
+            <input type="submit" class="btn btn-primary" name="payment" value="COD"</input>
+            <input type="submit" class="btn btn-primary" name="payment" value="Paypal"</input>
+        </div>
+    </div>
+    <!-- /Order Details -->
+</form>
 
 
- @* @{
+@* @{
 	ViewData["Title"] = "Checkout";
 
 }
@@ -142,7 +121,7 @@
 							<input type="checkbox" id="create-account">
 							<label for="create-account">
 								<span></span>
-								Create Account? 
+								Create Account?
 							</label>
 							<div class="caption">
 								<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt.</p>
@@ -152,8 +131,8 @@
 					</div>
 				</div>
 
-			
-		
+
+
 				<!-- /Billing Details -->
 				<!-- Shiping Details -->
 				<div class="shiping-details">
@@ -214,7 +193,7 @@
 					</div>
 					<div class="order-products">
 						<div class="order-col">
-							
+
 							<div>1x Product Name Goes Here</div>
 							<div>$980.00</div>
 						</div>
@@ -234,7 +213,7 @@
 				</div>
 				<div class="payment-method">
 					<div class="input-radio">
-				
+
 						<input type="radio" name="payment" id="payment-1">
 						<label for="payment-1">
 							<span></span>
@@ -242,10 +221,10 @@
 						</label>
 						<div class="caption">
 							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-							
+
 						</div>
 					</div>
-					
+
 				</div>
 
 
@@ -257,4 +236,4 @@
 	<!-- /container -->
 </div>*@
 
-<!-- /SECTION -->  
+<!-- /SECTION -->

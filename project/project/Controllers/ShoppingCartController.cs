@@ -108,7 +108,7 @@ namespace project.Controllers
             }
             return View();
         }        
-        public IActionResult Checkout()
+        public async Task<IActionResult> Checkout()
         {
             // handle empty item in cart
             var user = await _userManager.GetUserAsync(User);
@@ -176,7 +176,7 @@ namespace project.Controllers
 
         }
 
-        public async Task<IActionResult> PaymentSuccessAsync()
+        public async Task<IActionResult> PaymentSuccess()
         {
             var user = await _userManager.GetUserAsync(User);
             foreach (var order in _context.Order)

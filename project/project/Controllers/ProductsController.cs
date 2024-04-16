@@ -173,11 +173,11 @@ namespace project.Controllers
         {
             return _context.Product.Any(e => e.Id == id);
         }
-        public async Task<IActionResult> Store(string sortOrder, string? searchString,List<int>?searchcate, string? currentFilter, int? page, int? pageSize)
+        public async Task<IActionResult> Store(string sortOrder, string? searchString, List<int>? searchcate, string? currentFilter, int? page, int? pageSize)
         {
             var c = TempData["SearchCate"] as List<int>;
             var d = TempData["SearchSString"] as string;
-            if (!c.IsNullOrEmpty()&& c.First() != -1)
+            if (!c.IsNullOrEmpty() && c.First() != -1)
             {
 
                 searchcate = c;
@@ -224,25 +224,25 @@ namespace project.Controllers
             var res = new List<ProductVM>();
             if (!searchcate.IsNullOrEmpty())
             {
-                foreach(var id in searchcate)
+                foreach (var id in searchcate)
                 {
-                    foreach(var a in p)
+                    foreach (var a in p)
                     {
                         if (a.CategoryId == id)
                         {
                             if (searchString.IsNullOrEmpty()) res.Add(a);
-                            else if(a.Name.Contains(searchString)||a.CategoryName.Contains(searchString)) res.Add(a);
+                            else if (a.Name.ToLower().Contains(searchString.ToLower()) || a.CategoryName.ToLower().Contains(searchString.ToLower())) res.Add(a);
                         }
                     }
                 }
-                if(!res.IsNullOrEmpty())
-                    result = res.AsQueryable();  
+                if (!res.IsNullOrEmpty())
+                    result = res.AsQueryable();
             }
-            if (searchcate.IsNullOrEmpty()&&!searchString.IsNullOrEmpty())
+            if (searchcate.IsNullOrEmpty() && !searchString.IsNullOrEmpty())
             {
-                result= result.Where(s => (s.Name.Contains(searchString) || s.CategoryName.Contains(searchString)));
+                result = result.Where(s => (s.Name.ToLower().Contains(searchString.ToLower()) || s.CategoryName.ToLower().Contains(searchString.ToLower())));
             }
-            if (searchString != null&&!currentFilter.IsNullOrEmpty())
+            if (searchString != null && !currentFilter.IsNullOrEmpty())
             {
                 page = 1;
             }

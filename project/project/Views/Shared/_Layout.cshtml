@@ -39,7 +39,7 @@
                 <div class="row">
                     <!-- LOGO -->
                     <div class="col-md-3">
-                        <div class="header-logo" >
+                        <div class="header-logo">
                             <a asp-action="Index" asp-controller="Products" class="logo">
                                 <img style="height: 100px;!important" src="~/icons/svg/logo-no-background.svg" alt="">
                             </a>
@@ -61,8 +61,8 @@
                             <!-- Cart -->
                             @if (User.IsInRole("Admin") || User.IsInRole("Employee") || User.IsInRole("Customer"))
                             {
-                                 @await Component.InvokeAsync("CartItems")
-                             }
+                                @await Component.InvokeAsync("CartItems")
+                            }
                             <!-- /Cart -->
                             <!-- Menu Toogle -->
                             <div class="menu-toggle">

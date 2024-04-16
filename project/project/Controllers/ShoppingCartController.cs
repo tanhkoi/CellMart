@@ -105,11 +105,12 @@ namespace project.Controllers
             {
                 return RedirectToAction("Index");
             }
-            return View(new Order());
+            Order order = await _context.Order.SingleOrDefaultAsync(o => o.UserId == user.Id);
+            return View(order);
         }
 
         [HttpPost]
-        public async Task<IActionResult> Checkout(Order order, String payment )
+        public async Task<IActionResult> Checkout(Order order, String payment)
         {
             // Fetch the user's cart from the database
             var user = await _userManager.GetUserAsync(User);

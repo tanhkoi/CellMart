@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using project.Areas.Admin.Models;
 using Microsoft.AspNetCore.Authorization;
+using project.Data;
 namespace project.Areas.Admin.Controllers
 {
     [Area("Admin")]
@@ -152,6 +153,7 @@ namespace project.Areas.Admin.Controllers
         }
         public IActionResult CheckEmail([FromBody] string email)
         {
+           
             var user = _context.User.FirstOrDefault(u => u.Email == email);
 
             // Trả về kết quả dưới dạng JSON

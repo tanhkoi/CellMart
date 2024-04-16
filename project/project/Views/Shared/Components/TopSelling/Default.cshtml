@@ -20,7 +20,7 @@
                     </div>
                     <div class="product-body">
                         <p class="product-category">@item.CategoryName</p>
-                        <h3 class="product-name"><a href="#">@item.Name</a></h3>
+                        <h3 class="product-name"><a asp-action="Product" asp-controller="Products" asp-route-id="@item.Id">@item.Name</a></h3>
                         <h4 class="product-price">@item.Price.ToString("#,##0") VND<del class="product-old-price">@($"{(item.Price + (item.Price * 30) / 100).ToString("#,##0")} VND")</del></h4>
                     </div>
                 </div>
@@ -30,3 +30,4 @@
         <!-- /product widget -->
     </div>
 }
+

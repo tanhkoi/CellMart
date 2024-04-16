@@ -51,8 +51,6 @@
                         <div class="header-search">
                             <form>
                                 @await Component.InvokeAsync("CategorySearchList")
-                                <input class="input" placeholder="Search here">
-                                <button class="search-btn">Search</button>
                             </form>
                         </div>
                     </div>
@@ -63,8 +61,8 @@
                             <!-- Cart -->
                             @if (User.IsInRole("Admin") || User.IsInRole("Employee") || User.IsInRole("Customer"))
                             {
-                                @await Component.InvokeAsync("CartItems")
-                            }
+                                 @await Component.InvokeAsync("CartItems")
+                             }
                             <!-- /Cart -->
                             <!-- Menu Toogle -->
                             <div class="menu-toggle">

@@ -95,7 +95,19 @@ namespace project.Controllers
 
             return RedirectToAction("Index");
         }
-
+        public async Task<IActionResult> PaymentSuccessAsync()
+        {
+            var user = await _userManager.GetUserAsync(User);
+            foreach(var order in _context.Order)
+            {
+                if(order.UserId == user.Id)
+                {
+                    order.Status = "Ordered";
+                    _context.Order.Update(order);
+                }
+            }
+            return View();
+        }        
         public IActionResult Checkout()
         {
             return View(new Order());
@@ -107,11 +119,6 @@ namespace project.Controllers
             // Fetch the user's cart from the database
             var user = await _userManager.GetUserAsync(User);
             var cart = await _context.Cart.Include(c => c.cartItems).SingleOrDefaultAsync(c => c.UserId == user.Id);
-            if (cart == null || !cart.cartItems.Any())
-            {
-                return RedirectToAction("Index");
-            }
-
             order.UserId = user.Id;
             order.OrderDate = DateTime.UtcNow;
             order.Status = "Pending";
@@ -124,12 +131,9 @@ namespace project.Controllers
             }).ToList();
 
             _context.Order.Add(order);
+
             await _context.SaveChangesAsync();
 
-            foreach (var item in order.orderItems)
-            {
-                await RemoveFromCart(item.ProductId);
-            }
 
             if (payment == "Thanh Toán VNPay")
             {
@@ -140,10 +144,22 @@ namespace project.Controllers
                     Description = "Thanh toan don hang",
                     OrderId = order.Id
                 };
+                foreach (var item in order.orderItems)
+                {
+                    await RemoveFromCart(item.ProductId);
+                }   
                 return Redirect(_vnPayService.CreatePaymentUrl(HttpContext, vnPayModel));
             }
+            // Fetch the user's cart from the database
 
+
+
+            if (cart == null || !cart.cartItems.Any())
+            {
+                return RedirectToAction("Index");
+            }
             return View("OrderCompleted", order.Id);
+
         }
 
         public IActionResult PaymentCallBack()

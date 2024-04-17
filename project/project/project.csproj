@@ -8,9 +8,21 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Areas\Admin\Data\**" />
+    <Compile Remove="wwwroot\assets\admin\**" />
+    <Compile Remove="wwwroot\assets\client\**" />
     <Compile Remove="wwwroot\images\NewFolder\**" />
+    <Content Remove="Areas\Admin\Data\**" />
+    <Content Remove="wwwroot\assets\admin\**" />
+    <Content Remove="wwwroot\assets\client\**" />
     <Content Remove="wwwroot\images\NewFolder\**" />
+    <EmbeddedResource Remove="Areas\Admin\Data\**" />
+    <EmbeddedResource Remove="wwwroot\assets\admin\**" />
+    <EmbeddedResource Remove="wwwroot\assets\client\**" />
     <EmbeddedResource Remove="wwwroot\images\NewFolder\**" />
+    <None Remove="Areas\Admin\Data\**" />
+    <None Remove="wwwroot\assets\admin\**" />
+    <None Remove="wwwroot\assets\client\**" />
     <None Remove="wwwroot\images\NewFolder\**" />
   </ItemGroup>
 
@@ -36,9 +48,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Areas\Admin\Data\" />
     <Folder Include="Areas\Admin\Models\" />
-    <Folder Include="wwwroot\assets\client\" />
     <Folder Include="wwwroot\images\Apple\" />
     <Folder Include="wwwroot\images\Samsung\" />
     <Folder Include="wwwroot\images\OPPO\" />
@@ -52,13 +62,6 @@
     <None Include="wwwroot\admin\assets\img\error-404-monochrome.svg" />
     <None Include="wwwroot\admin\js\datatables-simple-demo.js" />
     <None Include="wwwroot\admin\js\scripts.js" />
-    <None Include="wwwroot\assets\admin\assets\demo\chart-area-demo.js" />
-    <None Include="wwwroot\assets\admin\assets\demo\chart-bar-demo.js" />
-    <None Include="wwwroot\assets\admin\assets\demo\chart-pie-demo.js" />
-    <None Include="wwwroot\assets\admin\assets\demo\datatables-demo.js" />
-    <None Include="wwwroot\assets\admin\assets\img\error-404-monochrome.svg" />
-    <None Include="wwwroot\assets\admin\js\datatables-simple-demo.js" />
-    <None Include="wwwroot\assets\admin\js\scripts.js" />
   </ItemGroup>
 
 </Project>

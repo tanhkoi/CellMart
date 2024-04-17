@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using project.Areas.Admin.Models;
 using Microsoft.AspNetCore.Authorization;
+using project.Data;
 namespace project.Areas.Admin.Controllers
 {
     [Area("Admin")]
@@ -15,13 +16,16 @@ namespace project.Areas.Admin.Controllers
         private readonly RoleManager<IdentityRole> _roleManager;
         private readonly UserManager<User> _userManager;
         private readonly IPUserAdminRepository _userepo;
+        private readonly projectContext _context;
 
-        public UserController(IPUserAdminRepository repo, RoleManager<IdentityRole> role, UserManager<User> users)
+        public UserController(IPUserAdminRepository repo, RoleManager<IdentityRole> role, UserManager<User> users, projectContext c)
         {
             _roleManager = role;
             _userManager = users;
             _userepo = repo;
+            _context = c;
         }
+
         public async Task<IActionResult> Index()
         {
             var users = await _userepo.GetAllAsync();
@@ -30,7 +34,6 @@ namespace project.Areas.Admin.Controllers
             ViewBag.IsAdmin = isAdmin;
 
             var userRoles = new Dictionary<string, List<string>>();
-
             foreach (var userModel in users)
             {
                 var user1 = await _userManager.FindByIdAsync(userModel.Id.ToString());
@@ -41,6 +44,7 @@ namespace project.Areas.Admin.Controllers
             ViewBag.UserRoles = userRoles;
             return View(users);
         }
+
         public async Task<IActionResult> Add()
         {
             var currentUser = await _userManager.GetUserAsync(User);
@@ -67,12 +71,13 @@ namespace project.Areas.Admin.Controllers
             // If we got this far, something failed, redisplay form
             return View(userModel);
         }
+
         [HttpGet]
         public async Task<IActionResult> Update(string id)
         {
-
             var user = await _userepo.GetByIdAsync(id);
             if (user == null)
+
             {
                 return NotFound();
             }
@@ -85,7 +90,7 @@ namespace project.Areas.Admin.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Update(UserAdmin model, string SelectedRole)
+        public async Task<IActionResult> Update(UserAdmin model, string SelectedRole, string PassWord = null)
         {
 
             if (ModelState.IsValid)
@@ -93,18 +98,26 @@ namespace project.Areas.Admin.Controllers
                 await _userepo.UpdateAsync(model.Id, model);
                 var user = await _userManager.FindByEmailAsync(model.Email);
                 var roles = await _userManager.GetRolesAsync(user);
-                if (roles.Any())
-                {
-                    await _userManager.RemoveFromRoleAsync(user, roles.First());
-                }
-                await _userManager.AddToRoleAsync(user, SelectedRole); 
 
+                if (roles.Any())
+                    await _userManager.RemoveFromRoleAsync(user, roles.First());
+
+                await _userManager.AddToRoleAsync(user, SelectedRole);
+                if (PassWord != null)
+                {
+                    await _userManager.ChangePasswordAsync(user, model.Email, PassWord);
+                }
                 // Add TempData success message
                 TempData["SuccessMessage"] = $"User '{model.Email}' updated successfully.";
                 return RedirectToAction("Index");
             }
+            ViewBag.Roles = new SelectList(await _roleManager.Roles.ToListAsync(), "Name", "Name");
+            var currentUser = await _userManager.GetUserAsync(User);
+            var isAdmin = await _userManager.IsInRoleAsync(currentUser, SD.Role_Admin);
+            ViewBag.IsAdmin = isAdmin;
             return View(model);
         }
+
         [HttpGet]
         public async Task<IActionResult> Delete(string id)
         {
@@ -137,6 +150,14 @@ namespace project.Areas.Admin.Controllers
             TempData["SuccessMessage"] = $"User {user.FullName} was deleted successfully.";
 
             return RedirectToAction(nameof(Index));
+        }
+        public IActionResult CheckEmail([FromBody] string email)
+        {
+           
+            var user = _context.User.FirstOrDefault(u => u.Email == email);
+
+            // Trả về kết quả dưới dạng JSON
+            return Json(new { exists = user != null });
         }
     }
 

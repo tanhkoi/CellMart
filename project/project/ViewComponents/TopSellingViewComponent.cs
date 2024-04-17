@@ -22,6 +22,7 @@ namespace project.ViewComponents
             }
             var result = products.Select(p => new ProductVM
             {
+                Id = p.Id,
                 Name = p.Name,
                 Price = p.Price,
                 CategoryId = p.CategoryId,

@@ -109,7 +109,7 @@ namespace project.Areas.Identity.Pages.Account
                 }
                 else
                 {
-                    ErrorMessage = "Account or password isvalid";
+                    ErrorMessage = "Email or PassWord incorrect";
                     ModelState.AddModelError(string.Empty, ErrorMessage);
                     return Page();
  

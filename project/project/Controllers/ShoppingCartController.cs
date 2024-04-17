@@ -3,8 +3,8 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using project.Data;
-using project.Helpers;
 using project.Models;
+using project.Models.Services;
 using project.Repositories;
 
 namespace project.Controllers
@@ -14,11 +14,13 @@ namespace project.Controllers
     {
         private readonly projectContext _context;
         private readonly UserManager<User> _userManager;
+        private readonly IVnPayService _vnPayService;
 
-        public ShoppingCartController(projectContext context, UserManager<User> userManager)
+        public ShoppingCartController(projectContext context, UserManager<User> userManager, IVnPayService vnPayService)
         {
             _context = context;
             _userManager = userManager;
+            _vnPayService = vnPayService;
         }
 
         public async Task<IActionResult> Index()
@@ -61,7 +63,7 @@ namespace project.Controllers
 
             // Add the cart item to the cart
             CartItem existingItem = cartDB.cartItems.FirstOrDefault(i => i.ProductId == cartItem.ProductId);
-            
+
             if (existingItem != null)
                 existingItem.Quantity += cartItem.Quantity;
             else
@@ -93,24 +95,44 @@ namespace project.Controllers
 
             return RedirectToAction("Index");
         }
-
-        public IActionResult Checkout()
+        public async Task<IActionResult> PaymentSuccessAsync()
         {
+            var user = await _userManager.GetUserAsync(User);
+            foreach(var order in _context.Order)
+            {
+                if(order.UserId == user.Id)
+                {
+                    order.Status = "Ordered";
+                    _context.Order.Update(order);
+                }
+            }
+            return View();
+        }        
+        public async Task<IActionResult> Checkout()
+        {
+            // handle empty item in cart
+            var user = await _userManager.GetUserAsync(User);
+            var cart = await _context.Cart.Include(c => c.cartItems).SingleOrDefaultAsync(c => c.UserId == user.Id);
+            if (cart == null || !cart.cartItems.Any())
+            {
+                return RedirectToAction("Index");
+            }
+            ViewBag.CartItems = cart.cartItems;
             return View(new Order());
         }
 
         [HttpPost]
-        public async Task<IActionResult> Checkout(Order order)
+        public async Task<IActionResult> Checkout(Order order, String payment)
         {
             // Fetch the user's cart from the database
             var user = await _userManager.GetUserAsync(User);
             var cart = await _context.Cart.Include(c => c.cartItems).SingleOrDefaultAsync(c => c.UserId == user.Id);
-
             if (cart == null || !cart.cartItems.Any())
             {
                 return RedirectToAction("Index");
             }
 
+            // save order
             order.UserId = user.Id;
             order.OrderDate = DateTime.UtcNow;
             order.Status = "Pending";
@@ -123,14 +145,70 @@ namespace project.Controllers
             }).ToList();
 
             _context.Order.Add(order);
+
             await _context.SaveChangesAsync();
 
-            foreach (var item in order.orderItems)
+            if (payment == "Thanh Toán VNPay")
             {
-                await RemoveFromCart(item.ProductId);
+                var vnPayModel = new VnPayRequestModel
+                {
+                    Amount = (double)(order.TotalPrice = cart.cartItems.Sum(i => i.Price * i.Quantity)),
+                    CreatedDate = DateTime.Now,
+                    Description = "Thanh toan don hang",
+                    OrderId = order.Id
+                };
+                // remove items in cart
+                foreach (var item in order.orderItems)
+                {
+                    await RemoveFromCart(item.ProductId);
+                }
+                return Redirect(_vnPayService.CreatePaymentUrl(HttpContext, vnPayModel));
+            }
+            // Fetch the user's cart from the database
+
+
+
+            if (cart == null || !cart.cartItems.Any())
+            {
+                return RedirectToAction("Index");
+            }
+            return View("OrderCompleted", order.Id);
+
+        }
+
+        public async Task<IActionResult> PaymentSuccess()
+        {
+            var user = await _userManager.GetUserAsync(User);
+            foreach (var order in _context.Order)
+            {
+                if (order.UserId == user.Id)
+                {
+                    order.Status = "Ordered";
+                    _context.Order.Update(order);
+                    _context.SaveChanges();
+                }
             }
 
-            return View("OrderCompleted", order.Id);
+            return View("Success");
+        }
+
+        public IActionResult PaymentFail()
+        {
+            return View();
+        }
+
+        public IActionResult PaymentCallBack()
+        {
+            var response = _vnPayService.PaymentExcute(Request.Query);
+            if (response == null || response.VnPayResponseCode != "00")
+            {
+
+                TempData["Message"] = $"Lỗi thanh toán VN Pay: {response.VnPayResponseCode}";
+                return RedirectToAction("PaymentFail");
+            }
+
+            TempData["Message"] = "Thanh toán Vnpay thành công";
+            return RedirectToAction("PaymentSuccess");
         }
     }
 }

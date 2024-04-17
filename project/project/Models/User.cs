@@ -27,6 +27,7 @@ namespace project.Models
             this.IsDeleted = false;
             this.CreatedAt = DateTime.Now;
             this.UpdatedAt = DateTime.Now;
+            this.Id = m.Id;
         }
     }
 }

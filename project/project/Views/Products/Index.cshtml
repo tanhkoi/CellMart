@@ -114,16 +114,14 @@
                                                     <i class="fa fa-star"></i>
                                                     <i class="fa fa-star"></i>
                                                 </div>
-                                                <div class="product-btns">
+                                                @* <div class="product-btns">
                                                     <button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span class="tooltipp">add to wishlist</span></button>
                                                     <button class="add-to-compare"><i class="fa fa-exchange"></i><span class="tooltipp">add to compare</span></button>
-                                                    <a asp-action="Product" asp-route-id="@item.Id" class="quick-view"><i class="fa fa-eye"></i><span class="tooltipp">quick view</span></a>
-                                                </div>
+                                                    <button class="quick-view"><a asp-action="Product" asp-route-id="@item.Id"><i class="fa fa-eye"></i><span class="tooltipp">Quick View</span></a></button>
+                                                </div> *@
                                             </div>
                                             <div class="add-to-cart">
-                                                <a class="add-to-cart-btn" asp-controller="ShoppingCart" asp-action="AddToCart" asp-route-productId="@item.Id" asp-route-quantity="numOfQuantity" asp-route-userName="@User.Identity.Name">
-                                                    <i class="fa fa-shopping-cart"></i> add to cart
-                                                </a>
+                                                <button class="add-to-cart-btn"><a asp-controller="ShoppingCart" asp-action="AddToCart" asp-route-productId="@item.Id" asp-route-quantity="numOfQuantity" asp-route-userName="@User.Identity.Name"><i class="fa fa-shopping-cart"></i> add to cart</a></button>
                                             </div>
                                         </div>
                                         count1++;
@@ -191,7 +189,7 @@
                                             </div>
                                             <div class="product-body">
                                                 <p class="product-category">@item.CategoryName</p>
-                                                <h3 class="product-name"><a href="#">@item.Name</a></h3>
+                                                <h3 class="product-name"><a asp-action="Product" asp-controller="Products" asp-route-id="@item.Id">@item.Name</a></h3>
                                                 <h4 class="product-price">@item.Price.ToString("N0") VND<del class="product-old-price">@($"{(item.Price + (item.Price * 30) / 100).ToString("N0")} VND")</del></h4>
                                                 <div class="product-rating">
                                                     <i class="fa fa-star"></i>
@@ -200,14 +198,14 @@
                                                     <i class="fa fa-star"></i>
                                                     <i class="fa fa-star"></i>
                                                 </div>
-                                                <div class="product-btns">
+                                                @* <div class="product-btns">
                                                     <button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span class="tooltipp">add to wishlist</span></button>
                                                     <button class="add-to-compare"><i class="fa fa-exchange"></i><span class="tooltipp">add to compare</span></button>
-                                                    <a asp-action="Product" asp-route-id="@item.Id" class="quick-view"><i class="fa fa-eye"></i><span class="tooltipp">quick view</span></a>
-                                                </div>
+                                                    <button class="quick-view"><a asp-action="Product" asp-route-id="@item.Id"><i class="fa fa-eye"></i><span class="tooltipp">Quick View</span></a></button>
+                                                </div> *@
                                             </div>
                                             <div class="add-to-cart">
-                                                <button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> add to cart</button>
+                                                <button class="add-to-cart-btn"><a asp-controller="ShoppingCart" asp-action="AddToCart" asp-route-productId="@item.Id" asp-route-quantity="numOfQuantity" asp-route-userName="@User.Identity.Name"><i class="fa fa-shopping-cart"></i> add to cart</a></button>
                                             </div>
                                         </div>
                                         count++;

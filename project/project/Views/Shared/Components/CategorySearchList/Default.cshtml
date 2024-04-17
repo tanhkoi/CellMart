@@ -1,9 +1,11 @@
 ﻿@model List<project.Models.Category>
 
-<select class="input-select">
-    <option value="0">All Categories</option>
+<select class="input-select" name="searchcate">
+    <option value=-1>All Categories</option>
     @foreach (var category in Model)
     {
-        <option value="1">@category.Name</option>
+        <option value="@category.Id">@category.Name</option>
     }
 </select>
+<input class="input" type="text" name="searchstring" placeholder="Search here">
+<button type="submit" value="Search" class="search-btn" asp-controller="Products" asp-action="Store">Search</button>

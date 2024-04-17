@@ -78,7 +78,9 @@
                                 <span class="qty-down">-</span>
                             </div>
                         </div>
-                        <button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> add to cart</button>
+                        <div class="add-to-cart">
+                            <button class="add-to-cart-btn"><a asp-controller="ShoppingCart" asp-action="AddToCart" asp-route-productId="@Model.Id" asp-route-quantity="numOfQuantity" asp-route-userName="@User.Identity.Name"><i class="fa fa-shopping-cart"></i> add to cart</a></button>
+                        </div>
                     </div>
                     <ul class="product-links">
                         <li>Category:</li>
@@ -103,7 +105,7 @@
                     <ul class="tab-nav">
                         <li class="active"><a data-toggle="tab" href="#tab1">Description</a></li>
                         <li><a data-toggle="tab" href="#tab2">Details</a></li>
-                        <li class="active"><a data-toggle="tab" href="#tab1">Reviews (3)</a></li>
+                        <li><a data-toggle="tab" href="#tab1">Reviews (3)</a></li>
                     </ul>
                     <!-- /product tab nav -->
                     <!-- product tab content -->
@@ -127,7 +129,7 @@
                         </div>
                         <!-- /tab2  -->
                         <!-- tab3  -->
-                        <div id="tab3" class="tab-pane fade in active">
+                        <div id="tab3" class="tab-pane fade in">
                             <div class="row">
                                 <!-- Rating -->
                                 <div class="col-md-3">

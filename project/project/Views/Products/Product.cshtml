@@ -30,7 +30,7 @@
                 </div>
             </div>
             <!-- /Product main img -->
-            <div class="col-md-2  col-md-pull-5">
+            <div class="col-md-2 col-md-pull-5">
                 <div id="product-imgs">
                     <div class="product-preview">
                         <img src="@Model.imgUrl" alt="">
@@ -78,9 +78,7 @@
                                 <span class="qty-down">-</span>
                             </div>
                         </div>
-                        <div class="add-to-cart">
-                            <button class="add-to-cart-btn"><a asp-controller="ShoppingCart" asp-action="AddToCart" asp-route-productId="@Model.Id" asp-route-quantity="numOfQuantity" asp-route-userName="@User.Identity.Name"><i class="fa fa-shopping-cart"></i> add to cart</a></button>
-                        </div>
+                        <button class="add-to-cart-btn"><a asp-controller="ShoppingCart" asp-action="AddToCart" asp-route-productId="@Model.Id" asp-route-quantity="numOfQuantity" asp-route-userName="@User.Identity.Name"><i class="fa fa-shopping-cart"></i> add to cart</a></button>
                     </div>
                     <ul class="product-links">
                         <li>Category:</li>

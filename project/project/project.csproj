@@ -27,6 +27,892 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Remove="wwwroot - Copy\admin\css\styles.css" />
+    <None Remove="wwwroot - Copy\assets\css\bootstrap.min.css" />
+    <None Remove="wwwroot - Copy\assets\css\font-awesome.min.css" />
+    <None Remove="wwwroot - Copy\assets\css\nouislider.min.css" />
+    <None Remove="wwwroot - Copy\assets\css\slick-theme.css" />
+    <None Remove="wwwroot - Copy\assets\css\slick.css" />
+    <None Remove="wwwroot - Copy\assets\css\style.css" />
+    <None Remove="wwwroot - Copy\assets\fonts\fontawesome-webfont.eot" />
+    <None Remove="wwwroot - Copy\assets\fonts\fontawesome-webfont.svg" />
+    <None Remove="wwwroot - Copy\assets\fonts\fontawesome-webfont.ttf" />
+    <None Remove="wwwroot - Copy\assets\fonts\fontawesome-webfont.woff" />
+    <None Remove="wwwroot - Copy\assets\fonts\fontawesome-webfont.woff2" />
+    <None Remove="wwwroot - Copy\assets\fonts\FontAwesome.otf" />
+    <None Remove="wwwroot - Copy\assets\fonts\slick.eot" />
+    <None Remove="wwwroot - Copy\assets\fonts\slick.svg" />
+    <None Remove="wwwroot - Copy\assets\fonts\slick.ttf" />
+    <None Remove="wwwroot - Copy\assets\fonts\slick.woff" />
+    <None Remove="wwwroot - Copy\assets\img\hotdeal.png" />
+    <None Remove="wwwroot - Copy\assets\img\logo.png" />
+    <None Remove="wwwroot - Copy\assets\img\product01.png" />
+    <None Remove="wwwroot - Copy\assets\img\product02.png" />
+    <None Remove="wwwroot - Copy\assets\img\product03.png" />
+    <None Remove="wwwroot - Copy\assets\img\product04.png" />
+    <None Remove="wwwroot - Copy\assets\img\product05.png" />
+    <None Remove="wwwroot - Copy\assets\img\product06.png" />
+    <None Remove="wwwroot - Copy\assets\img\product07.png" />
+    <None Remove="wwwroot - Copy\assets\img\product08.png" />
+    <None Remove="wwwroot - Copy\assets\img\product09.png" />
+    <None Remove="wwwroot - Copy\assets\img\shop01.png" />
+    <None Remove="wwwroot - Copy\assets\img\shop02.png" />
+    <None Remove="wwwroot - Copy\assets\img\shop03.png" />
+    <None Remove="wwwroot - Copy\assets\js\bootstrap.min.js" />
+    <None Remove="wwwroot - Copy\assets\js\jquery.min.js" />
+    <None Remove="wwwroot - Copy\assets\js\jquery.zoom.min.js" />
+    <None Remove="wwwroot - Copy\assets\js\main.js" />
+    <None Remove="wwwroot - Copy\assets\js\nouislider.min.js" />
+    <None Remove="wwwroot - Copy\assets\js\slick.min.js" />
+    <None Remove="wwwroot - Copy\css\site.css" />
+    <None Remove="wwwroot - Copy\emailStyle\images\image-1.png" />
+    <None Remove="wwwroot - Copy\emailStyle\images\image-2.png" />
+    <None Remove="wwwroot - Copy\emailStyle\images\image-3.png" />
+    <None Remove="wwwroot - Copy\emailStyle\images\image-4.png" />
+    <None Remove="wwwroot - Copy\emailStyle\images\image-5.png" />
+    <None Remove="wwwroot - Copy\emailStyle\images\image-6.jpeg" />
+    <None Remove="wwwroot - Copy\emailStyle\index.html" />
+    <None Remove="wwwroot - Copy\favicon.ico" />
+    <None Remove="wwwroot - Copy\icons\pdf\logo-black.pdf" />
+    <None Remove="wwwroot - Copy\icons\pdf\logo-color.pdf" />
+    <None Remove="wwwroot - Copy\icons\pdf\logo-no-background.pdf" />
+    <None Remove="wwwroot - Copy\icons\pdf\logo-white.pdf" />
+    <None Remove="wwwroot - Copy\icons\png\logo-black.png" />
+    <None Remove="wwwroot - Copy\icons\png\logo-color.png" />
+    <None Remove="wwwroot - Copy\icons\png\logo-no-background.png" />
+    <None Remove="wwwroot - Copy\icons\png\logo-white.png" />
+    <None Remove="wwwroot - Copy\icons\svg\logo-black.svg" />
+    <None Remove="wwwroot - Copy\icons\svg\logo-color.svg" />
+    <None Remove="wwwroot - Copy\icons\svg\logo-no-background.svg" />
+    <None Remove="wwwroot - Copy\icons\svg\logo-white.svg" />
+    <None Remove="wwwroot - Copy\images\Apple\iPhone 11 128GB.png" />
+    <None Remove="wwwroot - Copy\images\Apple\iPhone 11 64GB.png" />
+    <None Remove="wwwroot - Copy\images\Apple\iPhone 12 64GB-xanhla.png" />
+    <None Remove="wwwroot - Copy\images\Apple\iPhone 12 64GB.png" />
+    <None Remove="wwwroot - Copy\images\Apple\iPhone 12 Pro Max 128GB.jpg" />
+    <None Remove="wwwroot - Copy\images\Apple\iPhone 13 128GB.png" />
+    <None Remove="wwwroot - Copy\images\Apple\iPhone 13 Pro Max 128GB.png" />
+    <None Remove="wwwroot - Copy\images\Apple\iPhone 13 Pro Max 256GB.png" />
+    <None Remove="wwwroot - Copy\images\Apple\iPhone 14 128GB.png" />
+    <None Remove="wwwroot - Copy\images\Apple\iPhone 14 Plus 128GB.png" />
+    <None Remove="wwwroot - Copy\images\Apple\iPhone 14 Pro Max 256GB.png" />
+    <None Remove="wwwroot - Copy\images\Apple\iPhone 14 Pro Max 512GB.png" />
+    <None Remove="wwwroot - Copy\images\icons\box_9638351.png" />
+    <None Remove="wwwroot - Copy\images\Nitro_Wallpaper_5000x2813.jpg" />
+    <None Remove="wwwroot - Copy\images\OPPO\OPPO A17K.png" />
+    <None Remove="wwwroot - Copy\images\OPPO\OPPO A18 4GB 128GB.png" />
+    <None Remove="wwwroot - Copy\images\OPPO\OPPO A57 4GB 128GB.png" />
+    <None Remove="wwwroot - Copy\images\OPPO\Oppo A74 8GB 128GB.jpg" />
+    <None Remove="wwwroot - Copy\images\OPPO\OPPO A77s 8GB 128GB.png" />
+    <None Remove="wwwroot - Copy\images\OPPO\OPPO Find N2 Flip 8Gb 256GB.png" />
+    <None Remove="wwwroot - Copy\images\OPPO\OPPO Find N2.png" />
+    <None Remove="wwwroot - Copy\images\OPPO\OPPO Reno 7 Pro.png" />
+    <None Remove="wwwroot - Copy\images\OPPO\OPPO Reno10 5G 8GB 256GB.png" />
+    <None Remove="wwwroot - Copy\images\OPPO\OPPO Reno11 F 5G 8GB 256GB.png" />
+    <None Remove="wwwroot - Copy\images\OPPO\OPPO Reno7 5G (8GB 256GB).png" />
+    <None Remove="wwwroot - Copy\images\Planet9_Wallpaper_5000x2813.jpg" />
+    <None Remove="wwwroot - Copy\images\Samsung\Samsung Galaxy A05s.webp" />
+    <None Remove="wwwroot - Copy\images\Samsung\Samsung Galaxy A15.webp" />
+    <None Remove="wwwroot - Copy\images\Samsung\Samsung Galaxy A23 5G.webp" />
+    <None Remove="wwwroot - Copy\images\Samsung\Samsung Galaxy A25.webp" />
+    <None Remove="wwwroot - Copy\images\Samsung\Samsung Galaxy A35 5G 8GB 128GB.webp" />
+    <None Remove="wwwroot - Copy\images\Samsung\Samsung Galaxy A54 5G.webp" />
+    <None Remove="wwwroot - Copy\images\Samsung\Samsung Galaxy A55 5G 8GB 128GB.webp" />
+    <None Remove="wwwroot - Copy\images\Samsung\Samsung Galaxy S22 Ultra (12GB - 256GB).webp" />
+    <None Remove="wwwroot - Copy\images\Samsung\Samsung Galaxy S23 Ultra.webp" />
+    <None Remove="wwwroot - Copy\images\Samsung\Samsung Galaxy S24 Ultra 12GB 256GB.webp" />
+    <None Remove="wwwroot - Copy\images\Samsung\Samsung Galaxy Z Flip5.webp" />
+    <None Remove="wwwroot - Copy\images\Samsung\Samsung Galaxy Z Fold5 12GB 256GB.webp" />
+    <None Remove="wwwroot - Copy\images\Vivo\vivo V25 Pro 8GB 128GB.png" />
+    <None Remove="wwwroot - Copy\images\Vivo\Vivo V27e 8GB 256GB.png" />
+    <None Remove="wwwroot - Copy\images\Vivo\vivo V29E 8GB 256GB.webp" />
+    <None Remove="wwwroot - Copy\images\Vivo\vivo Y03 4GB 64GB.png" />
+    <None Remove="wwwroot - Copy\images\Vivo\vivo Y16 4GB 128GB.png" />
+    <None Remove="wwwroot - Copy\images\Vivo\vivo Y17s 4GB 128GB.png" />
+    <None Remove="wwwroot - Copy\images\Vivo\Vivo Y36 8GB 128GB.png" />
+    <None Remove="wwwroot - Copy\images\Xiaomi\Redmi A2 2GB 32GB.webp" />
+    <None Remove="wwwroot - Copy\images\Xiaomi\Xiaomi 11T Pro.webp" />
+    <None Remove="wwwroot - Copy\images\Xiaomi\Xiaomi 12T Pro.webp" />
+    <None Remove="wwwroot - Copy\images\Xiaomi\Xiaomi 13 Lite.webp" />
+    <None Remove="wwwroot - Copy\images\Xiaomi\Xiaomi 13T 12GB 256GB.webp" />
+    <None Remove="wwwroot - Copy\images\Xiaomi\Xiaomi 13T Pro 5G (12GB - 512GB).webp" />
+    <None Remove="wwwroot - Copy\images\Xiaomi\Xiaomi 14 (12GB 256GB).webp" />
+    <None Remove="wwwroot - Copy\images\Xiaomi\Xiaomi POCO X6 Pro 5G 8GB 256GB.webp" />
+    <None Remove="wwwroot - Copy\images\Xiaomi\Xiaomi Redmi 13C 6GB 128GB.webp" />
+    <None Remove="wwwroot - Copy\images\Xiaomi\Xiaomi Redmi Note 12 4GB 128GB.webp" />
+    <None Remove="wwwroot - Copy\images\Xiaomi\Xiaomi Redmi Note 12 Pro 4G 8GB 256GB.webp" />
+    <None Remove="wwwroot - Copy\images\Xiaomi\Xiaomi Redmi Note 12 Pro 5G.webp" />
+    <None Remove="wwwroot - Copy\images\Xiaomi\Xiaomi Redmi Note 13 8GB 256GB.webp" />
+    <None Remove="wwwroot - Copy\images\Xiaomi\Xiaomi Redmi Note 13 Pro 4G.webp" />
+    <None Remove="wwwroot - Copy\images\Xiaomi\Xiaomi Redmi Note 13 Pro Plus 4G.webp" />
+    <None Remove="wwwroot - Copy\js\site.js" />
+    <None Remove="wwwroot - Copy\lib\bootstrap\dist\css\bootstrap-grid.css" />
+    <None Remove="wwwroot - Copy\lib\bootstrap\dist\css\bootstrap-grid.css.map" />
+    <None Remove="wwwroot - Copy\lib\bootstrap\dist\css\bootstrap-grid.min.css" />
+    <None Remove="wwwroot - Copy\lib\bootstrap\dist\css\bootstrap-grid.min.css.map" />
+    <None Remove="wwwroot - Copy\lib\bootstrap\dist\css\bootstrap-grid.rtl.css" />
+    <None Remove="wwwroot - Copy\lib\bootstrap\dist\css\bootstrap-grid.rtl.css.map" />
+    <None Remove="wwwroot - Copy\lib\bootstrap\dist\css\bootstrap-grid.rtl.min.css" />
+    <None Remove="wwwroot - Copy\lib\bootstrap\dist\css\bootstrap-grid.rtl.min.css.map" />
+    <None Remove="wwwroot - Copy\lib\bootstrap\dist\css\bootstrap-reboot.css" />
+    <None Remove="wwwroot - Copy\lib\bootstrap\dist\css\bootstrap-reboot.css.map" />
+    <None Remove="wwwroot - Copy\lib\bootstrap\dist\css\bootstrap-reboot.min.css" />
+    <None Remove="wwwroot - Copy\lib\bootstrap\dist\css\bootstrap-reboot.min.css.map" />
+    <None Remove="wwwroot - Copy\lib\bootstrap\dist\css\bootstrap-reboot.rtl.css" />
+    <None Remove="wwwroot - Copy\lib\bootstrap\dist\css\bootstrap-reboot.rtl.css.map" />
+    <None Remove="wwwroot - Copy\lib\bootstrap\dist\css\bootstrap-reboot.rtl.min.css" />
+    <None Remove="wwwroot - Copy\lib\bootstrap\dist\css\bootstrap-reboot.rtl.min.css.map" />
+    <None Remove="wwwroot - Copy\lib\bootstrap\dist\css\bootstrap-utilities.css" />
+    <None Remove="wwwroot - Copy\lib\bootstrap\dist\css\bootstrap-utilities.css.map" />
+    <None Remove="wwwroot - Copy\lib\bootstrap\dist\css\bootstrap-utilities.min.css" />
+    <None Remove="wwwroot - Copy\lib\bootstrap\dist\css\bootstrap-utilities.min.css.map" />
+    <None Remove="wwwroot - Copy\lib\bootstrap\dist\css\bootstrap-utilities.rtl.css" />
+    <None Remove="wwwroot - Copy\lib\bootstrap\dist\css\bootstrap-utilities.rtl.css.map" />
+    <None Remove="wwwroot - Copy\lib\bootstrap\dist\css\bootstrap-utilities.rtl.min.css" />
+    <None Remove="wwwroot - Copy\lib\bootstrap\dist\css\bootstrap-utilities.rtl.min.css.map" />
+    <None Remove="wwwroot - Copy\lib\bootstrap\dist\css\bootstrap.css" />
+    <None Remove="wwwroot - Copy\lib\bootstrap\dist\css\bootstrap.css.map" />
+    <None Remove="wwwroot - Copy\lib\bootstrap\dist\css\bootstrap.min.css" />
+    <None Remove="wwwroot - Copy\lib\bootstrap\dist\css\bootstrap.min.css.map" />
+    <None Remove="wwwroot - Copy\lib\bootstrap\dist\css\bootstrap.rtl.css" />
+    <None Remove="wwwroot - Copy\lib\bootstrap\dist\css\bootstrap.rtl.css.map" />
+    <None Remove="wwwroot - Copy\lib\bootstrap\dist\css\bootstrap.rtl.min.css" />
+    <None Remove="wwwroot - Copy\lib\bootstrap\dist\css\bootstrap.rtl.min.css.map" />
+    <None Remove="wwwroot - Copy\lib\bootstrap\dist\js\bootstrap.bundle.js" />
+    <None Remove="wwwroot - Copy\lib\bootstrap\dist\js\bootstrap.bundle.js.map" />
+    <None Remove="wwwroot - Copy\lib\bootstrap\dist\js\bootstrap.bundle.min.js" />
+    <None Remove="wwwroot - Copy\lib\bootstrap\dist\js\bootstrap.bundle.min.js.map" />
+    <None Remove="wwwroot - Copy\lib\bootstrap\dist\js\bootstrap.esm.js" />
+    <None Remove="wwwroot - Copy\lib\bootstrap\dist\js\bootstrap.esm.js.map" />
+    <None Remove="wwwroot - Copy\lib\bootstrap\dist\js\bootstrap.esm.min.js" />
+    <None Remove="wwwroot - Copy\lib\bootstrap\dist\js\bootstrap.esm.min.js.map" />
+    <None Remove="wwwroot - Copy\lib\bootstrap\dist\js\bootstrap.js" />
+    <None Remove="wwwroot - Copy\lib\bootstrap\dist\js\bootstrap.js.map" />
+    <None Remove="wwwroot - Copy\lib\bootstrap\dist\js\bootstrap.min.js" />
+    <None Remove="wwwroot - Copy\lib\bootstrap\dist\js\bootstrap.min.js.map" />
+    <None Remove="wwwroot - Copy\lib\bootstrap\LICENSE" />
+    <None Remove="wwwroot - Copy\lib\jquery-validation-unobtrusive\jquery.validate.unobtrusive.js" />
+    <None Remove="wwwroot - Copy\lib\jquery-validation-unobtrusive\jquery.validate.unobtrusive.min.js" />
+    <None Remove="wwwroot - Copy\lib\jquery-validation-unobtrusive\LICENSE.txt" />
+    <None Remove="wwwroot - Copy\lib\jquery-validation\dist\additional-methods.js" />
+    <None Remove="wwwroot - Copy\lib\jquery-validation\dist\additional-methods.min.js" />
+    <None Remove="wwwroot - Copy\lib\jquery-validation\dist\jquery.validate.js" />
+    <None Remove="wwwroot - Copy\lib\jquery-validation\dist\jquery.validate.min.js" />
+    <None Remove="wwwroot - Copy\lib\jquery-validation\LICENSE.md" />
+    <None Remove="wwwroot - Copy\lib\jquery\dist\jquery.js" />
+    <None Remove="wwwroot - Copy\lib\jquery\dist\jquery.min.js" />
+    <None Remove="wwwroot - Copy\lib\jquery\dist\jquery.min.map" />
+    <None Remove="wwwroot - Copy\lib\jquery\LICENSE.txt" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="wwwroot - Copy\admin\css\styles.css">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="wwwroot - Copy\assets\css\bootstrap.min.css">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="wwwroot - Copy\assets\css\font-awesome.min.css">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="wwwroot - Copy\assets\css\nouislider.min.css">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="wwwroot - Copy\assets\css\slick-theme.css">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="wwwroot - Copy\assets\css\slick.css">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="wwwroot - Copy\assets\css\style.css">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="wwwroot - Copy\assets\fonts\fontawesome-webfont.eot">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="wwwroot - Copy\assets\fonts\fontawesome-webfont.svg">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="wwwroot - Copy\assets\fonts\fontawesome-webfont.ttf">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="wwwroot - Copy\assets\fonts\fontawesome-webfont.woff">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="wwwroot - Copy\assets\fonts\fontawesome-webfont.woff2">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="wwwroot - Copy\assets\fonts\FontAwesome.otf">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="wwwroot - Copy\assets\fonts\slick.eot">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="wwwroot - Copy\assets\fonts\slick.svg">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="wwwroot - Copy\assets\fonts\slick.ttf">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="wwwroot - Copy\assets\fonts\slick.woff">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="wwwroot - Copy\assets\img\hotdeal.png">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="wwwroot - Copy\assets\img\logo.png">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="wwwroot - Copy\assets\img\product01.png">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="wwwroot - Copy\assets\img\product02.png">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="wwwroot - Copy\assets\img\product03.png">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="wwwroot - Copy\assets\img\product04.png">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="wwwroot - Copy\assets\img\product05.png">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="wwwroot - Copy\assets\img\product06.png">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="wwwroot - Copy\assets\img\product07.png">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="wwwroot - Copy\assets\img\product08.png">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="wwwroot - Copy\assets\img\product09.png">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="wwwroot - Copy\assets\img\shop01.png">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="wwwroot - Copy\assets\img\shop02.png">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="wwwroot - Copy\assets\img\shop03.png">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="wwwroot - Copy\assets\js\bootstrap.min.js">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="wwwroot - Copy\assets\js\jquery.min.js">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="wwwroot - Copy\assets\js\jquery.zoom.min.js">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="wwwroot - Copy\assets\js\main.js">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="wwwroot - Copy\assets\js\nouislider.min.js">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="wwwroot - Copy\assets\js\slick.min.js">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="wwwroot - Copy\css\site.css">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="wwwroot - Copy\emailStyle\images\image-1.png">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="wwwroot - Copy\emailStyle\images\image-2.png">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="wwwroot - Copy\emailStyle\images\image-3.png">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="wwwroot - Copy\emailStyle\images\image-4.png">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="wwwroot - Copy\emailStyle\images\image-5.png">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="wwwroot - Copy\emailStyle\images\image-6.jpeg">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="wwwroot - Copy\emailStyle\index.html">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="wwwroot - Copy\favicon.ico">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="wwwroot - Copy\icons\pdf\logo-black.pdf">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="wwwroot - Copy\icons\pdf\logo-color.pdf">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="wwwroot - Copy\icons\pdf\logo-no-background.pdf">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="wwwroot - Copy\icons\pdf\logo-white.pdf">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="wwwroot - Copy\icons\png\logo-black.png">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="wwwroot - Copy\icons\png\logo-color.png">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="wwwroot - Copy\icons\png\logo-no-background.png">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="wwwroot - Copy\icons\png\logo-white.png">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="wwwroot - Copy\icons\svg\logo-black.svg">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="wwwroot - Copy\icons\svg\logo-color.svg">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="wwwroot - Copy\icons\svg\logo-no-background.svg">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="wwwroot - Copy\icons\svg\logo-white.svg">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="wwwroot - Copy\images\Apple\iPhone 11 128GB.png">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="wwwroot - Copy\images\Apple\iPhone 11 64GB.png">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="wwwroot - Copy\images\Apple\iPhone 12 64GB-xanhla.png">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="wwwroot - Copy\images\Apple\iPhone 12 64GB.png">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="wwwroot - Copy\images\Apple\iPhone 12 Pro Max 128GB.jpg">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="wwwroot - Copy\images\Apple\iPhone 13 128GB.png">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="wwwroot - Copy\images\Apple\iPhone 13 Pro Max 128GB.png">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="wwwroot - Copy\images\Apple\iPhone 13 Pro Max 256GB.png">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="wwwroot - Copy\images\Apple\iPhone 14 128GB.png">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="wwwroot - Copy\images\Apple\iPhone 14 Plus 128GB.png">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="wwwroot - Copy\images\Apple\iPhone 14 Pro Max 256GB.png">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="wwwroot - Copy\images\Apple\iPhone 14 Pro Max 512GB.png">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="wwwroot - Copy\images\icons\box_9638351.png">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="wwwroot - Copy\images\Nitro_Wallpaper_5000x2813.jpg">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="wwwroot - Copy\images\OPPO\OPPO A17K.png">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="wwwroot - Copy\images\OPPO\OPPO A18 4GB 128GB.png">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="wwwroot - Copy\images\OPPO\OPPO A57 4GB 128GB.png">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="wwwroot - Copy\images\OPPO\Oppo A74 8GB 128GB.jpg">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="wwwroot - Copy\images\OPPO\OPPO A77s 8GB 128GB.png">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="wwwroot - Copy\images\OPPO\OPPO Find N2 Flip 8Gb 256GB.png">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="wwwroot - Copy\images\OPPO\OPPO Find N2.png">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="wwwroot - Copy\images\OPPO\OPPO Reno 7 Pro.png">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="wwwroot - Copy\images\OPPO\OPPO Reno10 5G 8GB 256GB.png">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="wwwroot - Copy\images\OPPO\OPPO Reno11 F 5G 8GB 256GB.png">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="wwwroot - Copy\images\OPPO\OPPO Reno7 5G (8GB 256GB).png">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="wwwroot - Copy\images\Planet9_Wallpaper_5000x2813.jpg">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="wwwroot - Copy\images\Samsung\Samsung Galaxy A05s.webp">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="wwwroot - Copy\images\Samsung\Samsung Galaxy A15.webp">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="wwwroot - Copy\images\Samsung\Samsung Galaxy A23 5G.webp">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="wwwroot - Copy\images\Samsung\Samsung Galaxy A25.webp">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="wwwroot - Copy\images\Samsung\Samsung Galaxy A35 5G 8GB 128GB.webp">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="wwwroot - Copy\images\Samsung\Samsung Galaxy A54 5G.webp">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="wwwroot - Copy\images\Samsung\Samsung Galaxy A55 5G 8GB 128GB.webp">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="wwwroot - Copy\images\Samsung\Samsung Galaxy S22 Ultra (12GB - 256GB).webp">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="wwwroot - Copy\images\Samsung\Samsung Galaxy S23 Ultra.webp">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="wwwroot - Copy\images\Samsung\Samsung Galaxy S24 Ultra 12GB 256GB.webp">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="wwwroot - Copy\images\Samsung\Samsung Galaxy Z Flip5.webp">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="wwwroot - Copy\images\Samsung\Samsung Galaxy Z Fold5 12GB 256GB.webp">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="wwwroot - Copy\images\Vivo\vivo V25 Pro 8GB 128GB.png">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="wwwroot - Copy\images\Vivo\Vivo V27e 8GB 256GB.png">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="wwwroot - Copy\images\Vivo\vivo V29E 8GB 256GB.webp">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="wwwroot - Copy\images\Vivo\vivo Y03 4GB 64GB.png">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="wwwroot - Copy\images\Vivo\vivo Y16 4GB 128GB.png">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="wwwroot - Copy\images\Vivo\vivo Y17s 4GB 128GB.png">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="wwwroot - Copy\images\Vivo\Vivo Y36 8GB 128GB.png">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="wwwroot - Copy\images\Xiaomi\Redmi A2 2GB 32GB.webp">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="wwwroot - Copy\images\Xiaomi\Xiaomi 11T Pro.webp">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="wwwroot - Copy\images\Xiaomi\Xiaomi 12T Pro.webp">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="wwwroot - Copy\images\Xiaomi\Xiaomi 13 Lite.webp">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="wwwroot - Copy\images\Xiaomi\Xiaomi 13T 12GB 256GB.webp">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="wwwroot - Copy\images\Xiaomi\Xiaomi 13T Pro 5G (12GB - 512GB).webp">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="wwwroot - Copy\images\Xiaomi\Xiaomi 14 (12GB 256GB).webp">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="wwwroot - Copy\images\Xiaomi\Xiaomi POCO X6 Pro 5G 8GB 256GB.webp">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="wwwroot - Copy\images\Xiaomi\Xiaomi Redmi 13C 6GB 128GB.webp">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="wwwroot - Copy\images\Xiaomi\Xiaomi Redmi Note 12 4GB 128GB.webp">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="wwwroot - Copy\images\Xiaomi\Xiaomi Redmi Note 12 Pro 4G 8GB 256GB.webp">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="wwwroot - Copy\images\Xiaomi\Xiaomi Redmi Note 12 Pro 5G.webp">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="wwwroot - Copy\images\Xiaomi\Xiaomi Redmi Note 13 8GB 256GB.webp">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="wwwroot - Copy\images\Xiaomi\Xiaomi Redmi Note 13 Pro 4G.webp">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="wwwroot - Copy\images\Xiaomi\Xiaomi Redmi Note 13 Pro Plus 4G.webp">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="wwwroot - Copy\js\site.js">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="wwwroot - Copy\lib\bootstrap\dist\css\bootstrap-grid.css">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="wwwroot - Copy\lib\bootstrap\dist\css\bootstrap-grid.css.map">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="wwwroot - Copy\lib\bootstrap\dist\css\bootstrap-grid.min.css">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="wwwroot - Copy\lib\bootstrap\dist\css\bootstrap-grid.min.css.map">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="wwwroot - Copy\lib\bootstrap\dist\css\bootstrap-grid.rtl.css">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="wwwroot - Copy\lib\bootstrap\dist\css\bootstrap-grid.rtl.css.map">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="wwwroot - Copy\lib\bootstrap\dist\css\bootstrap-grid.rtl.min.css">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="wwwroot - Copy\lib\bootstrap\dist\css\bootstrap-grid.rtl.min.css.map">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="wwwroot - Copy\lib\bootstrap\dist\css\bootstrap-reboot.css">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="wwwroot - Copy\lib\bootstrap\dist\css\bootstrap-reboot.css.map">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="wwwroot - Copy\lib\bootstrap\dist\css\bootstrap-reboot.min.css">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="wwwroot - Copy\lib\bootstrap\dist\css\bootstrap-reboot.min.css.map">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="wwwroot - Copy\lib\bootstrap\dist\css\bootstrap-reboot.rtl.css">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="wwwroot - Copy\lib\bootstrap\dist\css\bootstrap-reboot.rtl.css.map">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="wwwroot - Copy\lib\bootstrap\dist\css\bootstrap-reboot.rtl.min.css">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="wwwroot - Copy\lib\bootstrap\dist\css\bootstrap-reboot.rtl.min.css.map">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="wwwroot - Copy\lib\bootstrap\dist\css\bootstrap-utilities.css">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="wwwroot - Copy\lib\bootstrap\dist\css\bootstrap-utilities.css.map">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="wwwroot - Copy\lib\bootstrap\dist\css\bootstrap-utilities.min.css">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="wwwroot - Copy\lib\bootstrap\dist\css\bootstrap-utilities.min.css.map">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="wwwroot - Copy\lib\bootstrap\dist\css\bootstrap-utilities.rtl.css">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="wwwroot - Copy\lib\bootstrap\dist\css\bootstrap-utilities.rtl.css.map">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="wwwroot - Copy\lib\bootstrap\dist\css\bootstrap-utilities.rtl.min.css">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="wwwroot - Copy\lib\bootstrap\dist\css\bootstrap-utilities.rtl.min.css.map">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="wwwroot - Copy\lib\bootstrap\dist\css\bootstrap.css">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="wwwroot - Copy\lib\bootstrap\dist\css\bootstrap.css.map">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="wwwroot - Copy\lib\bootstrap\dist\css\bootstrap.min.css">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="wwwroot - Copy\lib\bootstrap\dist\css\bootstrap.min.css.map">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="wwwroot - Copy\lib\bootstrap\dist\css\bootstrap.rtl.css">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="wwwroot - Copy\lib\bootstrap\dist\css\bootstrap.rtl.css.map">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="wwwroot - Copy\lib\bootstrap\dist\css\bootstrap.rtl.min.css">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="wwwroot - Copy\lib\bootstrap\dist\css\bootstrap.rtl.min.css.map">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="wwwroot - Copy\lib\bootstrap\dist\js\bootstrap.bundle.js">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="wwwroot - Copy\lib\bootstrap\dist\js\bootstrap.bundle.js.map">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="wwwroot - Copy\lib\bootstrap\dist\js\bootstrap.bundle.min.js">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="wwwroot - Copy\lib\bootstrap\dist\js\bootstrap.bundle.min.js.map">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="wwwroot - Copy\lib\bootstrap\dist\js\bootstrap.esm.js">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="wwwroot - Copy\lib\bootstrap\dist\js\bootstrap.esm.js.map">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="wwwroot - Copy\lib\bootstrap\dist\js\bootstrap.esm.min.js">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="wwwroot - Copy\lib\bootstrap\dist\js\bootstrap.esm.min.js.map">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="wwwroot - Copy\lib\bootstrap\dist\js\bootstrap.js">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="wwwroot - Copy\lib\bootstrap\dist\js\bootstrap.js.map">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="wwwroot - Copy\lib\bootstrap\dist\js\bootstrap.min.js">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="wwwroot - Copy\lib\bootstrap\dist\js\bootstrap.min.js.map">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="wwwroot - Copy\lib\bootstrap\LICENSE">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="wwwroot - Copy\lib\jquery-validation-unobtrusive\jquery.validate.unobtrusive.js">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="wwwroot - Copy\lib\jquery-validation-unobtrusive\jquery.validate.unobtrusive.min.js">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="wwwroot - Copy\lib\jquery-validation-unobtrusive\LICENSE.txt">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="wwwroot - Copy\lib\jquery-validation\dist\additional-methods.js">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="wwwroot - Copy\lib\jquery-validation\dist\additional-methods.min.js">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="wwwroot - Copy\lib\jquery-validation\dist\jquery.validate.js">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="wwwroot - Copy\lib\jquery-validation\dist\jquery.validate.min.js">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="wwwroot - Copy\lib\jquery-validation\LICENSE.md">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="wwwroot - Copy\lib\jquery\dist\jquery.js">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="wwwroot - Copy\lib\jquery\dist\jquery.min.js">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="wwwroot - Copy\lib\jquery\dist\jquery.min.map">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="wwwroot - Copy\lib\jquery\LICENSE.txt">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="MailKit" Version="4.5.0" />
     <PackageReference Include="Microsoft.AspNetCore.Authentication.Google" Version="8.0.3" />
     <PackageReference Include="Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore" Version="8.0.4" />

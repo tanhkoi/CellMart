@@ -9,31 +9,31 @@ CellMart is a web-based platform designed to streamline the process of purchasin
 
 # Key Features:
 
-User Authentication: Secure user authentication ensures a personalized shopping experience, with features like login, registration, and password recovery.
-Product Catalog: Browse through an extensive catalog of the latest smartphones, each meticulously categorized and detailed to aid in decision-making.
-Shopping Cart: Seamlessly add desired smartphones to your cart, review your selections, and proceed to checkout with ease.
-Order Management: Track the status of your orders, view past purchases, and manage your account information effortlessly.
-Admin Panel: Admins have access to a dedicated panel for managing products, users, and orders, facilitating efficient administration of the platform.
+- User Authentication: Secure user authentication ensures a personalized shopping experience, with features like login, registration, and password recovery.
+- Product Catalog: Browse through an extensive catalog of the latest smartphones, each meticulously categorized and detailed to aid in decision-making.
+- Shopping Cart: Seamlessly add desired smartphones to your cart, review your selections, and proceed to checkout with ease.
+- Order Management: Track the status of your orders, view past purchases, and manage your account information effortlessly.
+- Admin Panel: Admins have access to a dedicated panel for managing products, users, and orders, facilitating efficient administration of the platform.
 
 # Installation:
 
-Clone the Repository: git clone https://github.com/your-username/CellMart.git
-Navigate to the Project Directory: cd CellMart
-Install Dependencies: ```dotnet restore```
-Database Setup:
-  Ensure you have SQL Server installed and running.
-  Update the connection string in appsettings.json with your SQL Server details.
-  Run Entity Framework Core migrations to create the database schema: ```dotnet ef database update```.
-Run the Application: ```dotnet run```
+- Clone the Repository: git clone https://github.com/your-username/CellMart.git
+- Navigate to the Project Directory: cd CellMart
+- Install Dependencies: ```dotnet restore```
+- Database Setup:
+  - Ensure you have SQL Server installed and running.
+  - Update the connection string in appsettings.json with your SQL Server details.
+  - Run Entity Framework Core migrations to create the database schema: ```dotnet ef database update```.
+- Run the Application: ```dotnet run```
 
 # Usage:
 
-Access the Website: Open your web browser and navigate to http://localhost:5000.
-User Authentication: Register for a new account or log in using existing credentials.
-Browse Products: Explore the product catalog, filter by category, and view detailed product information.
-Add to Cart: Select desired smartphones and add them to your shopping cart for purchase.
-Checkout: Review your cart, provide shipping details, and complete the purchase securely.
-Admin Panel: Access the admin panel by navigating to http://localhost:5000/admin (admin credentials required).
+- Access the Website: Open your web browser and navigate to http://localhost:5000.
+- User Authentication: Register for a new account or log in using existing credentials.
+- Browse Products: Explore the product catalog, filter by category, and view detailed product information.
+- Add to Cart: Select desired smartphones and add them to your shopping cart for purchase.
+- Checkout: Review your cart, provide shipping details, and complete the purchase securely.
+- Admin Panel: Access the admin panel by navigating to http://localhost:5000/admin (admin credentials required).
 
 # Contributing:
 

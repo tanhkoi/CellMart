@@ -65,7 +65,7 @@
 
                             <label>
                                 Show:
-                                <select id="pageSizeSelect" class="input-select">
+                                <select class="input-select">
                                     <!option value="6" @(ViewBag.PageSize == 6 ? "selected" : "")>6</!option>
                                     <!option value="9" @(ViewBag.PageSize == 9 ? "selected" : "")>9</!option>
                                     <!option value="12" @(ViewBag.PageSize == 12 ? "selected" : "")>12</!option>
@@ -133,25 +133,3 @@
     </div>
 }
 <!-- /SECTION -->
-
-<script>
-    // JavaScript to handle changing page size
-    document.getElementById('pageSizeSelect').addEventListener('change', function () {
-        var selectedValue = this.value;
-        // Redirect to the same page with updated page size
-        var currentUrl = window.location.href;
-        var updatedUrl = updateQueryStringParameter(currentUrl, 'pageSize', selectedValue);
-        window.location.href = updatedUrl;
-    });
-
-    function updateQueryStringParameter(uri, key, value) {
-        var re = new RegExp("([?&])" + key + "=.*?(&|$)", "i");
-        var separator = uri.indexOf('?') !== -1 ? "&" : "?";
-        if (uri.match(re)) {
-            return uri.replace(re, '$1' + key + "=" + value + '$2');
-        }
-        else {
-            return uri + separator + key + "=" + value;
-        }
-    }
-</script>

@@ -8,8 +8,8 @@ using project.Utilitys;
 
 namespace project.Areas.Admin.Controllers
 {
-    [Authorize(Roles = SD.Role_Admin + "," + SD.Role_Employee)]
     [Area("Admin")]
+    [Authorize(Roles = SD.Role_Admin + "," + SD.Role_Employee)]
     public class CategoryController : Controller
     {
         private readonly IProductRepository _productRepository;

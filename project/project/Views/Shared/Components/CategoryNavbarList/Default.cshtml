@@ -2,5 +2,5 @@
 
 @foreach (var category in Model)
 {
-    <li><a href="#">@category.Name</a></li>
+    <li><a value="@category.Id" asp-controller="Products" asp-action="Store">@category.Name</a></li>
 }

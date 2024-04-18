@@ -109,14 +109,12 @@ namespace project.Areas.Identity.Pages.Account
                 }
                 else
                 {
-                    ErrorMessage = "Email or PassWord incorrect";
+                    ErrorMessage = "Email or password incorrect";
                     ModelState.AddModelError(string.Empty, ErrorMessage);
                     return Page();
  
                 }
             }
-                
-
                 // If we got this far, something failed, redisplay form
           return Page();
         }

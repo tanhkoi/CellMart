@@ -95,19 +95,6 @@ namespace project.Controllers
 
             return RedirectToAction("Index");
         }
-        public async Task<IActionResult> PaymentSuccessAsync()
-        {
-            var user = await _userManager.GetUserAsync(User);
-            foreach(var order in _context.Order)
-            {
-                if(order.UserId == user.Id)
-                {
-                    order.Status = "Ordered";
-                    _context.Order.Update(order);
-                }
-            }
-            return View();
-        }        
         public async Task<IActionResult> Checkout()
         {
             // handle empty item in cart

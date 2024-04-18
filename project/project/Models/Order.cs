@@ -11,8 +11,10 @@ namespace project.Models
         public DateTime OrderDate { get; set; }
         public decimal TotalPrice { get; set; }
         public string Status { get; set; }
+        [Required]
         public string ShippingAddress { get; set; }
-        public string Notes { get; set; }
+		[Required]
+		public string Notes { get; set; }
         public bool IsDeleted { get; set; }
         public User? User { get; set; }
         public List<OrderItem>? orderItems { get; set; }

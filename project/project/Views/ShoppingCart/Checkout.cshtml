@@ -29,7 +29,7 @@
                             <div style="width: 471px;!important">@item.Quantity</div>
                             <div>@item.Price</div>
                         </div>
-                        total += @item.Price;
+                        total += item.Price * item.Quantity;
                     }
                 </div>
                 <div class="order-col">
